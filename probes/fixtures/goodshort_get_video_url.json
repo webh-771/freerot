@@ -1,0 +1,18 @@
+{
+    "status": "success",
+    "video_url": "https://cdn-goodshort.dramafren.org/proxy?token=v2.AqJit1JlZUW56vnmgOX2L6al5oY43aMWnRB0C3vkJZ5MelWR9V2_WbLGAAYgZ7OS035Fh6A0d2b20HXXzYpH1G2NPtZK1ni0q1gyjw7s6DMohfOx-UwkaGHYc-pDHEVXrcls7vtlgN6cUW9MHz0zkK4EfclDJgjp0qDCVWpMj6MZuD45XSM",
+    "qualities": [
+        {
+            "quality": "720P",
+            "url": "https://cdn-goodshort.dramafren.org/proxy?token=v2.AqJit1JlZUW56vnmgOX2L6al5oY43aMWnRB0C3vkJZ5MelWR9V2_WbLGAAYgZ7OS035Fh6A0d2b20HXXzYpH1G2NPtZK1ni0q1gyjw7s6DMohfOx-UwkaGHYc-pDHEVXrcls7vtlgN6cUW9MHz0zkK4EfclDJgjp0qDCVWpMj6MZuD45XSM"
+        },
+        {
+            "quality": "540P",
+            "url": "https://cdn-goodshort.dramafren.org/proxy?token=v2.6jc1XX00jvsUNMBEWhhHbJMwpARPqydZ0MZyt0yFodzTiCyM-Z4zWvi1WQycwoaSjfSi_2zRk2_QV6Unaywl49Xt_LaR-8TtW5TyzHIRe4Eqc22pqrUc7E2uRuT54uEa4wUtSpaLoSht2ig2tmZ2zDgIhlWQd3lVaYtM4VKJhmusfRZAsqE"
+        },
+        {
+            "quality": "1080P",
+            "url": "https://cdn-goodshort.dramafren.org/proxy?token=v2.QKcYC8k3XxD6z6bFKsrBFgLRo5_4CaW1Z2QX4YQiu0Aes1lDuXa5eraIO38a22_1jkCcxziT9lUv6QZcXYJPkkpvQawTN1OIlJ_Gkx09HegdLy7R-zvEm-jUv6AiWiIK8GbXtK0wv19DYgjtMyeDp5Y_A9a3laU8Z5tfc8g__A4IFpLWto_i"
+        }
+    ]
+}

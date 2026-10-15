@@ -1,0 +1,38 @@
+{
+ "title": "The Scandal Episode 1",
+ "episodeNumber": 1,
+ "totalEpisodes": 8,
+ "locked": false,
+ "videoUrl": "https://indocast.site/api/proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2F5663837bc1206c412ce350c16f4130cf.mp4%3Fsign%3D09c1f85141e5f5dcdb0211aa1d8e1007%26t%3D1790173596&provider=filmbox&type=stream",
+ "qualityList": [
+  {
+   "label": "1080p",
+   "url": "https://indocast.site/api/proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2F5663837bc1206c412ce350c16f4130cf.mp4%3Fsign%3D09c1f85141e5f5dcdb0211aa1d8e1007%26t%3D1790173596&provider=filmbox&type=stream",
+   "format": "mp4"
+  },
+  {
+   "label": "480p",
+   "url": "https://indocast.site/api/proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fbt%2F29e7b323cd519214c87825b93856f56f.mp4%3Fsign%3D3749ea317c572b19eae2e5828948dd0f%26t%3D1790173059&provider=filmbox&type=stream",
+   "format": "mp4"
+  },
+  {
+   "label": "360p",
+   "url": "https://indocast.site/api/proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fbt%2F062974396d6a1fdb0dc2d5c5ed6f3d39.mp4%3Fsign%3D5bd5d04a6a952414f81138cb9b32c15b%26t%3D1790173007&provider=filmbox&type=stream",
+   "format": "mp4"
+  }
+ ],
+ "subtitles": [
+  {
+   "label": "العربية",
+   "url": "/api/subtitle/filmbox?url=https%3A%2F%2Findocast.site%2Fapi%2Fproxy%3Furl%3Dhttps%253A%252F%252Fcacdn.hakunaymatata.com%252Fsubtitle%252F150b4961d5511afe8fcbc1d6df48b235.srt%253FPolicy%253DeyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYWNkbi5oYWt1bmF5bWF0YXRhLmNvbS9zdWJ0aXRsZS8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwNzc4MTE2fX19XX0_%2526Signature%253DdNqXapxL06c0qdxSSpAhxLKpQw1roFgMzoeQJBP2ZXs5DLCKffXef~AOx59eGtMV9yBMW9Gwl46abUIQcf4aZRUF61cAWZYcS-zl1f3q6Zi1U1Pcj3xgLP2ri8TMhp4mBHNJ0SbtJmZS8PYbGaZVdUdjVuQBYht2Otp44JnCfhNcjDcQMVakTXfZ0MzOfaCI4F58WwPfbZZ17y~SOTga9Bu4sI9B4U88f-A68prr09Orkt2HhEsSTroVe70D7XnZMcrMjziyr5iIwd~YS4jVj5bOjpTApNqnVZwq9~tfH6A8vrxYkz5Gd9VoxIKoaTaOa5fVHuQ1~zFGakHjjMH-dQ__%2526Key-Pair-Id%253DKMHN1LQ1HEUPL%26provider%3Dfilmbox%26type%3Dsub",
+   "srclang": "ar"
+  },
+  {
+   "label": "English",
+   "url": "/api/subtitle/filmbox?url=https%3A%2F%2Findocast.site%2Fapi%2Fproxy%3Furl%3Dhttps%253A%252F%252Fcacdn.hakunaymatata.com%252Fsubtitle%252F8332f6273d5b8e6a32d6d50df2dc7091.srt%253FPolicy%253DeyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYWNkbi5oYWt1bmF5bWF0YXRhLmNvbS9zdWJ0aXRsZS8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwNzc4MTE2fX19XX0_%2526Signature%253DdNqXapxL06c0qdxSSpAhxLKpQw1roFgMzoeQJBP2ZXs5DLCKffXef~AOx59eGtMV9yBMW9Gwl46abUIQcf4aZRUF61cAWZYcS-zl1f3q6Zi1U1Pcj3xgLP2ri8TMhp4mBHNJ0SbtJmZS8PYbGaZVdUdjVuQBYht2Otp44JnCfhNcjDcQMVakTXfZ0MzOfaCI4F58WwPfbZZ17y~SOTga9Bu4sI9B4U88f-A68prr09Orkt2HhEsSTroVe70D7XnZMcrMjziyr5iIwd~YS4jVj5bOjpTApNqnVZwq9~tfH6A8vrxYkz5Gd9VoxIKoaTaOa5fVHuQ1~zFGakHjjMH-dQ__%2526Key-Pair-Id%253DKMHN1LQ1HEUPL%26provider%3Dfilmbox%26type%3Dsub",
+   "srclang": "en"
+  }
+ ],
+ "sourceServer": "1",
+ "_note": "subtitles trimmed from 9"
+}

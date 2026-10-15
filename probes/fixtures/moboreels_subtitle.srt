@@ -1,0 +1,51 @@
+[font-size=18]
+[region=72,900,648,285]
+[font-stroke=#000000,1.5]
+
+1
+00:00:04,700 --> 00:00:05,466
+Fool...
+
+2
+00:00:05,733 --> 00:00:08,066
+How could you be so foolish?
+
+3
+00:00:08,200 --> 00:00:10,500
+Who told you to take a bullet for me?
+
+4
+00:00:12,500 --> 00:00:14,766
+Haven't you always done the same for me?
+
+5
+00:00:15,666 --> 00:00:17,700
+You're not allowed to be the only hero.
+
+6
+00:00:25,133 --> 00:00:25,600
+Get out.
+
+7
+00:00:32,533 --> 00:00:33,733
+Don't be too hard on them.
+
+8
+00:00:34,100 --> 00:00:34,866
+I'm awake...
+
+9
+00:00:35,200 --> 00:00:36,066
+That's enough.
+
+10
+00:00:36,266 --> 00:00:37,133
+Whatever you say.
+
+11
+00:00:37,566 --> 00:00:39,833
+But from now on, wherever you go, I follow.
+
+12
+00:00:40,766 --> 00:00:42,766
+You'

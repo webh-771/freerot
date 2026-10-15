@@ -1,0 +1,63 @@
+{
+ "success": true,
+ "platform": "tv",
+ "language": "en",
+ "data": {
+  "book": {
+   "id": "eyJzaWQiOiIyODkyMjM2Njk5NjMzOTU5NDMyIiwicGlkIjoicGxhc3RpYy1iZWF1dHktb0dGb0cwcnRFcjMifQ==",
+   "name": "Plastic Beauty",
+   "cover": "https://pbcdnw.aoneroom.com/image/2026/09/09/52d2bcfa86a63289d9697821a50fcad7.jpg",
+   "badge": "DracinKu",
+   "introduction": "When a surgeon shifts to aesthetics and clashes with a celebrity doctor, she discovers the complex pressures behind the pursuit of physical perfection.",
+   "tags": [
+    "Drama"
+   ],
+   "chapterCount": 4,
+   "playCount": "100k"
+  },
+  "chapters": [
+   {
+    "eps": "EP-1",
+    "index": 0,
+    "videoPath": "https://api.filmdramaid.xyz/aliplay/video/aHR0cHM6Ly9iY2RueHcuaGFrdW5heW1hdGF0YS5jb20vY21zL2JiZmNjOTI5MzY4MTA2MGNhMTMzYzRiMTIzNDk4M2U4Lm1wND9zaWduPTI3NzUwZGJjOGVjNzMxNDA3NWJlMzg2YTJhMzRhMDAxJnQ9MTc4OTY0MjM1Mg",
+    "subtitle": [
+     {
+      "subtitle": "https://cacdn.hakunaymatata.com/subtitle/cd1dc58cfb0bf8c1c2234aaad896867c.srt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYWNkbi5oYWt1bmF5bWF0YXRhLmNvbS9zdWJ0aXRsZS8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwMjQzNzQyfX19XX0_&Signature=6UXsHt5G5DgH~yaTudksAPBkh9XHZ-ZF3wC3zEmV6oZ5qqsrdjOSMpCqw3jVDdzJra-THXDgsxtWY9J~06Ad-QWoPrucWVXlvQ5O7t58rdim8Fc73tVg07C6wsDvoUJnFtBXXdHZw8Pf2D9dLeAScHm7-kI5QuVW9XrAXiv3KPdj68UTjUqce98RbjDzGeXR~5UnKajI0cC2-Z2bF0ovOuvCzLx~J1Fqu4Y3gywAWhHkhCjfuSRfHXABVMNsaRehPQrBri3YmmDf3yCjS2aEamgLNNAxschEzEzgpmwxOXM~NBJu3xt-qQl5hEHJ1Vk0-vCbcXLcqLK9Vwn38VZ0Lw__&Key-Pair-Id=KMHN1LQ1HEUPL",
+      "display_name": "اَلْعَرَبِيَّةُ",
+      "language": "ar",
+      "type": "normal"
+     },
+     {
+      "subtitle": "https://cacdn.hakunaymatata.com/subtitle/5ac030626b55f0be08d714da2f9d5a46.srt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYWNkbi5oYWt1bmF5bWF0YXRhLmNvbS9zdWJ0aXRsZS8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwMjQzNzQyfX19XX0_&Signature=6UXsHt5G5DgH~yaTudksAPBkh9XHZ-ZF3wC3zEmV6oZ5qqsrdjOSMpCqw3jVDdzJra-THXDgsxtWY9J~06Ad-QWoPrucWVXlvQ5O7t58rdim8Fc73tVg07C6wsDvoUJnFtBXXdHZw8Pf2D9dLeAScHm7-kI5QuVW9XrAXiv3KPdj68UTjUqce98RbjDzGeXR~5UnKajI0cC2-Z2bF0ovOuvCzLx~J1Fqu4Y3gywAWhHkhCjfuSRfHXABVMNsaRehPQrBri3YmmDf3yCjS2aEamgLNNAxschEzEzgpmwxOXM~NBJu3xt-qQl5hEHJ1Vk0-vCbcXLcqLK9Vwn38VZ0Lw__&Key-Pair-Id=KMHN1LQ1HEUPL",
+      "display_name": "English",
+      "language": "en",
+      "type": "normal"
+     }
+    ],
+    "dash": [],
+    "isLock": false
+   },
+   {
+    "eps": "EP-2",
+    "index": 1,
+    "videoPath": "https://api.filmdramaid.xyz/aliplay/video/aHR0cHM6Ly9iY2RueHcuaGFrdW5heW1hdGF0YS5jb20vY21zL2Y1ZTJlNTk1NWE2ZDkzNGJlYTE1NWY2MzIyNzgyNTdjLm1wND9zaWduPTQ5ODQzMjA1MmZlOTU1ZWVhOTkwNDYwNGU0ZWYwZDU1JnQ9MTc4OTY0MjUxMA",
+    "subtitle": [
+     {
+      "subtitle": "https://cacdn.hakunaymatata.com/subtitle/f6e45ce2adbc97f1c82813b5bc5f0517.srt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYWNkbi5oYWt1bmF5bWF0YXRhLmNvbS9zdWJ0aXRsZS8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwMjQzNzQyfX19XX0_&Signature=6UXsHt5G5DgH~yaTudksAPBkh9XHZ-ZF3wC3zEmV6oZ5qqsrdjOSMpCqw3jVDdzJra-THXDgsxtWY9J~06Ad-QWoPrucWVXlvQ5O7t58rdim8Fc73tVg07C6wsDvoUJnFtBXXdHZw8Pf2D9dLeAScHm7-kI5QuVW9XrAXiv3KPdj68UTjUqce98RbjDzGeXR~5UnKajI0cC2-Z2bF0ovOuvCzLx~J1Fqu4Y3gywAWhHkhCjfuSRfHXABVMNsaRehPQrBri3YmmDf3yCjS2aEamgLNNAxschEzEzgpmwxOXM~NBJu3xt-qQl5hEHJ1Vk0-vCbcXLcqLK9Vwn38VZ0Lw__&Key-Pair-Id=KMHN1LQ1HEUPL",
+      "display_name": "اَلْعَرَبِيَّةُ",
+      "language": "ar",
+      "type": "normal"
+     },
+     {
+      "subtitle": "https://cacdn.hakunaymatata.com/subtitle/f7307f10df181c058efa2e51b650f47b.srt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYWNkbi5oYWt1bmF5bWF0YXRhLmNvbS9zdWJ0aXRsZS8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwMjQzNzQyfX19XX0_&Signature=6UXsHt5G5DgH~yaTudksAPBkh9XHZ-ZF3wC3zEmV6oZ5qqsrdjOSMpCqw3jVDdzJra-THXDgsxtWY9J~06Ad-QWoPrucWVXlvQ5O7t58rdim8Fc73tVg07C6wsDvoUJnFtBXXdHZw8Pf2D9dLeAScHm7-kI5QuVW9XrAXiv3KPdj68UTjUqce98RbjDzGeXR~5UnKajI0cC2-Z2bF0ovOuvCzLx~J1Fqu4Y3gywAWhHkhCjfuSRfHXABVMNsaRehPQrBri3YmmDf3yCjS2aEamgLNNAxschEzEzgpmwxOXM~NBJu3xt-qQl5hEHJ1Vk0-vCbcXLcqLK9Vwn38VZ0Lw__&Key-Pair-Id=KMHN1LQ1HEUPL",
+      "display_name": "English",
+      "language": "en",
+      "type": "normal"
+     }
+    ],
+    "dash": [],
+    "isLock": false
+   }
+  ]
+ }
+}

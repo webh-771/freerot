@@ -1,0 +1,98 @@
+{
+ "drama": {
+  "id": "2100422082557042689",
+  "title": "The Mafia'S Stolen Bride",
+  "description": "Sabrina wakes from a crash to find her husband cheating with her best friend. To steal her $5 billion trust, he \"gives\" her to his Mafia uncle, Silas. She fakes amnesia and uses Silas's power to destroy them both—exposing fake pregnancy, stealing deals, sending her husband to prison. When she tries to leave, Silas corners her: \"You took ten years to reach me. Now you want to run?\" He waited in the shadows for a decade—and finally turns her from a bargaining chip into his bride.",
+  "total_episodes": 40,
+  "cover": "https://poster.janzhoutec.com/tos-sgcomm1-v-376351e6ad930ea1-sg/cf144ca355e44646a655f9d39fbfa656~tplv-vod-noop.image"
+ },
+ "episodes": [
+  {
+   "index": 1,
+   "videos": [
+    {
+     "quality": "540P",
+     "url": "https://reeltv.janzhoutec.com/ooCVGLaITsJyEqZeYQ14mAcrIRSbArzc6iLNIw?auth_key=1790339076-Uu91rd5WrK-0-454f3a05d39bdc0ef2a8b2c17537967b",
+     "width": 540,
+     "height": 960
+    },
+    {
+     "quality": "720P",
+     "url": "https://reeltv.janzhoutec.com/oIrc4VGQxE1Sm2zCJyLASYIOqaeaZbTIAsic9I?auth_key=1790339076-Zg2srieVO9-0-ea5ef873cd9cf491d76b0e5cda32255d",
+     "width": 720,
+     "height": 1280
+    },
+    {
+     "quality": "480P",
+     "url": "https://reeltv.janzhoutec.com/oozb1iIaCgGz4IAIQflTAVcW4ymTSV8sDYbYLK?auth_key=1790339076-xxn7w74xiN-0-0f3ff518ccbdafe13dd5f2b35adc4916",
+     "width": 480,
+     "height": 854
+    },
+    {
+     "quality": "360P",
+     "url": "https://reeltv.janzhoutec.com/oIerIYCsxcSIQEkIlAm1AZGG4cyJHi2pLbVTza?auth_key=1790339076-SPEYbAiJcT-0-93e78a1ea3fad95c9b0f22768fb43425",
+     "width": 360,
+     "height": 640
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "videos": [
+    {
+     "quality": "540P",
+     "url": "https://reeltv.janzhoutec.com/o4gHK1GIImACEKAVCQsydYTJibbQLSer130G49?auth_key=1790339365-yxBRpF5Gjt-0-6ead37c6cffe2c79e6e3a5abcae3c4c3",
+     "width": 540,
+     "height": 960
+    },
+    {
+     "quality": "720P",
+     "url": "https://reeltv.janzhoutec.com/oY5ICbgEQs68PoZibY1TrG0AVIF3yP3L4AgmeS?auth_key=1790339365-ZLSf69MTcA-0-1badd7cec4791f81932e318d3ff18c6f",
+     "width": 720,
+     "height": 1280
+    },
+    {
+     "quality": "480P",
+     "url": "https://reeltv.janzhoutec.com/og3xqgQE19iCf68WAbms4CGITVASY1mIQgLPyb?auth_key=1790339365-w6eqXhydh6-0-b7b9ba4a2573ed428f9bb27fb781eac9",
+     "width": 480,
+     "height": 854
+    },
+    {
+     "quality": "360P",
+     "url": "https://reeltv.janzhoutec.com/ogCVGLbITsEyIzY6gg14mA3rQISbAePE6ivK8F?auth_key=1790339365-mD02Ge7XvN-0-aeee8fd8d8122e7e142cdc232cac61f6",
+     "width": 360,
+     "height": 640
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "videos": [
+    {
+     "quality": "540P",
+     "url": "https://reeltv.janzhoutec.com/oYrp02rlTtYcROqEFJREMZOGJyaDAmNuaIbvQ?auth_key=1790339365-TqXBeBOxiB-0-f348aa0acbea22005fc0893e12cf0781",
+     "width": 540,
+     "height": 960
+    },
+    {
+     "quality": "720P",
+     "url": "https://reeltv.janzhoutec.com/oU9sI20iQYamlVqBLWfGLFMlufAmgN2wRYYqIc?auth_key=1790339365-rlGDeIHcPM-0-b8bc7ab79ea61ce8d9dcc02141524ee5",
+     "width": 720,
+     "height": 1280
+    },
+    {
+     "quality": "480P",
+     "url": "https://reeltv.janzhoutec.com/oUmqRTFmMraalRYDGEEFJ8vTbr2QAROcZNtpI?auth_key=1790339365-XNNL2OJkYg-0-3344e909ea94182c34f80e04d0750353",
+     "width": 480,
+     "height": 854
+    },
+    {
+     "quality": "360P",
+     "url": "https://reeltv.janzhoutec.com/oUDTAZEFNhJarbcRQIqSvO2RlELPt7MDmrap2?auth_key=1790339365-pkSJhapfAq-0-168344bdcd17c9687c8741fcd529e31b",
+     "width": 360,
+     "height": 640
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "success": true,
+ "platform": "tv",
+ "language": "en",
+ "data": {
+  "isMore": true,
+  "book": [
+   {
+    "id": "eyJzaWQiOiI3MDA3NTQyOTk5NDc1NzA2MjcyIiwicGlkIjoibG92ZS02N3dwWGN3Q0VsOCJ9",
+    "name": "Love (Ft. Marriage & Divorce) S1-S3",
+    "cover": "https://pbcdnw.aoneroom.com/image/2026/01/26/b208db85bed5932fa48e4b68c2b99c36.jpg",
+    "badge": "DracinKu",
+    "introduction": "",
+    "tags": [
+     "Drama",
+     "Percintaan"
+    ],
+    "chapterCount": 0,
+    "playCount": 773
+   },
+   {
+    "id": "eyJzaWQiOiI4MTU0MjA5Mjk0OTIyNjk2OTg0IiwicGlkIjoibW9lLWxvdmUtaTk2c1dtRG1tSTkifQ==",
+    "name": "Moe Love",
+    "cover": "https://pbcdnw.aoneroom.com/image/2025/12/31/b4ecabfd7d46390fd4510f03d78e8255.jpg",
+    "badge": "DracinKu",
+    "introduction": "",
+    "tags": [
+     "Anime"
+    ],
+    "chapterCount": 0,
+    "playCount": "100k"
+   },
+   {
+    "id": "eyJzaWQiOiIxMzA2NjI4Njc4NTgyNDM2OTYiLCJwaWQiOiJ3aWNrZWQtdGVtcHRhdGlvbi1PeFNuUTM3ckU5In0=",
+    "name": "Wicked Temptation",
+    "cover": "https://pbcdnw.aoneroom.com/image/2026/05/20/91f09521b53bb52d1e8573671348db53.jpg",
+    "badge": "DracinKu",
+    "introduction": "",
+    "tags": [
+     "Tindakan",
+     "Drama",
+     "Percintaan"
+    ],
+    "chapterCount": 0,
+    "playCount": "100k"
+   }
+  ],
+  "page_info": {
+   "hasMore": true,
+   "nextPage": "2",
+   "page": "1",
+   "perPage": 30,
+   "totalCount": 885,
+   "pageNo": 2,
+   "pageSize": 50,
+   "has_more": true,
+   "keyword": "love"
+  }
+ }
+}

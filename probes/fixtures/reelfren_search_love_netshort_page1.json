@@ -1,0 +1,32 @@
+{
+ "query": "Love",
+ "count": 3588,
+ "hasMore": true,
+ "_note": "trimmed from 20",
+ "data": [
+  {
+   "id": "1936978278720335874",
+   "provider": "netshort",
+   "title": "Ashes of Love",
+   "cover": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/coverG/prod/-916456161_Poster2-Mainposter1080-1400.png~tplv-vod-rs:540:720.webp",
+   "intro": "Wish-Fulfillment, Revenge, Female Empowerment",
+   "episodes": 0
+  },
+  {
+   "id": "1963548473044955137",
+   "provider": "netshort",
+   "title": "Prisoned for Love",
+   "cover": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/imageG/prod/1963548445081530369/1757489042445-7486588007834356-3比4jpg~tplv-vod-rs:540:720.webp",
+   "intro": "Tragic Love, Republic-Era Romance, Karma Payback",
+   "episodes": 0
+  },
+  {
+   "id": "1904475299296182274",
+   "provider": "netshort",
+   "title": "Biting into Sweet Love",
+   "cover": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/coverG/prod/-625558746_咬清梨英语.png~tplv-vod-rs:540:720.webp",
+   "intro": "Contract Lovers, Secret Crush Turned Real, Forced Love",
+   "episodes": 0
+  }
+ ]
+}

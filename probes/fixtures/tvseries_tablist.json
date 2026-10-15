@@ -1,0 +1,73 @@
+{
+ "success": true,
+ "platform": "tv",
+ "language": "en",
+ "data": [
+  {
+   "type": "GENRE",
+   "name": "All",
+   "tab_key": "All",
+   "position_index": 2
+  },
+  {
+   "type": "GENRE",
+   "name": "Action",
+   "tab_key": "Action",
+   "position_index": 2
+  },
+  {
+   "type": "GENRE",
+   "name": "Adventure",
+   "tab_key": "Adventure",
+   "position_index": 2
+  },
+  {
+   "type": "GENRE",
+   "name": "Animation",
+   "tab_key": "Animation",
+   "position_index": 2
+  },
+  {
+   "type": "GENRE",
+   "name": "Biography",
+   "tab_key": "Biography",
+   "position_index": 2
+  },
+  {
+   "type": "COUNTRY",
+   "name": "All",
+   "tab_key": "All",
+   "position_index": 2
+  },
+  {
+   "type": "COUNTRY",
+   "name": "United States",
+   "tab_key": "United States",
+   "position_index": 2
+  },
+  {
+   "type": "COUNTRY",
+   "name": "United Kingdom",
+   "tab_key": "United Kingdom",
+   "position_index": 2
+  },
+  {
+   "type": "COUNTRY",
+   "name": "Korea",
+   "tab_key": "Korea",
+   "position_index": 2
+  },
+  {
+   "type": "COUNTRY",
+   "name": "Japan",
+   "tab_key": "Japan",
+   "position_index": 2
+  },
+  {
+   "type": "COUNTRY",
+   "name": "Bangladesh",
+   "tab_key": "Bangladesh",
+   "position_index": 2
+  }
+ ]
+}

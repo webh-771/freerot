@@ -1,0 +1,8 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:13
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:11.833333,
+https://v.shortswave.com/video/36110/35-v1/720p/v0.ts?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=shortswave-gcs%40vega-shortswave.iam.gserviceaccount.com%2F20260923%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260923T143748Z&X-Goog-Expires=21600&X-Goog-SignedHeaders=host&X-Goog-Signature=48fa8b6c0059486378f9f15b6ffd018cabb2a8f79789e270f65bbb3804f2999719d46d6ea7fb152b0d94a9dfab60bc8a54962a509ecdd231117b4a80dfbd04f2d5b1b78febcce93aab4ecc50b2c7c2f5d9195fb9fe1bbc6248016f8e40e315eb6308ea85f94e8e781772b1da3954544443f01179985deaa41c21c68fc6540c140d1604521d4758e575177a55da1542092bcb29fafb5d329581d8f77baf454128e8ecbed322da397e6bbd50c1658067752993da71ea46d423f2f2c6b7b8f7887771b4947769a5acb74fff5a717b6cb6da21fdba1493d46a06808d98b755cf673b521b934592ffb949ec58ad3e2ddad647c82a2aa07221879be328d4239ee57317
+#EXTINF:9.766667,
+https://v.shortswave.com/video/36110/35-v1/720p/v1.ts?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=shortswave-gcs%40vega-shortswave.iam.gserviceaccount.com%2F20260923%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260923T143748Z&X-Goog-Expires=21600&X-Goog-SignedHeader

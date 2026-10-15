@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>FlexPlayer - Watch Best Dramas & Movies Online Free</title>
+    <meta name="description" content="Stream popular dramas, anime, and movies in HD. Multi-language subtitles available. Watch now on FlexPlayer.">
+    <link rel="canonical" href="https://flextv.dramafren.org/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flextv.dramafren.org/">
+    <meta property="og:title" content="FlexPlayer - Watch Best Dramas & Movies Online Free">
+    <meta property="og:description" content="Stream popular dramas, anime, and movies in HD. Multi-language subtitles available. Watch now on FlexPlayer.">
+        <meta property="og:site_name" content="FlexPlayer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FlexPlayer - Watch Best Dramas & Movies Online Free">
+    <meta name="twitter:description" content="Stream popular dramas, anime, and movies in HD. Multi-language subtitles available. Watch now on FlexPlayer.">
+    
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .aspect-poster { aspect-ratio: 3/4; }
+        .glass-nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); }
+        .bottom-nav-active { color: #3b82f6; }
+        .bottom-nav-item { color: #94a3b8; }
+        .bottom-nav-item:hover { color: #f8fafc; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        
+        /* --- STYLE BARU: FULL SCREEN OVERLAY --- */
+        #wait-overlay {
+            position: fixed; /* Kunci posisi ke layar */
+            top: 0; left: 0; 
+            width: 100vw; height: 100vh; /* Penuhi lebar & tinggi viewport */
+            background: rgba(15, 23, 42, 0.98); /* Background sangat gelap */
+            z-index: 9999; /* Pastikan di atas navbar dan semuanya */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            backdrop-filter: blur(10px); /* Efek blur keren */
+        }
+        #wait-overlay.hidden { display: none !important; }
+        .wait-timer { font-size: 5rem; font-weight: 800; color: #3b82f6; margin: 30px 0; text-shadow: 0 0 20px rgba(59,130,246,0.5); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col pb-20 md:pb-0">
+
+    <nav class="sticky top-0 z-50 glass-nav border-b border-slate-800 hidden md:block">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="index.php" class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    Flex<span class="text-white">Player</span>
+                </a>
+                
+                <div class="relative group hidden lg:block">
+                    <button class="flex items-center gap-1 text-sm font-bold text-slate-300 hover:text-white px-3 py-1.5 transition">
+                        Network ▾
+                    </button>
+                    <div class="absolute top-full left-0 mt-2 w-56 max-h-80 overflow-y-auto hide-scrollbar bg-slate-800 border border-slate-700 rounded-lg shadow-xl hidden group-hover:block z-50">
+                        <a href="https://dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">DramaFren</a>
+                        <a href="https://dramabox.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">DramaBox</a>
+                        <a href="https://goodshort.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">GoodShort</a>
+                        <a href="https://netshort.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">NetShort</a>
+                        <a href="https://flickreels.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">FlickReels</a>
+                        <a href="https://stardusttv.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">StarDustTV</a>
+                        <a href="https://radreel.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">RadReel</a>
+                        <a href="https://dramawave.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">DramaWave</a>
+                        <a href="https://shortmax.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">ShortMax</a>
+                        <a href="https://reelshort.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">ReelShort</a>
+                        <a href="https://idrama.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">iDrama</a>
+                        <a href="https://kalostv.dramafren.org/" target="_blank" class="block px-4 py-3 hover:bg-slate-700 text-sm border-b border-slate-700/50">KalosTV</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <form action="index.php" method="GET" class="flex">
+                    <input type="hidden" name="page" value="search">
+                    <input type="text" name="q" placeholder="Search..." class="bg-slate-800 border border-slate-700 rounded-l-lg px-4 py-1 text-sm focus:outline-none focus:border-blue-500">
+                    <button class="bg-blue-600 px-4 py-1 rounded-r-lg hover:bg-blue-500">🔍</button>
+                </form>
+
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-sm font-semibold bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                        🌍 English                    </button>
+                    <div class="absolute right-0 mt-2 w-40 max-h-80 overflow-y-auto hide-scrollbar bg-slate-800 border border-slate-700 rounded-lg shadow-xl hidden group-hover:block z-50">
+                                                    <a href="index.php?action=set_lang&lang=id" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Indonesian                            </a>
+                                                    <a href="index.php?action=set_lang&lang=en" class="block px-4 py-2 text-sm hover:bg-blue-600 bg-slate-700">
+                                English                            </a>
+                                                    <a href="index.php?action=set_lang&lang=th" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Thai                            </a>
+                                                    <a href="index.php?action=set_lang&lang=vi" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Vietnamese                            </a>
+                                                    <a href="index.php?action=set_lang&lang=pt" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Portuguese                            </a>
+                                                    <a href="index.php?action=set_lang&lang=es" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Spanish                            </a>
+                                                    <a href="index.php?action=set_lang&lang=ar" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Arabic                            </a>
+                                                    <a href="index.php?action=set_lang&lang=fr" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                French                            </a>
+                                                    <a href="index.php?action=set_lang&lang=de" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                German                            </a>
+                                                    <a href="index.php?action=set_lang&lang=it" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Italian                            </a>
+                                                    <a href="index.php?action=set_lang&lang=ja" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Japanese                            </a>
+                                                    <a href="index.php?action=set_lang&lang=ko" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Korean                            </a>
+                                                    <a href="index.php?action=set_lang&lang=tr" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Turkish                            </a>
+                                                    <a href="index.php?action=set_lang&lang=zh" class="block px-4 py-2 text-sm hover:bg-blue-600 ">
+                                Chinese                            </a>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="md:hidden sticky top-0 z-40 glass-nav border-b border-slate-800 px-4 py-3 flex justify-between items-center">
+        <a href="index.php" class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            Flex<span class="text-white">Player</span>
+        </a>
+        <button onclick="document.getElementById('langModal').classList.remove('hidden')" class="text-xs bg-slate-800 px-2 py-1 rounded border border-slate-700 text-slate-300">
+            EN        </button>
+    </div>
+
+    <main class="flex-grow container mx-auto px-4 py-6">
+
+                    <h1 class="sr-only">FlexPlayer - Watch Popular Dramas Online</h1>
+            <div class="mb-6 overflow-x-auto hide-scrollbar sticky top-[50px] z-30 bg-[#0f172a]/90 backdrop-blur py-2 -mx-4 px-4 md:static md:bg-transparent md:p-0">
+                <div class="flex gap-2 min-w-max">
+                                                                                                    <a href="index.php?page=home&tab=1" 
+                               class="px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-blue-600 text-white shadow-lg shadow-blue-900/50">
+                               Popular                            </a>
+                                                                                <a href="index.php?page=home&tab=2" 
+                               class="px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-800 text-slate-400 hover:text-white border border-slate-700">
+                               New                            </a>
+                                                                                <a href="index.php?page=home&tab=6" 
+                               class="px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-800 text-slate-400 hover:text-white border border-slate-700">
+                               Original+                            </a>
+                                                                                <a href="index.php?page=home&tab=7" 
+                               class="px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-800 text-slate-400 hover:text-white border border-slate-700">
+                               For Her                            </a>
+                                                                                <a href="index.php?page=home&tab=8" 
+                               class="px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-800 text-slate-400 hover:text-white border border-slate-700">
+                               For Him                            </a>
+                                                                                <a href="index.php?page=home&tab=11" 
+                               class="px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-800 text-slate-400 hover:text-white border border-slate-700">
+                               Anime                            </a>
+                                                            </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+                                                            <a href="index.php?page=detail&id=15265" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/b2/e29a04211e5fd2141a6b8bea79ac00.jpg?image_process=resize,w_420/quality,Q_70" alt="Revenge of the Forsaken Elf Queen" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 159.9K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Revenge of the Forsaken Elf Queen</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14378" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/a4/146bc87730d6d6e9d8f78acca5c402.jpg?image_process=resize,w_420/quality,Q_70" alt="When the Wolf Fell in Love" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.2M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">When the Wolf Fell in Love</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14882" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/6a/cdf81458f23d75cc8680318eff2824.jpg?image_process=resize,w_420/quality,Q_70" alt="Don’t Provoke Him，He’s the King of L.A" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 642.5K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Don’t Provoke Him，He’s the King of L.A</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14696" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/3c/3a092dabec4f02cdca155a9cc845e7.jpg?image_process=resize,w_420/quality,Q_70" alt="My Freeze.Their Tears.No Forgiveness" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.2M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">My Freeze.Their Tears.No Forgiveness</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15175" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/84/0409d7cd5b3725e7959b0ad11fed94.jpg?image_process=resize,w_420/quality,Q_70" alt="Dragonfire and the Sacred Sword" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 82.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Dragonfire and the Sacred Sword</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14348" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/26/5c68a5c650a2118b0a960ff3648482.jpg?image_process=resize,w_420/quality,Q_70" alt="The Veteran’s Promise" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 8.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Veteran’s Promise</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14315" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/3b/c24ebcbc3c32a27e2857e1802e72ac.jpg?image_process=resize,w_420/quality,Q_70" alt="Loving You in My Final Days" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.2M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Loving You in My Final Days</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14972" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/d3/7b4239ce7423d84b990e1ffb8014df.jpg?image_process=resize,w_420/quality,Q_70" alt="Betrayed at the Alter, She Married a CEO Instead" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 351.1K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Betrayed at the Alter, She Married a CEO Instead</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15250" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/e1/d7415c2decc5688b788ce85641c899.jpg?image_process=resize,w_420/quality,Q_70" alt="The Godfather’s SAT Guide" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 41.6K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Godfather’s SAT Guide</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=13855" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/3f/10f68b3ede6e8e67bee35b72eadf54.jpg?image_process=resize,w_420/quality,Q_70" alt="(DUBBED)Wake Up, Darling" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.0M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">(DUBBED)Wake Up, Darling</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14927" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/e7/013fe25a7a77df8f8a5faf4d02f2a8.jpg?image_process=resize,w_420/quality,Q_70" alt="I Secretly Gave Birth to God&#039;s Five Babies" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 207.9K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">I Secretly Gave Birth to God's Five Babies</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14942" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/5e/01a123ca24d4441a84ecfa8af83efe.jpg?image_process=resize,w_420/quality,Q_70" alt="When She Stopped Chasing His Love" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 478.5K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">When She Stopped Chasing His Love</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15340" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/64/ca47056efa27af73dffc3d4a9663c7.jpg?image_process=resize,w_420/quality,Q_70" alt="Bound by a Djinn‘s Pact" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 5.4K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Bound by a Djinn‘s Pact</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15310" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/54/5483ab4a98f486067a119af89833fc.jpg?image_process=resize,w_420/quality,Q_70" alt="I Neutered the Alpha King" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 8.2K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">I Neutered the Alpha King</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15325" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/5d/f39f560fac90e096883c8cb3fa3c2d.jpg?image_process=resize,w_420/quality,Q_70" alt="Married to a Fisherman, But He Is Poseidon" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 6.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Married to a Fisherman, But He Is Poseidon</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15235" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/43/f263b79d241e4df35d85831c05d45e.jpg?image_process=resize,w_420/quality,Q_70" alt="The Mermaid Princess They Betrayed" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 8.5K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Mermaid Princess They Betrayed</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15220" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/58/b161891edbd09b07be4864844f34b4.jpg?image_process=resize,w_420/quality,Q_70" alt="Divorcing Mr. Right" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 27.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Divorcing Mr. Right</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15250" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/e1/d7415c2decc5688b788ce85641c899.jpg?image_process=resize,w_420/quality,Q_70" alt="The Godfather’s SAT Guide" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 41.6K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Godfather’s SAT Guide</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15175" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/84/0409d7cd5b3725e7959b0ad11fed94.jpg?image_process=resize,w_420/quality,Q_70" alt="Dragonfire and the Sacred Sword" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 82.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Dragonfire and the Sacred Sword</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15265" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/b2/e29a04211e5fd2141a6b8bea79ac00.jpg?image_process=resize,w_420/quality,Q_70" alt="Revenge of the Forsaken Elf Queen" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 159.9K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Revenge of the Forsaken Elf Queen</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15205" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/60/fc9d579c625d99186b3e5cfb6b46f5.jpg?image_process=resize,w_420/quality,Q_70" alt="Black Blood&#039;s Awakening" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 10.0K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Black Blood's Awakening</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15190" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/74/6f9ba0bb4ba9636ae16c59280a8d2c.jpg?image_process=resize,w_420/quality,Q_70" alt="Genius Dragon Rider" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 12.4K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Genius Dragon Rider</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15100" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/67/ea982cfbb1d6b6c94b797ea1766a71.jpg?image_process=resize,w_420/quality,Q_70" alt="The Regent&#039;s Runaway Bride" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 16.1K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Regent's Runaway Bride</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15160" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/31/bb6b8537ccd15b14ff0c54352a4c4f.jpg?image_process=resize,w_420/quality,Q_70" alt="Mommy Don&#039;t Run, We Are Your Twins!" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 56.9K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Mommy Don't Run, We Are Your Twins!</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2244" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/69/08afe53253e6506b6a3b1c813f5f1b.jpg?image_process=resize,w_420/quality,Q_70" alt="My Vampire Husband Wants to Bite Me Every Night" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 3.3M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">My Vampire Husband Wants to Bite Me Every Night</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=155" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/82/6285fc32ac1ef6768008370ee6b1c1.jpg?image_process=resize,w_420/quality,Q_70" alt="Mr. Williams! Madame Is Dying" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 533.6M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Mr. Williams! Madame Is Dying</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2758" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/41/7ee13c5035c007373cf828f78026fe.jpg?image_process=resize,w_420/quality,Q_70" alt="Spoiled by My Vampire Uncle" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Spoiled by My Vampire Uncle</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2095" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/d1/67d38397d4d3dfa254da5fde6a8088.jpg?image_process=resize,w_420/quality,Q_70" alt="The Cleaner With A Billion-Dollar Secret" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 9.6M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Cleaner With A Billion-Dollar Secret</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3437" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/b8/d3cd55bfc33496aac857ba47b81465.jpg?image_process=resize,w_420/quality,Q_70" alt="A Sweet Contract with the Mafia Boss" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 11.3M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">A Sweet Contract with the Mafia Boss</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2732" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/ee/6c685f51816a4a16d3b26a88f7ac3a.jpg?image_process=resize,w_420/quality,Q_70" alt="Pregnant With My Rival CEO&#039;s Baby" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 2.0M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Pregnant With My Rival CEO's Baby</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=10369" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/33/7dc6e80d1d796174aae515333f1452.jpg?image_process=resize,w_420/quality,Q_70" alt="Queen Without Permission" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 425.3K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Queen Without Permission</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=5834" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/d1/30a4117c3552da6e77ac4a495ff808.jpg?image_process=resize,w_420/quality,Q_70" alt="Gold Stolen, Throne Chosen" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 236.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Gold Stolen, Throne Chosen</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=6564" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/4a/a52fee73ba69f48afa0c65f8a71467.jpg?image_process=resize,w_420/quality,Q_70" alt="The Goo-Goo Oracle" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 873.2K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Goo-Goo Oracle</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=5905" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/e1/5e7064d02d1b2e8b0dda29227f4878.jpg?image_process=resize,w_420/quality,Q_70" alt="Paws and Wonders" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 423.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Paws and Wonders</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=10429" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/b0/53bc2e2896d5661d3e6733dbb1d470.jpg?image_process=resize,w_420/quality,Q_70" alt="Stealing Back the Throne" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.4M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Stealing Back the Throne</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=957" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/8d/538cff9ed878b8938d0b90fed277ee.jpg?image_process=resize,w_420/quality,Q_70" alt="A Billionaire&#039;s Secret Five" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 9.2M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">A Billionaire's Secret Five</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14771" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/fa/4ef76f5d65b03e86d4bcb699cc8b9c.jpg?image_process=resize,w_420/quality,Q_70" alt="The Second Baby Debt: Resentful Love" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 346.1K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Second Baby Debt: Resentful Love</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3554" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/6a/b0bd9c3e51f6a2c50ce17487c62235.jpg?image_process=resize,w_420/quality,Q_70" alt="The Secret Recipe to Snatch a Billionaire" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 5.1M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Secret Recipe to Snatch a Billionaire</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=978" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/14/6d1c2ba3f7f2799b569f71382c79d3.jpg?image_process=resize,w_420/quality,Q_70" alt="The Security Guard is a Trillionaire" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 24.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Security Guard is a Trillionaire</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=5792" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/af/961ee60d0c029ffe06cf4a7025c617.jpg?image_process=resize,w_420/quality,Q_70" alt="All Rise for Her Rule" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 636.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">All Rise for Her Rule</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2031" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/ad/46317a2ec9ee60624a110210c3de41.jpg?image_process=resize,w_420/quality,Q_70" alt="From Lost Heiress to Royal Highness" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 13.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">From Lost Heiress to Royal Highness</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=14458" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/6e/2e7632f62a2fe9e70a45e5b34bd49a.jpg?image_process=resize,w_420/quality,Q_70" alt="Spoiled by the Sterile Billionaire" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 975.7K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Spoiled by the Sterile Billionaire</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1344" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/f5/581c8d2536a41a4027e27c5706b0b6.jpg?image_process=resize,w_420/quality,Q_70" alt="The Mafia Boss&#039;s Runaway Bride" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 11.1M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Mafia Boss's Runaway Bride</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=4843" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/f5/e06d0605679bdc753ba5b8d7075d0d.jpg?image_process=resize,w_420/quality,Q_70" alt="Mafia Boss &amp; His White Rose" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 3.1M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Mafia Boss & His White Rose</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=948" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/ee/2b535a7c949f61d3f1f8213465fc6a.jpg?image_process=resize,w_420/quality,Q_70" alt="My fated Alpha: Rejected and Reclaimed" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 15.4M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">My fated Alpha: Rejected and Reclaimed</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2079" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/a8/9e17835e738ae69fb7dd2b737a7871.jpg?image_process=resize,w_420/quality,Q_70" alt="The Mafia Boss&#039; Secret Maid" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 12.3M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Mafia Boss' Secret Maid</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1556" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/f9/1ecf276ea4026066f314fb4699c4a2.jpg?image_process=resize,w_420/quality,Q_70" alt="Fated to Miss: The Luna in His Dreams" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 7.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Fated to Miss: The Luna in His Dreams</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=402" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/91/10a44820346e41da20d9ccfbdf65b2.jpg?image_process=resize,w_420/quality,Q_70" alt="The Heiress and Her Bodyguard" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 30.1M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Heiress and Her Bodyguard</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1755" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/43/1f8a61a569009f251dc8fa7ac326bc.jpg?image_process=resize,w_420/quality,Q_70" alt="Fall in Love with My Predator" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 975.1K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Fall in Love with My Predator</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1896" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/e4/be8dfefacbba108ca8f530fdcd1327.jpg?image_process=resize,w_420/quality,Q_70" alt="Second Chance to Hate You" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.0M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Second Chance to Hate You</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1543" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/9e/af9d01f41e8fcb5c0bd7679bfa2317.jpg?image_process=resize,w_420/quality,Q_70" alt="I Slept With His Uncle" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 4.7M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">I Slept With His Uncle</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=186" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/c5/e46a4463206ce20903eb8af05574d0.jpg?image_process=resize,w_420/quality,Q_70" alt="Mr. Hunter, Madam Want A Divorced Again" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 5.8M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Mr. Hunter, Madam Want A Divorced Again</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1707" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/92/89e428639aece126f549982e404ec8.jpg?image_process=resize,w_420/quality,Q_70" alt="My Sugar Baby Turns Out to be NYC&#039;s Richest Man" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 8.7M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">My Sugar Baby Turns Out to be NYC's Richest Man</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3132" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/39/1f3f902894b0924f42f20e870c21c3.jpg?image_process=resize,w_420/quality,Q_70" alt="Code Red: Love’s Last Call" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 173.1K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Code Red: Love’s Last Call</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1151" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/35/c33f85d16553413f47abdc80e18b26.jpg?image_process=resize,w_420/quality,Q_70" alt="My Billionaire Ex Wants Me Back" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 20.5M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">My Billionaire Ex Wants Me Back</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2999" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/c7/41a68b07b253e532381a9bd2ee8c26.jpg?image_process=resize,w_420/quality,Q_70" alt="End of Love, End of Past" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 661.4K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">End of Love, End of Past</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3606" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/a0/a4f249a7fa378d474ea9690e6ffe2f.jpg?image_process=resize,w_420/quality,Q_70" alt="The Law Wears My Name" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 356.0K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Law Wears My Name</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=7058" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/0f/9bc92bcc33895504bedb183c8f8292.jpg?image_process=resize,w_420/quality,Q_70" alt="Texted by Tomorrow" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 419.5K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Texted by Tomorrow</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2278" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/fa/3edd2ff8a87699bad3afd0e909d9ec.jpg?image_process=resize,w_420/quality,Q_70" alt="The Billionaire&#039;s Wonton Stall" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 3.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Billionaire's Wonton Stall</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3955" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/a7/19f2a0edb1fb3ed53023b4e15a2bbd.jpg?image_process=resize,w_420/quality,Q_70" alt="The Crown Prince in a 6-Year-Old&#039;s Body" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 843.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Crown Prince in a 6-Year-Old's Body</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1407" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/66/2e8783c6b7e753a71ad198a4d5e062.jpg?image_process=resize,w_420/quality,Q_70" alt="Scorned Son&#039;s Scandalous Success" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.4M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Scorned Son's Scandalous Success</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=978" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/14/6d1c2ba3f7f2799b569f71382c79d3.jpg?image_process=resize,w_420/quality,Q_70" alt="The Security Guard is a Trillionaire" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 24.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Security Guard is a Trillionaire</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2380" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/4d/d58fe44ada316097e9215e136c68fe.jpg?image_process=resize,w_420/quality,Q_70" alt="Caught Between Beauties" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 2.7M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Caught Between Beauties</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3235" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/de/9385235fb34bcd23d2ba858af8a14f.jpg?image_process=resize,w_420/quality,Q_70" alt="Found by Fate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 3.3M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Found by Fate</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2870" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/d6/493ee72378db5f46a7fef7375b2980.jpg?image_process=resize,w_420/quality,Q_70" alt="From Pumpkin to Payback" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 661.5K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">From Pumpkin to Payback</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2597" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/c4/11c7fd5684e467c27b578f5eba7e90.jpg?image_process=resize,w_420/quality,Q_70" alt="Married to the Monk" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.4M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Married to the Monk</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1821" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/ab/c7cd0732990c84c0b731f1f94ba23d.jpg?image_process=resize,w_420/quality,Q_70" alt="Sugar &amp; Secrets" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 3.5M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Sugar & Secrets</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1711" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/a0/9d4ad63391aec51657d4616b59addd.jpg?image_process=resize,w_420/quality,Q_70" alt="Too Cool for Tears" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 4.1M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Too Cool for Tears</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1597" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/2f/0db45e4c4d3212b5620cc8f90eaf93.jpg?image_process=resize,w_420/quality,Q_70" alt="The Billionaire&#039;s Long-Lost Bride" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 5.5M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Billionaire's Long-Lost Bride</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1791" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/f1/0047f9a1c8630327f6c0802004c011.jpg?image_process=resize,w_420/quality,Q_70" alt="See you again CEO&#039;s sweet trap" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 13.0M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">See you again CEO's sweet trap</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=943" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/c4/0d31eb59b5ba4c15093bc9f65857b6.jpg?image_process=resize,w_420/quality,Q_70" alt="My Husband Is A Big Shot" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 30.1M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">My Husband Is A Big Shot</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1787" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/91/7c51380fa06bce6aad8926e9118945.jpg?image_process=resize,w_420/quality,Q_70" alt="Getting Even: the Secret Prodigy’s playbook" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 4.5M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Getting Even: the Secret Prodigy’s playbook</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=56" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/47/89ca5d4836eac8019278f954af9b1d.jpg?image_process=resize,w_420/quality,Q_70" alt="The Bride of the Wolf King" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 63.2M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Bride of the Wolf King</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=12609" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/f0/97c48f63b72d8912b8b695b218f22c.jpg?image_process=resize,w_420/quality,Q_70" alt="The Tycoon’s Secret Canary" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.0M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Tycoon’s Secret Canary</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=7548" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/21/46c2b413ed527fe649de67d73b47c0.jpg?image_process=resize,w_420/quality,Q_70" alt="Copy &amp; Conquer" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                    <span class="absolute top-1 left-1 bg-purple-600 text-white text-[8px] px-1.5 py-0.5 rounded font-bold uppercase">ANIME</span>
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 11.7K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Copy & Conquer</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=9634" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/ef/ca9fbf5429b87dfc4c2f5cdb6a7168.jpg?image_process=resize,w_420/quality,Q_70" alt="Returned with Receipts" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 532.0K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Returned with Receipts</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=5792" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/af/961ee60d0c029ffe06cf4a7025c617.jpg?image_process=resize,w_420/quality,Q_70" alt="All Rise for Her Rule" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 636.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">All Rise for Her Rule</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=9359" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/8e/4e0195bccf524b0096c3ca67b085d3.jpg?image_process=resize,w_420/quality,Q_70" alt="The Secret Tycoon Son-in-Law" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 54.2K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Secret Tycoon Son-in-Law</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=10979" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/9e/8903fac9381b56cf126e25ee6f30de.jpg?image_process=resize,w_420/quality,Q_70" alt="Destined To Be" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 56.9K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Destined To Be</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=1375" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/87/0abc9f698e6c03fa971b1fb0cf79eb.jpg?image_process=resize,w_420/quality,Q_70" alt="Mr. Bennett, you&#039;ve got the wrong wife!" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 816.4K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Mr. Bennett, you've got the wrong wife!</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=5905" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/e1/5e7064d02d1b2e8b0dda29227f4878.jpg?image_process=resize,w_420/quality,Q_70" alt="Paws and Wonders" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 423.8K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Paws and Wonders</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3948" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/8a/edff189def71bce3e64484a3556ae1.jpg?image_process=resize,w_420/quality,Q_70" alt="From Lost Heiress to Mafia Queen" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 4.4M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">From Lost Heiress to Mafia Queen</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=12399" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/6b/c29bdd1b2f90e2c80c93d2a77b2ed6.jpg?image_process=resize,w_420/quality,Q_70" alt="Drowning in Your Flames" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 52.1K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Drowning in Your Flames</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=15017" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/9f/0c428cb1caf184a9d5fb109d4b286e.jpg?image_process=resize,w_420/quality,Q_70" alt="Jörmungandr’s Vow: A Kiss from the Abyss" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 19.5K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Jörmungandr’s Vow: A Kiss from the Abyss</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=9697" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/6a/0e444ddda00b0ba4865c1c0554382c.jpg?image_process=resize,w_420/quality,Q_70" alt="(DUBBED)All Eyes on Her" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 1.5M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">(DUBBED)All Eyes on Her</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2031" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/ad/46317a2ec9ee60624a110210c3de41.jpg?image_process=resize,w_420/quality,Q_70" alt="From Lost Heiress to Royal Highness" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 13.9M</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">From Lost Heiress to Royal Highness</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=13166" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/73/5cdf8d43c5fd3c1211a8478eb86b6f.jpg?image_process=resize,w_420/quality,Q_70" alt="The Reaper Returns" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 522.3K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">The Reaper Returns</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=12459" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/6f/20b6ba367fc3ce456b7626db967bc2.jpg?image_process=resize,w_420/quality,Q_70" alt="Mafia Lord&#039;s Son Has Secret Love For His Stepmom" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 28.9K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Mafia Lord's Son Has Secret Love For His Stepmom</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=12324" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/6f/28e7ae0acafafc9ce870d009124b75.jpg?image_process=resize,w_420/quality,Q_70" alt="Why I Did It" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 28.4K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Why I Did It</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=2970" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/b1/a9ec98b335fa8ea0f4f3f202869580.jpg?image_process=resize,w_420/quality,Q_70" alt="Kiss My Tiara" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 335.2K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Kiss My Tiara</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=3418" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/e9/ffddd1d3cf559595cea32a3c7d084b.jpg?image_process=resize,w_420/quality,Q_70" alt="Second Chance at First Love" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 430.4K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Second Chance at First Love</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                            <a href="index.php?page=detail&id=12123" class="group relative bg-slate-800 rounded-lg md:rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                            <div class="aspect-poster relative">
+                                <img src="https://file-cdn.flextv.cc/image/83/faeed73033c11a826b68faf9370d26.jpg?image_process=resize,w_420/quality,Q_70" alt="Love Lies and Bloodline" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy">
+                                                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                                     <span class="text-[10px] text-slate-200">▶ 35.0K</span>
+                                </div>
+                            </div>
+                            <div class="p-2 md:p-3">
+                                <h2 class="text-xs md:text-sm font-bold text-white line-clamp-1 mb-1">Love Lies and Bloodline</h2>
+                                <p class="text-[10px] text-slate-400 line-clamp-1">Drama</p>
+                            </div>
+                        </a>
+                                                </div>
+
+            <div class="mt-8 flex items-center justify-center gap-4 pb-4">
+                                                    <a href="index.php?page=home&tab=1&p=2" 
+                       class="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-500 text-sm font-bold shadow-lg shadow-blue-900/50">Next →</a>
+                            </div>
+
+        
+    </main>
+
+    <footer class="hidden md:block bg-slate-900 border-t border-slate-800 py-6 text-center text-slate-500 text-sm mt-auto">
+        <div class="flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400 mb-4 px-4">
+            <a href="https://dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaFren</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://dramabox.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaBox</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://goodshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">GoodShort</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://netshort.dramafren.org/" target="_blank" class="text-blue-500 hover:text-blue-300 hover:underline transition">NetShort</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://flickreels.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">FlickReels</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://stardusttv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">StarDustTV</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://radreel.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">RadReel</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://dramawave.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaWave</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://shortmax.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">ShortMax</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://reelshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">ReelShort</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://idrama.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">iDrama</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://kalostv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">KalosTV</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://snackshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">SnackShort</a>
+            <span class="text-slate-700">|</span>
+            <a href="https://shotshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">ShotShorts</a>
+            <span class="text-slate-700">|</span>
+        </div>
+        <p>&copy; 2026 FlexPlayer. FlexTV Unlocked.</p>
+    </footer>
+
+    <div class="md:hidden fixed bottom-0 left-0 w-full bg-[#0f172a]/95 backdrop-blur-lg border-t border-slate-800 z-50">
+        <div class="grid grid-cols-4 h-16 items-center">
+            <a href="index.php" class="flex flex-col items-center justify-center gap-1 bottom-nav-active">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+
+            <a href="index.php?page=search" class="flex flex-col items-center justify-center gap-1 bottom-nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span class="text-[10px] font-medium">Search</span>
+            </a>
+
+            <a href="index.php?page=home&tab=2" class="flex flex-col items-center justify-center gap-1 bottom-nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-[10px] font-medium">Clips</span>
+            </a>
+
+            <button onclick="document.getElementById('langModal').classList.remove('hidden')" class="flex flex-col items-center justify-center gap-1 bottom-nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span class="text-[10px] font-medium">Me</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="langModal" class="hidden fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-end md:items-center justify-center">
+        <div class="bg-slate-800 w-full md:w-96 rounded-t-2xl md:rounded-2xl p-6 border-t md:border border-slate-700 shadow-2xl animate-slide-up h-[80vh] md:h-auto flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-bold text-white">Settings</h3>
+                <button onclick="document.getElementById('langModal').classList.add('hidden')" class="text-slate-400 hover:text-white text-2xl">&times;</button>
+            </div>
+
+            <div class="overflow-y-auto hide-scrollbar flex-grow">
+                
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Partner Apps</h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="https://dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">DramaFren</a>
+                        <a href="https://dramabox.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">DramaBox</a>
+                        <a href="https://goodshort.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">GoodShort</a>
+                        <a href="https://netshort.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">NetShort</a>
+                        <a href="https://flickreels.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">FlickReels</a>
+                        <a href="https://stardusttv.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">StarDustTV</a>
+                        <a href="https://radreel.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">RadReel</a>
+                        <a href="https://dramawave.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">DramaWave</a>
+                        <a href="https://shortmax.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">ShortMax</a>
+                        <a href="https://reelshort.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">ReelShort</a>
+                        <a href="https://idrama.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">iDrama</a>
+                        <a href="https://kalostv.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">KalosTV</a>
+                        <a href="https://snackshort.dramafren.org/" target="_blank" class="bg-slate-700/50 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-center text-sm font-semibold text-white transition">SnackShort</a>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-700 my-4"></div>
+
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Language</h4>
+                <div class="grid grid-cols-2 gap-3 pb-6">
+                                            <a href="index.php?action=set_lang&lang=id" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Indonesian</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=en" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-blue-600/20 border-blue-500 text-blue-400">
+                            <span>English</span>
+                                                            <span>✓</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=th" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Thai</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=vi" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Vietnamese</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=pt" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Portuguese</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=es" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Spanish</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=ar" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Arabic</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=fr" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>French</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=de" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>German</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=it" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Italian</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=ja" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Japanese</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=ko" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Korean</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=tr" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Turkish</span>
+                                                    </a>
+                                            <a href="index.php?action=set_lang&lang=zh" 
+                           class="flex items-center justify-between px-4 py-3 rounded-xl border bg-slate-700/50 border-slate-700 text-slate-300 hover:bg-slate-700">
+                            <span>Chinese</span>
+                                                    </a>
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+<script>(function(s){s.dataset.zone='10882791',s.src='https://dd133.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>
+    const openUrls = ['https://otieu.com/4/10094579'];
+    const maxOpenPerSession = 1; const resetTime = 600; const cookieName = 'safe_popup_click';
+    function setCookie(n,v,s){const d=new Date();d.setTime(d.getTime()+(s*1000));document.cookie=n+"="+v+";expires="+d.toUTCString()+";path=/";}
+    function getCookie(n){const v="; "+document.cookie;const p=v.split("; "+n+"=");if(p.length==2)return p.pop().split(";").shift();return"";}
+    function openPopup(u){const w=800,h=600,l=(screen.width/2)-(w/2),t=(screen.height/2)-(h/2);return window.open(u,'_blank',`width=${w},height=${h},top=${t},left=${l}`);}
+    function removeOverlay(){const o=document.getElementById('safePopupArea');if(o)o.remove();}
+    function openPopupOnce(){const c=parseInt(localStorage.getItem('safePopupCount')||'0');if(c>=maxOpenPerSession){removeOverlay();return;}const w=openPopup(openUrls[0]);localStorage.setItem('safePopupCount',c+1);setCookie(cookieName,'clicked',resetTime);if(w){let f=false;const i=setInterval(()=>{if(document.hasFocus()&&f){clearInterval(i);removeOverlay();}else if(w.closed){clearInterval(i);removeOverlay();}else{try{w.focus();f=true;}catch(e){clearInterval(i);removeOverlay();}}},300);}else{setTimeout(removeOverlay,5000);}}
+    function initSafePopup(){if(!getCookie(cookieName)){localStorage.setItem('safePopupCount',0);setCookie(cookieName,'ready',resetTime);}if(parseInt(localStorage.getItem('safePopupCount')||'0')>=maxOpenPerSession)return;const d=document.createElement('div');d.id='safePopupArea';d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;opacity:0.01;background:none;cursor:pointer;';d.onclick=openPopupOnce;document.body.appendChild(d);document.querySelectorAll('a, button, input').forEach(e=>e.addEventListener('click',e=>{if(!e.target.closest('a'))openPopupOnce()}, {passive:true}));setTimeout(removeOverlay,5000);}
+    window.onload=initSafePopup;
+    </script>
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3fa3f0f88683026',t:'MTc5MDE3MzgxNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

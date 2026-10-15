@@ -1,0 +1,25 @@
+{
+ "title": "I Bought My Past for $100M, The ruthless CEO Lost His Mind Episode 1",
+ "episodeNumber": 1,
+ "totalEpisodes": 20,
+ "locked": false,
+ "videoUrl": "https://akamai-static.shorttv.live/hls/55a2d6c2-f9fd-4859-9796-72d50ae8a100_1080/main.m3u8?auth_key=1790189042-0-0-73f9d4d6f1a58f317f177c0185423277-45242091",
+ "qualityList": [
+  {
+   "label": "1080p",
+   "url": "https://akamai-static.shorttv.live/hls/55a2d6c2-f9fd-4859-9796-72d50ae8a100_1080/main.m3u8?auth_key=1790189042-0-0-73f9d4d6f1a58f317f177c0185423277-45242091",
+   "format": "hls"
+  },
+  {
+   "label": "720p",
+   "url": "https://akamai-static.shorttv.live/hls/55a2d6c2-f9fd-4859-9796-72d50ae8a100_720/main.m3u8?auth_key=1790189042-0-0-07a86549d7a02ff30ad7500caedc5134-16610702",
+   "format": "hls"
+  },
+  {
+   "label": "480p",
+   "url": "https://akamai-static.shorttv.live/hls/55a2d6c2-f9fd-4859-9796-72d50ae8a100_480/main.m3u8?auth_key=1790189042-0-0-41b99f46d041f2671965cbf63fd6426d-40762582",
+   "format": "hls"
+  }
+ ],
+ "sourceServer": "1"
+}

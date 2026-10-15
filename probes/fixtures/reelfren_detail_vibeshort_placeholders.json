@@ -1,0 +1,41 @@
+{
+ "id": "859882",
+ "provider": "vibeshort",
+ "title": "I Bought My Past for $100M, The ruthless CEO Lost His Mind",
+ "cover": "https://volcengine-forward.shorttv.live/images/cover/2026/08/02/9fe5be58e99243ca9c46ac04610d6efd.png?auth_key=1789896846-0-0-712c5ab43c766ce338b7306fd5bc9ef9&process=mediagate",
+ "intro": "Sylvia had been married into a wealthy family for ten years, yet she was betrayed by her husband Sebastian and Chloe, her half-sister. Her father and elder brother even abetted their scheme, deceiving her for three long years. Her heart completely broken, she signed the divorce papers and walked away with a hundred million. She also took Leo, the heir to Monaco’s shipping empire whom she’d met at a psychiatric clinic. Sebastian later woke up to his regret and chased her all the way to Monaco, on",
+ "episodes": 40,
+ "videos": [
+  {
+   "episode": 19,
+   "duration": 74,
+   "vid": "1696432",
+   "available": true
+  },
+  {
+   "episode": 20,
+   "duration": 68,
+   "vid": "1696413",
+   "available": true
+  },
+  {
+   "episode": 21,
+   "duration": 0,
+   "vid": "21",
+   "available": true
+  },
+  {
+   "episode": 22,
+   "duration": 0,
+   "vid": "22",
+   "available": true
+  },
+  {
+   "episode": 23,
+   "duration": 0,
+   "vid": "23",
+   "available": true
+  }
+ ],
+ "_note": "videos trimmed from 40; eps 21+ are placeholders (vid==episode, duration 0) -> /api/video 502"
+}

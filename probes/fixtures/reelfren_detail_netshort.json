@@ -1,0 +1,35 @@
+{
+ "id": "2100522336622321665",
+ "provider": "netshort",
+ "title": "The Beauty Blind Box",
+ "cover": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/coverG/prod/-1287062017_批8.jpg~tplv-vod-rs:540:720.webp",
+ "intro": "NetShort drama",
+ "episodes": 30,
+ "videos": [
+  {
+   "episode": 1,
+   "duration": 0,
+   "vid": "2100799661712711681",
+   "available": true
+  },
+  {
+   "episode": 2,
+   "duration": 0,
+   "vid": "2100799661687582723",
+   "available": true
+  },
+  {
+   "episode": 3,
+   "duration": 0,
+   "vid": "2100799661708861442",
+   "available": true
+  },
+  {
+   "episode": 4,
+   "duration": 0,
+   "vid": "2100799661683695617",
+   "available": true
+  }
+ ],
+ "_note": "videos trimmed from 30"
+}

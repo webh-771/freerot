@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+    
+    <title>Waking Vow - Dramabite Player</title>
+    <meta name="description" content="Watch trending short dramas from Dramabite for free.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dramabite.dramafren.org/index.php?page=watch&id=16221&ep=1">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dramabite.dramafren.org/index.php?page=watch&id=16221&ep=1">
+    <meta property="og:title" content="Waking Vow - Dramabite Player">
+    <meta property="og:description" content="Watch trending short dramas from Dramabite for free.">
+    <meta property="og:image" content="https://cdn-oss.miniepisode.media/episode/55f6bf8503beaab72ded8c9e16605340">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dramabite.dramafren.org/index.php?page=watch&id=16221&ep=1">
+    <meta property="twitter:title" content="Waking Vow - Dramabite Player">
+    <meta property="twitter:description" content="Watch trending short dramas from Dramabite for free.">
+    <meta property="twitter:image" content="https://cdn-oss.miniepisode.media/episode/55f6bf8503beaab72ded8c9e16605340">
+    
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+                    html, body { height: 100%; overflow: hidden; background: black; } 
+            .tk-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: black; }
+            .tk-video-wrapper { width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+            video { width: 100%; height: 100%; object-fit: contain; }
+            #player { transition: transform 0.25s ease; transform-origin: center center; }
+            #player.video-rotated { width: 100vh !important; height: 100vw !important; max-width: none; max-height: none; transform: rotate(90deg); }
+            .tk-overlay-bottom { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none; z-index: 20; padding-bottom: 40px;}
+            .tk-overlay-right { position: absolute; right: 10px; bottom: 120px; display: flex; flex-direction: column; gap: 20px; z-index: 30; align-items: center; }
+            .tk-overlay-top { position: absolute; top: 0; left: 0; width: 100%; padding: 15px; z-index: 30; display: flex; justify-content: space-between; background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent); }
+            .tk-overlay-top, .tk-overlay-right, .tk-overlay-bottom { transition: opacity 0.25s ease, visibility 0.25s ease; }
+            .watch-ui-hidden .tk-overlay-top, .watch-ui-hidden .tk-overlay-right, .watch-ui-hidden .tk-overlay-bottom { opacity: 0; visibility: hidden; pointer-events: none; }
+            .tk-icon-btn { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; color: white; transition: 0.2s; border: 1px solid rgba(255,255,255,0.2); pointer-events: auto; cursor: pointer; }
+            .tk-icon-btn:active { transform: scale(0.9); background: rgba(37, 99, 235, 0.6); }
+            .tk-icon-label { font-size: 10px; text-align: center; margin-top: 4px; text-shadow: 1px 1px 2px black; font-weight: 600; }
+            .bottom-sheet { position: fixed; bottom: -100%; left: 0; width: 100%; height: auto; max-height: 60vh; background: #1e293b; z-index: 2147483647; border-t-left-radius: 20px; border-t-right-radius: 20px; transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; }
+            .bottom-sheet.active { bottom: 0; }
+            .sheet-header { padding: 12px 16px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+            .sheet-content { overflow-y: auto; flex: 1; padding: 12px; }
+            .sheet-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2147483646; opacity: 0; visibility: hidden; transition: 0.3s; }
+            .sheet-overlay.active { opacity: 1; visibility: visible; }
+            
+            /* LOCK OVERLAY */
+            #wait-overlay {
+                position: fixed; 
+                top: 0; left: 0; 
+                width: 100vw; height: 100vh;
+                background: rgba(15, 23, 42, 0.98); 
+                z-index: 9999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 20px;
+                backdrop-filter: blur(10px);
+            }
+            #wait-overlay.hidden { display: none !important; }
+            .wait-timer { font-size: 5rem; font-weight: 800; color: #3b82f6; margin: 30px 0; text-shadow: 0 0 20px rgba(59,130,246,0.5); }
+                .poster-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7); }
+        video::cue { background-color: rgba(0, 0, 0, 0.6) !important; color: #fbbf24 !important; text-shadow: 1px 1px 2px black !important; }
+        input[type=range] { -webkit-appearance: none; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #3b82f6; cursor: pointer; margin-top: -6px; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #475569; border-radius: 2px; }
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+        .toggle-btn.active { background-color: #2563eb; color: white; border-color: #2563eb; }
+        .toggle-btn { transition: all 0.3s; }
+    </style>
+    <style id="dynamic-sub-style"></style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+    
+    
+    
+    
+    
+    
+    
+            <div class="tk-container">
+    
+                    
+            <div class="tk-video-wrapper" id="video-container">
+                
+                <div id="wait-overlay" class="hidden">
+                    <div class="animate-bounce mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">Wait for it!</h2>
+                    <p class="text-slate-300 max-w-lg text-lg px-4 leading-relaxed">
+                        You skipped the previous episode too fast.<br>Please watch at least <span class="text-blue-400 font-bold">1 minute</span> of the previous episode.
+                    </p>
+                    <div class="wait-timer" id="wait-timer-display">60</div>
+                    <p class="text-sm text-slate-500 uppercase tracking-widest font-semibold">Video will play automatically</p>
+                </div>
+
+                <div class="tk-overlay-top">
+                    <a href="index.php?page=detail&id=16221&lang=en" class="text-white drop-shadow-md opacity-80 hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </a>
+                </div>
+
+                                     <video id="player" playsinline controls class="w-full h-full" poster="https://cdn-oss.miniepisode.media/episode/55f6bf8503beaab72ded8c9e16605340" crossorigin="anonymous"></video>
+                
+                <div class="tk-overlay-right">
+                    <div class="flex flex-col items-center">
+                        <button onclick="toggleSheet('sheet-episodes')" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                        </button>
+                        <span class="tk-icon-label">Eps</span>
+                    </div>
+                                        <div class="flex flex-col items-center">
+                        <button onclick="openServerSheet()" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7c0 1.657 3.582 3 8 3s8-1.343 8-3-3.582-3-8-3-8 1.343-8 3z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v5c0 1.657 3.582 3 8 3s8-1.343 8-3V7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12v5c0 1.657 3.582 3 8 3s8-1.343 8-3v-5" />
+                            </svg>
+                        </button>
+                        <span class="tk-icon-label">Server</span>
+                    </div>
+                                                            <div class="flex flex-col items-center">
+                        <button onclick="toggleRotatePlayer()" class="tk-icon-btn" id="btn-rotate-player">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v6h6" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 20v-6h-6" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10a8 8 0 0113.657-4.657L20 6.686" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14a8 8 0 01-13.657 4.657L4 17.314" />
+                            </svg>
+                        </button>
+                        <span class="tk-icon-label">Rotate</span>
+                    </div>
+                                                                                <div class="flex flex-col items-center mt-4">
+                         <button onclick="goToNextEp()" class="tk-icon-btn bg-blue-600/50 border-blue-400">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                         </button>
+                    </div>
+                                    </div>
+
+                <div class="tk-overlay-bottom pointer-events-none">
+                    <h2 class="text-white font-bold text-lg drop-shadow-md mb-1">Waking Vow</h2>
+                    <div class="flex items-center gap-2 text-sm text-slate-200 drop-shadow-md">
+                        <span class="bg-blue-600 px-2 py-0.5 rounded text-xs font-bold">Ep 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sheet-overlay" class="sheet-overlay" onclick="window.closeAllSheets()"></div>
+            <div id="sheet-episodes" class="bottom-sheet">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Select Episode</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content">
+                    <div class="grid grid-cols-5 gap-2">
+                                                    <a href="index.php?page=watch&id=16221&ep=1&lang=en&server=1" class="bg-blue-600 text-white p-2 rounded text-center font-bold text-xs block">
+                                1                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=2&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                2                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=3&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                3                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=4&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                4                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=5&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                5                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=6&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                6                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=7&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                7                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=8&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                8                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=9&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                9                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=10&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                10                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=11&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                11                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=12&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                12                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=13&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                13                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=14&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                14                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=15&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                15                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=16&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                16                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=17&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                17                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=18&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                18                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=19&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                19                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=20&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                20                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=21&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                21                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=22&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                22                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=23&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                23                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=24&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                24                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=25&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                25                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=26&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                26                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=27&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                27                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=28&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                28                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=29&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                29                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=30&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                30                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=31&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                31                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=32&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                32                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=33&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                33                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=34&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                34                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=35&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                35                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=36&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                36                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=37&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                37                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=38&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                38                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=39&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                39                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=40&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                40                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=41&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                41                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=42&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                42                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=43&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                43                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=44&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                44                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=45&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                45                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=46&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                46                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=47&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                47                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=48&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                48                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=49&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                49                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=50&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                50                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=51&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                51                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=52&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                52                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=53&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                53                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=54&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                54                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=55&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                55                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=56&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                56                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=57&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                57                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=58&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                58                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=59&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                59                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=60&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                60                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=61&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                61                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=62&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                62                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=63&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                63                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=64&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                64                            </a>
+                                                    <a href="index.php?page=watch&id=16221&ep=65&lang=en&server=1" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                65                            </a>
+                                            </div>
+                </div>
+            </div>
+
+            <div id="sheet-server" class="bottom-sheet h-auto">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Select Server</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">&times;</button>
+                </div>
+                <div class="sheet-content grid grid-cols-1 gap-2" id="server-list-container"></div>
+            </div>
+
+            <div id="sheet-quality" class="bottom-sheet h-auto">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Video Quality</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold"></button>
+                </div>
+                <div class="sheet-content grid grid-cols-1 gap-2" id="quality-list-container"></div>
+            </div>
+
+            <script>
+                const currentEp = 1;
+                const totalEp = 65;
+                const dramaId = "16221";
+                const dramaLang = "en";
+                const selectedServer = 1;
+                
+                // DECODE URL
+                const videoSrc = atob("aHR0cHM6Ly9jZG4tdmlkZW8ubWluaWVwaXNvZGUubWVkaWEvdmlkZW8vMTYyMjEvMS83Yzc3ZmRmMzM3ZTgwY2Y2MDc2MjUyMDFkODRiZGFmZC5tM3U4P3dzU2VjcmV0PTM0Njg4ZmFjNGMzODljMjgyYjg5OTllNDMxNjJhZDgzJndzVGltZT0xNzkwMTc0NzAx");
+                const availableQualities = [];
+                const availableServers = [{"label":"Server 1","source":"Main","server":1,"active":true,"href":"index.php?page=watch&id=16221&ep=1&lang=en&server=1"},{"label":"Server 2","source":"Backup","server":2,"active":false,"href":"index.php?page=watch&id=16221&ep=1&lang=en&server=2"}];
+                
+                const videoContainer = document.getElementById('video-container');
+                const video = document.getElementById('player');
+                const waitOverlay = document.getElementById('wait-overlay');
+                const waitTimerDisp = document.getElementById('wait-timer-display');
+                const viewedKeyPrefix = "kalos_viewed_" + dramaId + "_";
+                
+                let hls;
+                let isRestricted = false;
+                let currentVideoUrl = videoSrc;
+                let isPlayerRotated = false;
+                let watchUiHideTimer = null;
+
+                // --- 1. CHECK WATCH LIMIT ---
+                function checkRestriction() {
+                    if (currentEp > 1) {
+                        const prevEp = currentEp - 1;
+                        const requiredKey = viewedKeyPrefix + prevEp; 
+                        const stored = localStorage.getItem(requiredKey);
+                        let isAllowed = false;
+
+                        if (stored) {
+                            try {
+                                const data = JSON.parse(stored);
+                                const now = new Date().getTime();
+                                if (data.expiry > now) isAllowed = true;
+                            } catch(e) {}
+                        }
+
+                        if (!isAllowed) {
+                            isRestricted = true;
+                            // Pause video (though src not loaded yet)
+                            waitOverlay.classList.remove('hidden');
+                            document.body.style.overflow = 'hidden'; 
+                            
+                            let timeLeft = 60;
+                            const timer = setInterval(() => {
+                                timeLeft--;
+                                waitTimerDisp.innerText = timeLeft;
+                                
+                                if (timeLeft <= 0) {
+                                    clearInterval(timer);
+                                    
+                                    // FAKE SAVE
+                                    const now = new Date().getTime();
+                                    const expiry = now + 604800000; // 7 days
+                                    const data = { val: true, expiry: expiry };
+                                    localStorage.setItem(requiredKey, JSON.stringify(data));
+                                    
+                                    location.reload();
+                                }
+                            }, 1000);
+                        }
+                    }
+                }
+
+                // --- 2. TRACK WATCHING ---
+                function initTracker() {
+                    if(!video) return;
+                    let marked = false;
+                    
+                    function doMark() {
+                        if(marked) return;
+                        marked = true;
+                        const key = viewedKeyPrefix + currentEp;
+                        const now = new Date().getTime();
+                        const expiry = now + 604800000; 
+                        const data = { val: true, expiry: expiry };
+                        localStorage.setItem(key, JSON.stringify(data));
+                        console.log("Episode " + currentEp + " marked.");
+                    }
+
+                    video.addEventListener('timeupdate', () => {
+                        if (!marked && video.currentTime > 60) doMark();
+                    });
+                    video.addEventListener('ended', () => {
+                        doMark();
+                        if(currentEp < totalEp) goToNextEp();
+                    });
+                }
+
+                // --- 3. INIT HLS PLAYER ---
+                function initPlayer(url) {
+                    if (!video || !url) return;
+                    currentVideoUrl = url;
+                    isPlayerRotated = false;
+                    video.classList.remove('video-rotated');
+                    const rotateBtn = document.getElementById('btn-rotate-player');
+                    if (rotateBtn) rotateBtn.classList.remove('bg-blue-600/50');
+                    if (Hls.isSupported()) {
+                        if(hls) hls.destroy();
+                        hls = new Hls();
+                        hls.loadSource(url);
+                        hls.attachMedia(video);
+                        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                            video.play().catch(() => console.log('Autoplay blocked'));
+                        });
+                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                        video.src = url;
+                        video.addEventListener('loadedmetadata', function() {
+                            video.play().catch(() => console.log('Autoplay blocked'));
+                        });
+                    }
+                }
+
+                // Run Checks
+                checkRestriction();
+                
+                // If Allowed, Load Video
+                if(!isRestricted && videoSrc) {
+                    initPlayer(videoSrc);
+                    initTracker();
+                }
+                initWatchUiAutoHide();
+
+                // --- UI HELPERS ---
+                function hasActiveSheet() {
+                    return !!document.querySelector('.bottom-sheet.active');
+                }
+
+                function hideWatchUi() {
+                    if (!videoContainer || isRestricted || hasActiveSheet()) return;
+                    videoContainer.classList.add('watch-ui-hidden');
+                }
+
+                function showWatchUi() {
+                    if (!videoContainer) return;
+                    videoContainer.classList.remove('watch-ui-hidden');
+                    clearTimeout(watchUiHideTimer);
+                    if (!isRestricted && !hasActiveSheet()) {
+                        watchUiHideTimer = setTimeout(hideWatchUi, 3000);
+                    }
+                }
+
+                function initWatchUiAutoHide() {
+                    ['mousemove', 'mousedown', 'touchstart', 'pointerdown', 'keydown'].forEach(eventName => {
+                        document.addEventListener(eventName, showWatchUi, { passive: true });
+                    });
+                    showWatchUi();
+                }
+
+                window.closeAllSheets = function() {
+                    document.querySelectorAll('.bottom-sheet').forEach(el => el.classList.remove('active'));
+                    const overlay = document.getElementById('sheet-overlay');
+                    if(overlay) overlay.classList.remove('active');
+                    showWatchUi();
+                };
+
+                function goToNextEp() { if (currentEp < totalEp) window.location.href = `index.php?page=watch&id=${dramaId}&ep=${currentEp + 1}&lang=${encodeURIComponent(dramaLang)}&server=${selectedServer}`; }
+                function goToPrevEp() { if (currentEp > 1) window.location.href = `index.php?page=watch&id=${dramaId}&ep=${currentEp - 1}&lang=${encodeURIComponent(dramaLang)}&server=${selectedServer}`; }
+
+                function toggleSheet(id) {
+                    showWatchUi();
+                    window.closeAllSheets();
+                    setTimeout(() => {
+                        document.getElementById(id).classList.add('active');
+                        document.getElementById('sheet-overlay').classList.add('active');
+                        clearTimeout(watchUiHideTimer);
+                    }, 50);
+                }
+
+                function toggleRotatePlayer() {
+                    if (!video) return;
+                    isPlayerRotated = !isPlayerRotated;
+                    video.classList.toggle('video-rotated', isPlayerRotated);
+                    const rotateBtn = document.getElementById('btn-rotate-player');
+                    if (rotateBtn) rotateBtn.classList.toggle('bg-blue-600/50', isPlayerRotated);
+                }
+
+                function openServerSheet() {
+                    const listContainer = document.getElementById('server-list-container');
+                    listContainer.innerHTML = '';
+                    if (availableServers.length === 0) {
+                        listContainer.innerHTML = '<div class="text-slate-400 text-center p-4">No server found</div>';
+                    } else {
+                        availableServers.forEach(server => {
+                            const isActive = !!server.active;
+                            const btn = document.createElement('button');
+                            btn.className = `w-full text-left px-4 py-3 rounded-lg font-semibold text-sm flex justify-between items-center ${isActive ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`;
+                            btn.innerHTML = `<span>${server.label}</span><span class="text-[10px] uppercase tracking-wide opacity-70">${isActive ? 'Active' : server.source}</span>`;
+                            btn.onclick = () => { window.location.href = server.href; };
+                            listContainer.appendChild(btn);
+                        });
+                    }
+                    toggleSheet('sheet-server');
+                }
+
+                function openQualitySheet() {
+                    const listContainer = document.getElementById('quality-list-container');
+                    listContainer.innerHTML = '';
+                    if (availableQualities.length === 0) {
+                        listContainer.innerHTML = '<div class="text-slate-400 text-center p-4">No qualities found</div>';
+                    } else {
+                        availableQualities.forEach(q => {
+                            const btn = document.createElement('button');
+                            btn.className = `w-full text-left px-4 py-3 rounded-lg font-semibold text-sm flex justify-between items-center bg-slate-800 text-slate-300 hover:bg-slate-700`;
+                            btn.innerHTML = `<span>${q.quality}</span>`;
+                            btn.onclick = () => { initPlayer(q.url); window.closeAllSheets(); };
+                            listContainer.appendChild(btn);
+                        });
+                    }
+                    toggleSheet('sheet-quality');
+                }
+            </script>
+            </div>
+
+    <script>(function(s){s.dataset.zone='10882791',s.src='https://dd133.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>
+    const openUrls = ['https://otieu.com/4/10094579'];
+    const maxOpenPerSession = 1; const resetTime = 600; const cookieName = 'safe_popup_click';
+    function setCookie(n,v,s){const d=new Date();d.setTime(d.getTime()+(s*1000));document.cookie=n+"="+v+";expires="+d.toUTCString()+";path=/";}
+    function getCookie(n){const v="; "+document.cookie;const p=v.split("; "+n+"=");if(p.length==2)return p.pop().split(";").shift();return"";}
+    function openPopup(u){const w=800,h=600,l=(screen.width/2)-(w/2),t=(screen.height/2)-(h/2);return window.open(u,'_blank',`width=${w},height=${h},top=${t},left=${l}`);}
+    function removeOverlay(){const o=document.getElementById('safePopupArea');if(o)o.remove();}
+    function openPopupOnce(){const c=parseInt(localStorage.getItem('safePopupCount')||'0');if(c>=maxOpenPerSession){removeOverlay();return;}const w=openPopup(openUrls[0]);localStorage.setItem('safePopupCount',c+1);setCookie(cookieName,'clicked',resetTime);if(w){let f=false;const i=setInterval(()=>{if(document.hasFocus()&&f){clearInterval(i);removeOverlay();}else if(w.closed){clearInterval(i);removeOverlay();}else{try{w.focus();f=true;}catch(e){clearInterval(i);removeOverlay();}}},300);}else{setTimeout(removeOverlay,5000);}}
+    function initSafePopup(){if(!getCookie(cookieName)){localStorage.setItem('safePopupCount',0);setCookie(cookieName,'ready',resetTime);}if(parseInt(localStorage.getItem('safePopupCount')||'0')>=maxOpenPerSession)return;const d=document.createElement('div');d.id='safePopupArea';d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;opacity:0.01;background:none;cursor:pointer;';d.onclick=openPopupOnce;document.body.appendChild(d);document.querySelectorAll('a, button, input').forEach(e=>e.addEventListener('click',e=>{if(!e.target.closest('a'))openPopupOnce()}, {passive:true}));setTimeout(removeOverlay,5000);}
+    window.onload=initSafePopup;
+    </script>
+</body>
+</html>
+

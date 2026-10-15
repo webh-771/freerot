@@ -1,0 +1,13 @@
+{
+    "ok": true,
+    "server": 1,
+    "videoUrl": "https://ns-aws-cdn.netshort.com/ogE00aAoMRe00weYfLXAgybzEF8DVeBAQqVVUY?a=0&auth_key=1790837999-c223b4776ff749ada397195891138e14-0-5e0cfb1975ba8cc35ed2700b5e5e89a3&br=571&bt=571&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=9b439954c2d8411a9095b716838c42e6&er=0&l=202609210656237A9DD57DFB1F7835471F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amtuNHk5cjlnZDozMzZoNEApaDc7OzRlPDw0N2dmODw3PGczMl9pMmRjM2xhMi1kXjVzczMvYDAzNDItXi41LzE2MF86Yw%3D%3D&vl=&vr=",
+    "qualities": [
+        {
+            "quality": "Default",
+            "url": "https://ns-aws-cdn.netshort.com/ogE00aAoMRe00weYfLXAgybzEF8DVeBAQqVVUY?a=0&auth_key=1790837999-c223b4776ff749ada397195891138e14-0-5e0cfb1975ba8cc35ed2700b5e5e89a3&br=571&bt=571&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=9b439954c2d8411a9095b716838c42e6&er=0&l=202609210656237A9DD57DFB1F7835471F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amtuNHk5cjlnZDozMzZoNEApaDc7OzRlPDw0N2dmODw3PGczMl9pMmRjM2xhMi1kXjVzczMvYDAzNDItXi41LzE2MF86Yw%3D%3D&vl=&vr="
+        }
+    ],
+    "subtitles": [],
+    "source": "Primary"
+}

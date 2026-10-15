@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+      
+    <title>GoodShort Player - Watch Free Short Dramas</title>
+    <meta name="description" content="Watch trending short dramas from GoodShort and more for free.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cdn-goodshort.dramafren.org/index.php?page=watch&id=31001769950&ep=-1&lang=en&sv=1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://cdn-goodshort.dramafren.org/index.php?page=watch&id=31001769950&ep=-1&lang=en&sv=1">
+    <meta property="og:title" content="GoodShort Player - Watch Free Short Dramas">
+    <meta property="og:description" content="Watch trending short dramas from GoodShort and more for free.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=GoodShort+Player">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+        <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+          
+                    html, body { height: 100%; overflow: hidden; background: black; } 
+            .tk-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: black; }
+            .tk-video-wrapper { width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+            video { width: 100%; height: 100%; object-fit: contain; }
+            
+            /* CSS UNTUK AUTO-HIDE UI */
+            .tk-overlay-top, .tk-overlay-right, .tk-overlay-bottom { transition: opacity 0.5s ease-in-out; }
+            .ui-hidden { opacity: 0 !important; pointer-events: none !important; }
+            .hide-cursor { cursor: none !important; }
+            
+            .tk-overlay-bottom { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none; z-index: 20; padding-bottom: 40px;}
+            .tk-overlay-right { position: absolute; right: 10px; bottom: 120px; display: flex; flex-direction: column; gap: 20px; z-index: 30; align-items: center; }
+            .tk-overlay-top { position: absolute; top: 0; left: 0; width: 100%; padding: 15px; z-index: 30; display: flex; justify-content: space-between; background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent); }
+            
+            .tk-icon-btn { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; color: white; transition: 0.2s; border: 1px solid rgba(255,255,255,0.2); pointer-events: auto; cursor: pointer; }
+            .tk-icon-btn:active { transform: scale(0.9); background: rgba(37, 99, 235, 0.6); }
+            .tk-icon-label { font-size: 10px; text-align: center; margin-top: 4px; text-shadow: 1px 1px 2px black; font-weight: 600; }
+
+            .bottom-sheet { position: fixed; bottom: -100%; left: 0; width: 100%; height: auto; max-height: 60vh; background: #1e293b; z-index: 2147483647; border-t-left-radius: 20px; border-t-right-radius: 20px; transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; }
+            .bottom-sheet.active { bottom: 0; }
+            
+            .sheet-header { padding: 12px 16px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+            .sheet-content { overflow-y: auto; flex: 1; padding: 12px; }
+            
+            .sheet-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2147483646; opacity: 0; visibility: hidden; transition: 0.3s; }
+            .sheet-overlay.active { opacity: 1; visibility: visible; }
+
+            /* CSS UNTUK VIDEO ROTATION 90 DERAJAT */
+            .video-rotated {
+                position: absolute !important;
+                top: 50% !important;
+                left: 50% !important;
+                width: 100vh !important;
+                height: 100vw !important;
+                transform: translate(-50%, -50%) rotate(90deg) !important;
+                object-fit: contain !important;
+            }
+        
+        .poster-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7); }
+        video::cue { background-color: transparent !important; color: #ffffff !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: bold !important; text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.8), 2px 2px 3px rgba(0,0,0,0.9) !important; }
+        input[type=range] { -webkit-appearance: none; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #3b82f6; cursor: pointer; margin-top: -6px; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #475569; border-radius: 2px; }
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+
+        .toggle-btn.active { background-color: #2563eb; color: white; border-color: #2563eb; }
+        .toggle-btn { transition: all 0.3s; }
+    </style>
+    <style id="dynamic-sub-style"></style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+
+    
+            <div class="tk-container">
+    
+                    
+            <div class="tk-video-wrapper" id="video-container">
+                
+                <div id="video-loader" class="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/90 hidden backdrop-blur-sm transition-opacity duration-300">
+                    <div class="relative w-16 h-16">
+                        <div class="absolute inset-0 rounded-full border-t-4 border-blue-500 animate-spin"></div>
+                        <div class="absolute inset-2 rounded-full border-r-4 border-blue-300 animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+                        <div class="absolute inset-4 rounded-full border-b-4 border-white animate-spin" style="animation-duration: 2s;"></div>
+                    </div>
+                    <p class="mt-4 text-blue-400 font-bold text-xs tracking-widest animate-pulse">LOADING EPISODE...</p>
+                </div>
+                <div class="tk-overlay-top">
+                    <a href="index.php?page=detail&id=31001769950&lang=en&slug=the-secret-babies&sv=1" class="text-white drop-shadow-md opacity-80 hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </a>
+                </div>
+
+                <video id="player" playsinline controls class="w-full h-full" poster="https://acfs1.goodreels.com/videobook/31001769950/202609/cover-9z4KbjOXA8.jpg?a=webp" ></video>
+
+                <div class="tk-overlay-right">
+                    <div class="flex flex-col items-center">
+                        <button onclick="openServerSheet()" class="tk-icon-btn border-blue-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>
+                        </button>
+                        <span class="tk-icon-label text-blue-300">Server-1</span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <button onclick="toggleSheet('sheet-episodes')" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                        </button>
+                        <span class="tk-icon-label">Eps</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <button onclick="openQualitySheet()" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        </button>
+                        <span class="tk-icon-label">HD</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <button onclick="toggleRotate()" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                        </button>
+                        <span class="tk-icon-label">Rotate</span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <button onclick="toggleSheet('sheet-settings')" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </button>
+                        <span class="tk-icon-label">Set</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center mt-4">
+                         <button onclick="goToNextEp()" class="tk-icon-btn bg-blue-600/50 border-blue-400">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                         </button>
+                    </div>
+                </div>
+
+                <div class="tk-overlay-bottom pointer-events-none">
+                    <h2 class="text-white font-bold text-lg drop-shadow-md mb-1">The Secret Babies</h2>
+                    <div class="flex items-center gap-2 text-sm text-slate-200 drop-shadow-md">
+                        <span class="bg-blue-600 px-2 py-0.5 rounded text-xs font-bold">Ep 001</span>
+                        <span class="text-xs opacity-80">Swipe up/down for next episode</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sheet-overlay" class="sheet-overlay" onclick="window.closeAllSheets()"></div>
+
+            <div id="sheet-server" class="bottom-sheet h-auto">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Select Server</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content grid grid-cols-1 gap-2">
+                    <button onclick="changeServer(1)" class="w-full text-left px-4 py-3 rounded-lg font-semibold text-sm flex justify-between items-center bg-blue-600 text-white"><span>Server-1</span> <span>✓</span></button>
+                    <button onclick="changeServer(2)" class="w-full text-left px-4 py-3 rounded-lg font-semibold text-sm flex justify-between items-center bg-slate-800 text-slate-300 hover:bg-slate-700"><span>Server-2</span> </button>
+                    <button onclick="changeServer(3)" class="w-full text-left px-4 py-3 rounded-lg font-semibold text-sm flex justify-between items-center bg-slate-800 text-slate-300 hover:bg-slate-700"><span>Server-3</span> </button>
+                </div>
+            </div>
+
+            <div id="sheet-episodes" class="bottom-sheet">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Select Episode</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content">
+                    <div class="grid grid-cols-5 gap-2">
+                                                    <a href="index.php?page=watch&id=31001769950&ep=0&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(0); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                001                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=1&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(1); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                002                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=2&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(2); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                003                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=3&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(3); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                004                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=4&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(4); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                005                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=5&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(5); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                006                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=6&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(6); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                007                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=7&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(7); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                008                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=8&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(8); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                009                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=9&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(9); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                010                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=10&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(10); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                011                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=11&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(11); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                012                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=12&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(12); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                013                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=13&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(13); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                014                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=14&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(14); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                015                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=15&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(15); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                016                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=16&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(16); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                017                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=17&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(17); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                018                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=18&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(18); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                019                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=19&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(19); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                020                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=20&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(20); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                021                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=21&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(21); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                022                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=22&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(22); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                023                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=23&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(23); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                024                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=24&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(24); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                025                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=25&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(25); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                026                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=26&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(26); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                027                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=27&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(27); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                028                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=28&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(28); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                029                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=29&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(29); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                030                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=30&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(30); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                031                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=31&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(31); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                032                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=32&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(32); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                033                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=33&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(33); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                034                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=34&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(34); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                035                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=35&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(35); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                036                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=36&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(36); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                037                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=37&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(37); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                038                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=38&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(38); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                039                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=39&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(39); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                040                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=40&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(40); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                041                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=41&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(41); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                042                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=42&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(42); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                043                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=43&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(43); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                044                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=44&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(44); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                045                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=45&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(45); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                046                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=46&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(46); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                047                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=47&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(47); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                048                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=48&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(48); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                049                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=49&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(49); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                050                            </a>
+                                                    <a href="index.php?page=watch&id=31001769950&ep=50&lang=en&slug=the-secret-babies&sv=1" onclick="event.preventDefault(); switchEpisode(50); window.closeAllSheets();" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                051                            </a>
+                                            </div>
+                </div>
+            </div>
+
+            <div id="sheet-quality" class="bottom-sheet h-auto">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Video Quality</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content grid grid-cols-1 gap-2" id="quality-list-container"></div>
+            </div>
+
+            <div id="sheet-settings" class="bottom-sheet h-auto pb-10">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Settings</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold mb-2 flex justify-between"><span>Text Size</span><span id="lbl-size" class="text-blue-400">0.9em</span></label>
+                        <input type="range" id="inp-size" min="0.4" max="2.0" step="0.1" value="0.9" class="w-full h-2 bg-slate-600 rounded-lg cursor-pointer">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-2 flex justify-between"><span>Position</span><span id="lbl-pos" class="text-blue-400">80%</span></label>
+                        <input type="range" id="inp-pos" min="0" max="90" step="5" value="80" class="w-full h-2 bg-slate-600 rounded-lg cursor-pointer">
+                    </div>
+                    <div class="flex justify-between items-center mt-4">
+                        <div class="file-input-wrapper">
+                             <button class="bg-slate-700 text-xs px-3 py-2 rounded font-bold text-slate-300">Upload .vtt</button>
+                             <input type="file" id="subtitle-upload" accept=".vtt,.srt" />
+                        </div>
+                        <button onclick="resetSubSettings()" class="text-xs text-red-400 underline">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                var videoPlayer = document.getElementById('player');
+                var videoContainer = document.getElementById('video-container');
+                var totalEp = 51;
+                var dramaId = "31001769950";
+                var currentLang = "en";
+                var dramaSlug = "the-secret-babies";
+                var currentServer = 1;
+                var phpBakedEp = 0; 
+                
+                var chapterIds = ['66155558','66155559','66155560','66155561','66155562','66155563','66155564','66155565','66155566','66155567','66155568','66155569','66155570','66155571','66155572','66155573','66155574','66155575','66155576','66155577','66155578','66155579','66155580','66155581','66155582','66155583','66155584','66155585','66155586','66155587','66155588','66155589','66155590','66155591','66155592','66155593','66155594','66155595','66155596','66155597','66155598','66155599','66155600','66155601','66155602','66155603','66155604','66155605','66155606','66155607','66155608',];
+                var episodeNames = ['001','002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030','031','032','033','034','035','036','037','038','039','040','041','042','043','044','045','046','047','048','049','050','051',];
+                
+                var hls;
+                var isPreloading = false;
+                var isRotated = false;
+                var preloadedEps = new Set();
+                var initialUrl = "";
+                var availableQualities = [];
+
+                // Pengecekan URL saat Load agar Cache HTML sinkron dengan episode yang diminta
+                var urlParams = new URLSearchParams(window.location.search);
+                var currentEpIdx = urlParams.has('ep') ? parseInt(urlParams.get('ep')) : 0;
+
+                function toggleRotate() {
+                    if(!videoPlayer) return;
+                    isRotated = !isRotated;
+                    if(isRotated) {
+                        videoPlayer.classList.add('video-rotated');
+                    } else {
+                        videoPlayer.classList.remove('video-rotated');
+                    }
+                }
+
+                function openServerSheet() {
+                    toggleSheet('sheet-server');
+                }
+
+                function changeServer(sv) {
+                    var url = `index.php?page=watch&id=${dramaId}&ep=${currentEpIdx}&lang=${currentLang}&slug=${dramaSlug}&sv=${sv}`;
+                    window.location.href = url;
+                }
+
+                function initPlayer(url) {
+                    if (!videoPlayer) return;
+                    
+                    if (Hls.isSupported()) {
+                        if(hls) { hls.destroy(); }
+                        hls = new Hls({
+    enableWorker: true,
+    lowLatencyMode: false,
+
+    maxBufferLength: 60,
+    maxMaxBufferLength: 120,
+    backBufferLength: 30,
+    capLevelToPlayerSize: true,
+    startLevel: -1,
+
+    // Timeout loading
+    manifestLoadingTimeOut: 20000,
+    levelLoadingTimeOut: 20000,
+    fragLoadingTimeOut: 30000,
+
+    // Retry
+    manifestLoadingMaxRetry: 8,
+    manifestLoadingRetryDelay: 1000,
+    manifestLoadingMaxRetryTimeout: 10000,
+
+    levelLoadingMaxRetry: 8,
+    levelLoadingRetryDelay: 1000,
+    levelLoadingMaxRetryTimeout: 10000,
+
+    fragLoadingMaxRetry: 8,
+    fragLoadingRetryDelay: 1000,
+    fragLoadingMaxRetryTimeout: 10000,
+
+    // Jangan terlalu agresif mengejar live edge
+    liveSyncDurationCount: 5,
+    liveMaxLatencyDurationCount: 10
+});
+                        
+                        hls.attachMedia(videoPlayer);
+                        hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+                            hls.loadSource(url);
+                        });
+                    } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                        videoPlayer.src = url;
+                        videoPlayer.load(); 
+                    }
+                }
+
+                // SPA Logic: Update Episode tanpa reload
+                async function switchEpisode(epIndex, isInitial = false) {
+                    if (epIndex < 0 || epIndex >= totalEp) return;
+                    
+                    // Tampilkan loader keren
+                    let loader = document.getElementById('video-loader');
+                    if (loader && !isInitial) loader.classList.remove('hidden');
+                    
+                    // Update UI Sidebar Episode
+                    document.querySelectorAll('#sheet-episodes a').forEach((el, idx) => {
+                        if (idx === epIndex) {
+                            el.classList.add('bg-blue-600', 'text-white');
+                            el.classList.remove('bg-slate-700', 'text-slate-300');
+                        } else {
+                            el.classList.remove('bg-blue-600', 'text-white');
+                            el.classList.add('bg-slate-700', 'text-slate-300');
+                        }
+                    });
+
+                    currentEpIdx = epIndex;
+                    let chapId = chapterIds[epIndex];
+                    
+                    if (!isInitial) {
+                        var newUrl = `index.php?page=watch&id=${dramaId}&ep=${epIndex}&lang=${currentLang}&slug=${dramaSlug}&sv=${currentServer}`;
+                        history.pushState(null, '', newUrl);
+                    }
+
+                    try {
+                        let res = await fetch(`index.php?action=get_video_url&id=${dramaId}&chap_id=${chapId}&sv=${currentServer}&lang=${currentLang}`);
+                        let json = await res.json();
+                        
+                        if (json.status === 'success' && json.video_url) {
+                            initialUrl = json.video_url;
+                            availableQualities = json.qualities;
+                            
+                            if (videoPlayer) {
+                                if(!isInitial) videoPlayer.autoplay = true; 
+                                initPlayer(initialUrl);
+                                resetIdleTimer();
+                            }
+                            
+                            let badge = document.querySelector('.tk-overlay-bottom .bg-blue-600');
+                            if (badge) badge.innerText = `Ep ${episodeNames[epIndex]}`;
+                        } else {
+                            if(!isInitial) alert('The video is not available for this episode (Locked or Error). Try switching to another server.');
+                            if (loader) loader.classList.add('hidden'); // Sembunyikan jika error
+                        }
+                    } catch(e) {
+                        console.error("Fetch error:", e);
+                        if (loader) loader.classList.add('hidden'); // Sembunyikan jika error fetch
+                    }
+                }
+
+                // Inisiasi Pertama Saat Halaman Dimuat
+                if (currentEpIdx !== phpBakedEp) {
+                    // Jika HTML Cache memiliki index yang berbeda dari URL Request, panggil via AJAX
+                    switchEpisode(currentEpIdx, true);
+                } else {
+                    // Jika sama (user klik eps pertama kali / cache belum ada), jalankan logic ori
+                    initialUrl = "";
+                    availableQualities = [];
+                    if(initialUrl) { 
+                        setTimeout(function() { initPlayer(initialUrl); }, 150); 
+                    }
+                }
+
+                // Preload Episode Berikutnya secara Latar Belakang
+                async function preloadNextEpisode(epIndex) {
+                    if (epIndex >= totalEp) return;
+                    isPreloading = true;
+                    preloadedEps.add(epIndex);
+                    let chapId = chapterIds[epIndex];
+                    
+                    fetch(`index.php?action=get_video_url&id=${dramaId}&chap_id=${chapId}&sv=${currentServer}&lang=${currentLang}`)
+                        .then(() => isPreloading = false)
+                        .catch(() => isPreloading = false);
+                }
+
+                if (videoPlayer) {
+                    // Sembunyikan loading otomatis saat video sudah bisa / sedang diputar
+                    videoPlayer.addEventListener('canplay', function() {
+                        let loader = document.getElementById('video-loader');
+                        if (loader) loader.classList.add('hidden');
+                    });
+                    videoPlayer.addEventListener('playing', function() {
+                        let loader = document.getElementById('video-loader');
+                        if (loader) loader.classList.add('hidden');
+                    });
+                    videoPlayer.addEventListener('error', function() {
+                        let loader = document.getElementById('video-loader');
+                        if (loader) loader.classList.add('hidden');
+                    });
+
+                    videoPlayer.addEventListener('timeupdate', function() {
+                        if (!videoPlayer.duration) return;
+                        var percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+                        var timeLeft = videoPlayer.duration - videoPlayer.currentTime;
+                        
+                        if ((percent > 90 || timeLeft < 30) && currentEpIdx < totalEp - 1 && !preloadedEps.has(currentEpIdx + 1) && !isPreloading) {
+                            preloadNextEpisode(currentEpIdx + 1);
+                        }
+                    });
+
+                    // ==========================================
+                    // FITUR AUTO NEXT DIHILANGKAN (Sesuai Permintaan)
+                    // ==========================================
+                    /*
+                    videoPlayer.addEventListener('ended', function() { 
+                        if(currentEpIdx < totalEp - 1) { goToNextEp(); }
+                    });
+                    */
+                }
+
+                function goToNextEp() { if (currentEpIdx < totalEp - 1) switchEpisode(currentEpIdx + 1); }
+                function goToPrevEp() { if (currentEpIdx > 0) switchEpisode(currentEpIdx - 1); }
+
+                let touchStartY = 0;
+                let touchEndY = 0;
+                let touchStartX = 0;
+                  
+                videoContainer.addEventListener('touchstart', e => { 
+                    touchStartY = e.changedTouches[0].screenY; 
+                    touchStartX = e.changedTouches[0].screenX;
+                }, {passive: true});
+                  
+                videoContainer.addEventListener('touchend', e => {
+                    touchEndY = e.changedTouches[0].screenY;
+                    let touchEndX = e.changedTouches[0].screenX;
+                    if (document.querySelector('.bottom-sheet.active')) return; 
+
+                    const diffY = Math.abs(touchEndY - touchStartY);
+                    if (diffY > 50) {
+                        if (touchEndY < touchStartY) goToNextEp(); else goToPrevEp();
+                    } 
+                }, {passive: true});
+
+                window.closeAllSheets = function() {
+                    document.querySelectorAll('.bottom-sheet').forEach(el => el.classList.remove('active'));
+                    const overlay = document.getElementById('sheet-overlay');
+                    if(overlay) overlay.classList.remove('active');
+                };
+
+                function toggleSheet(id) {
+                    window.closeAllSheets();
+                    setTimeout(() => {
+                        document.getElementById(id).classList.add('active');
+                        document.getElementById('sheet-overlay').classList.add('active');
+                    }, 50);
+                }
+
+                function openQualitySheet() {
+                    const listContainer = document.getElementById('quality-list-container');
+                    listContainer.innerHTML = '';
+                    if (availableQualities.length === 0) {
+                        listContainer.innerHTML = '<div class="text-slate-400 text-center p-4">No other qualities available</div>';
+                    } else {
+                        availableQualities.forEach(q => {
+                            const btn = document.createElement('button');
+                            const isCurrent = (videoPlayer.src === q.url) || (hls && hls.url === q.url);
+                            btn.className = `w-full text-left px-4 py-3 rounded-lg font-semibold text-sm flex justify-between items-center ${isCurrent ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`;
+                            btn.innerHTML = `<span>${q.quality}</span> ${isCurrent ? '<span>✓</span>' : ''}`;
+                            btn.onclick = () => changeQuality(q.url);
+                            listContainer.appendChild(btn);
+                        });
+                    }
+                    toggleSheet('sheet-quality');
+                }
+
+                function changeQuality(url) {
+                    initPlayer(url);
+                    window.closeAllSheets();
+                }
+
+                // Subtitle Settings Logic
+                const inpSize = document.getElementById('inp-size');
+                const inpPos = document.getElementById('inp-pos');
+                const lblSize = document.getElementById('lbl-size');
+                const lblPos = document.getElementById('lbl-pos');
+                const styleTag = document.getElementById('dynamic-sub-style');
+
+                function loadSettings() {
+                    const savedSize = localStorage.getItem('ns_sub_size') || '0.9';
+                    const savedPos = localStorage.getItem('ns_sub_pos') || '80'; // Default shifted higher
+                    if (inpSize) inpSize.value = savedSize; 
+                    if (inpPos) inpPos.value = savedPos; 
+                    applyStyles(); 
+                }
+
+                function applyStyles() {
+                    if (!inpSize || !inpPos) return;
+                    const size = inpSize.value; 
+                    const liftPercent = parseInt(inpPos.value);
+                    
+                    lblSize.innerText = size + 'em'; 
+                    lblPos.innerText = liftPercent + '%';
+                    
+                    localStorage.setItem('ns_sub_size', size); 
+                    localStorage.setItem('ns_sub_pos', liftPercent);
+                    
+                    styleTag.innerHTML = `video::cue { font-size: ${size}em !important; background-color: transparent !important; color: #ffffff !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: bold !important; text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.8), 2px 2px 3px rgba(0,0,0,0.9) !important; }`;
+                    
+                    if (!videoPlayer) return;
+                    const tracks = videoPlayer.textTracks;
+                    for (let i = 0; i < tracks.length; i++) {
+                        const track = tracks[i];
+                        const updateCue = (cue) => { 
+                            if(!cue) return; 
+                            cue.snapToLines = false; 
+                            cue.line = 100 - liftPercent - 5; 
+                        };
+                        if (track.cues) Array.from(track.cues).forEach(updateCue);
+                        track.onaddcue = function(event) { updateCue(event.cue); };
+                    }
+                }
+
+                function resetSubSettings() { inpSize.value = 0.9; inpPos.value = 80; applyStyles(); }
+                if (inpSize) { inpSize.addEventListener('input', applyStyles); inpSize.addEventListener('change', applyStyles); }
+                if (inpPos) { inpPos.addEventListener('input', applyStyles); inpPos.addEventListener('change', applyStyles); }
+                
+                loadSettings(); 
+                window.addEventListener('load', loadSettings);
+                if(videoPlayer) videoPlayer.addEventListener('loadedmetadata', loadSettings);
+
+                let idleTimer;
+                const idleTime = 3000;
+                const uiElements = document.querySelectorAll('.tk-overlay-top, .tk-overlay-right, .tk-overlay-bottom');
+
+                function hideUI() {
+                    if (document.querySelector('.bottom-sheet.active')) return;
+                    if (!videoPlayer || videoPlayer.paused) return;
+                    uiElements.forEach(el => el.classList.add('ui-hidden'));
+                    if (videoContainer) videoContainer.classList.add('hide-cursor');
+                    applyStyles();
+                }
+
+                function resetIdleTimer() {
+                    uiElements.forEach(el => el.classList.remove('ui-hidden'));
+                    if (videoContainer) videoContainer.classList.remove('hide-cursor');
+                    applyStyles();
+                    clearTimeout(idleTimer);
+                    idleTimer = setTimeout(hideUI, idleTime);
+                }
+
+                ['mousemove', 'mousedown', 'touchstart', 'touchmove', 'click', 'keydown'].forEach(evt => {
+                    window.addEventListener(evt, resetIdleTimer, {passive: true});
+                });
+                resetIdleTimer();
+            </script>
+            </div>
+    
+    <script>(function(s){s.dataset.zone='10882791',s.src='https://dd133.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>
+    const openUrls = ['https://otieu.com/4/10094579'];
+    const resetTime = 500; // Waktu tunggu 500 detik sebelum iklan bisa muncul lagi
+    const cookieName = 'safe_popup_click';
+    
+    function setCookie(n,v,s){const d=new Date();d.setTime(d.getTime()+(s*1000));document.cookie=n+"="+v+";expires="+d.toUTCString()+";path=/";}
+    function getCookie(n){const v="; "+document.cookie;const p=v.split("; "+n+"=");if(p.length==2)return p.pop().split(";").shift();return"";}
+    function openPopup(u){const w=800,h=600,l=(screen.width/2)-(w/2),t=(screen.height/2)-(h/2);return window.open(u,'_blank',`width=${w},height=${h},top=${t},left=${l}`);}
+    function removeOverlay(){const o=document.getElementById('safePopupArea');if(o)o.remove();}
+    
+    function openPopupOnce(){
+        // Cek cookie untuk mencegah double click
+        if(getCookie(cookieName) === 'clicked') return;
+
+        const w=openPopup(openUrls[0]);
+        
+        setCookie(cookieName,'clicked',resetTime); 
+        
+        // Hapus overlay SETELAH benar-benar diklik agar user bisa lanjut navigasi
+        removeOverlay(); 
+        
+        if(w){
+            let f=false;
+            const i=setInterval(()=>{
+                if(document.hasFocus()&&f){clearInterval(i);}
+                else if(w.closed){clearInterval(i);}
+                else{try{w.focus();f=true;}catch(e){clearInterval(i);}}
+            },300);
+        }
+    }
+    
+    function initSafePopup(){
+        
+        if(getCookie(cookieName) === 'clicked') return;
+        
+        // Buat overlay penangkap klik jika belum ada
+        if(!document.getElementById('safePopupArea')){
+            const d=document.createElement('div');
+            d.id='safePopupArea';
+            // Overlay full screen transparan
+            d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;opacity:0.01;background:none;cursor:pointer;';
+            d.onclick=openPopupOnce;
+            document.body.appendChild(d);
+        }
+    }
+    
+    window.onload=initSafePopup;
+    
+    // Cek setiap 2 detik apakah masa aktif cookie 30 detik sudah habis
+    setInterval(() => {
+        if(!getCookie(cookieName)) {
+            initSafePopup();
+        }
+    }, 2000);
+    </script>
+
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5014131,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5014131&101" alt="" border="0"></a></noscript>
+    
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3fa69a55bcd3faf',t:'MTc5MDE3NTU2MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

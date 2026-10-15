@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    
+    <title>ShortMax Player - Watch Free Short Dramas</title>
+    <meta name="description" content="Watch trending short dramas from ShortMax, DramaBox, and more for free.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://shortmax.ngeshorts.fun/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shortmax.ngeshorts.fun/">
+    <meta property="og:title" content="ShortMax Player - Watch Free Short Dramas">
+    <meta property="og:description" content="Watch trending short dramas from ShortMax, DramaBox, and more for free.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=ShortMax+Player">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shortmax.ngeshorts.fun/">
+    <meta property="twitter:title" content="ShortMax Player - Watch Free Short Dramas">
+    <meta property="twitter:description" content="Watch trending short dramas from ShortMax, DramaBox, and more for free.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=ShortMax+Player">
+
+            <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+            <link rel="preconnect" href="https://cdn-shortmaxv3.dramafren.org" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn-shortmaxv3.dramafren.org">
+            <link rel="preconnect" href="https://cdn-shortmaxv5.dramafren.org" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn-shortmaxv5.dramafren.org">
+    
+    
+        
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+          
+        
+        .poster-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7); }
+        video::cue { background-color: rgba(0, 0, 0, 0.6) !important; color: #fbbf24 !important; text-shadow: 1px 1px 2px black !important; }
+        input[type=range] { -webkit-appearance: none; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #3b82f6; cursor: pointer; margin-top: -6px; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #475569; border-radius: 2px; }
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+
+        .toggle-btn.active { background-color: #2563eb; color: white; border-color: #2563eb; }
+        .toggle-btn { transition: all 0.3s; }
+    </style>
+    <style id="dynamic-sub-style"></style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+    
+    
+    
+
+    
+    
+    
+    
+
+        <nav class="w-full bg-slate-900/90 backdrop-blur p-4 border-b border-slate-800 sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 max-w-6xl">
+            <div class="flex justify-between items-center w-full lg:w-auto">
+                <a href="index.php" class="text-xl font-bold text-blue-500 tracking-tight">ShortMax<span class="text-white">Player</span></a>
+                            </div>
+            
+            <div class="flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+                <a href="https://dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaFren</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://dramabox.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaBox</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://goodshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">GoodShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://netshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">NetShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://flickreels.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">FlickReels</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://stardusttv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">StarDustTV</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://dramawave.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaWave</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://shortmax.dramafren.org/" target="_blank" class="text-blue-500 hover:text-blue-300 hover:underline transition">ShortMax</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://reelshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">ReelShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://idrama.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">iDrama</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://flextv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">FlexTV</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://starshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">StarShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://kalostv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">KalosTV</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://dramabite.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaBite</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://microdrama.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">MicroDrama</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://shortwave.dramafren.org" target="_blank" class="hover:text-blue-400 hover:underline transition">ShortWave</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://tvseries.dramafren.org" target="_blank" class="hover:text-blue-300 hover:underline transition">TvSeries</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://moboreels.dramafren.org" target="_blank" class="hover:text-blue-300 hover:underline transition">MoboReels</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://reelfren.com" target="_blank" class="hover:text-blue-300 hover:underline transition">ReelFren</a>
+            </div>
+
+            <div class="hidden lg:block w-auto">
+                            </div>
+        </div>
+    </nav>
+    
+            <div class="container mx-auto px-4 w-full max-w-6xl">
+    
+                    <div class="flex flex-col items-center justify-center py-12">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2 text-center text-white">ShortMax Unlocked</h1>
+                <p class="text-slate-400 mb-8 text-center text-sm">Paste the share link or search by title.</p>
+
+                <div class="w-full max-w-lg mb-6 flex justify-center gap-2 bg-slate-800/50 p-1 rounded-xl border border-slate-700">
+                    <button onclick="switchMode('url')" id="btn-mode-url" class="toggle-btn active w-1/2 py-2 text-sm font-bold rounded-lg border border-transparent">Paste URL</button>
+                    <button onclick="switchMode('search')" id="btn-mode-search" class="toggle-btn w-1/2 py-2 text-sm font-bold rounded-lg border border-transparent text-slate-400">Search Title</button>
+                </div>
+
+                <div id="form-container-url" class="w-full max-w-lg">
+                    <div class="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-6 mb-8 shadow-lg">
+                        <h3 class="text-blue-400 font-bold mb-3 uppercase text-xs tracking-wider border-b border-slate-700 pb-2">How To Use</h3>
+                        <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-300">
+                            <li>Visit the official ShortMax website or App.</li>
+                            <li>Find the drama you want to watch.</li>
+                            <li>Copy the Share URL and paste it below.</li>
+                        </ol>
+                    </div>
+
+                    <form action="index.php" method="GET" id="paste-url-form" class="w-full flex flex-col gap-3 mb-16">
+                        <input type="text" name="input_raw" required placeholder="https://h5.shorttv.live/share..." class="flex-grow p-4 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:border-blue-500 text-white placeholder-slate-500 shadow-lg">
+                        <div class="flex gap-2">
+                            <select name="lang" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 focus:outline-none focus:border-blue-500">
+                                                                    <option value="en" selected>English</option>
+                                                                    <option value="id" >Indonesian</option>
+                                                                    <option value="ja" >Japanese</option>
+                                                                    <option value="ko" >Korean</option>
+                                                                    <option value="th" >Thai</option>
+                                                                    <option value="ar" >Arabic</option>
+                                                                    <option value="pt" >Portuguese</option>
+                                                                    <option value="es" >Spanish</option>
+                                                                    <option value="vi" >Vietnamese</option>
+                                                                    <option value="de" >German</option>
+                                                                    <option value="fr" >French</option>
+                                                                    <option value="it" >Italian</option>
+                                                                    <option value="tr" >Turkish</option>
+                                                            </select>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 rounded-xl transition shadow-lg w-auto flex-shrink-0">GO</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="form-container-search" class="w-full max-w-lg hidden">
+                    <form action="index.php" method="GET" class="w-full flex flex-col gap-3 mb-16">
+                        <input type="hidden" name="page" value="search_result">
+                        <div class="flex gap-2">
+                            <input type="text" name="q" required placeholder="Type drama title (e.g., CEO, Wife)..." class="flex-grow p-4 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:border-blue-500 text-white placeholder-slate-500 shadow-lg">
+                        </div>
+                        <div class="flex gap-2">
+                             <select name="lang" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 focus:outline-none focus:border-blue-500">
+                                                                    <option value="en" selected>English</option>
+                                                                    <option value="id" >Indonesian</option>
+                                                                    <option value="ja" >Japanese</option>
+                                                                    <option value="ko" >Korean</option>
+                                                                    <option value="th" >Thai</option>
+                                                                    <option value="ar" >Arabic</option>
+                                                                    <option value="pt" >Portuguese</option>
+                                                                    <option value="es" >Spanish</option>
+                                                                    <option value="vi" >Vietnamese</option>
+                                                                    <option value="de" >German</option>
+                                                                    <option value="fr" >French</option>
+                                                                    <option value="it" >Italian</option>
+                                                                    <option value="tr" >Turkish</option>
+                                                            </select>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 rounded-xl transition shadow-lg w-auto flex-shrink-0">SEARCH</button>
+                        </div>
+                    </form>
+                </div>
+
+                <script>
+                    function extractShortmaxInputParts(input) {
+                        let value = String(input || '').trim();
+                        try {
+                            value = decodeURIComponent(decodeURIComponent(value));
+                        } catch (error) {}
+
+                        const parts = { id: '', code: '' };
+                        const codeMatch = value.match(/(?:shortPlayCode|code)=([0-9]{6})(?:[^0-9]|$)/i);
+                        if (codeMatch) parts.code = codeMatch[1];
+
+                        const shortPlayIdMatch = value.match(/shortPlayId=([0-9]+)/i);
+                        if (shortPlayIdMatch) parts.id = shortPlayIdMatch[1];
+
+                        if (!parts.id) {
+                            const idMatch = value.match(/(?:^|[?&])id=([0-9]+)(?:[^0-9]|$)/i);
+                            if (idMatch) parts.id = idMatch[1];
+                        }
+
+                        if (/^[0-9]+$/.test(value)) {
+                            if (/^[0-9]{6}$/.test(value)) {
+                                parts.code = value;
+                            } else {
+                                parts.id = value;
+                            }
+                            return parts;
+                        }
+
+                        if (!parts.id) {
+                            const looseNumberMatch = value.match(/([0-9]{4,10})/);
+                            if (looseNumberMatch) {
+                                if (!parts.code && /^[0-9]{6}$/.test(looseNumberMatch[1])) {
+                                    parts.code = looseNumberMatch[1];
+                                } else {
+                                    parts.id = looseNumberMatch[1];
+                                }
+                            }
+                        }
+
+                        return parts;
+                    }
+
+                    const pasteUrlForm = document.getElementById('paste-url-form');
+                    if (pasteUrlForm) {
+                        pasteUrlForm.addEventListener('submit', function(event) {
+                            const rawInput = pasteUrlForm.querySelector('[name="input_raw"]');
+                            const langInput = pasteUrlForm.querySelector('[name="lang"]');
+                            const parts = extractShortmaxInputParts(rawInput ? rawInput.value : '');
+                            const detailId = parts.code || parts.id;
+
+                            if (!detailId) return;
+
+                            event.preventDefault();
+                            const params = new URLSearchParams({
+                                page: 'detail',
+                                id: detailId,
+                                lang: langInput ? langInput.value : 'en',
+                                src: 'paste'
+                            });
+                            window.location.href = 'index.php?' + params.toString();
+                        });
+                    }
+
+                    function switchMode(mode) {
+                        const formUrl = document.getElementById('form-container-url');
+                        const formSearch = document.getElementById('form-container-search');
+                        const btnUrl = document.getElementById('btn-mode-url');
+                        const btnSearch = document.getElementById('btn-mode-search');
+
+                        if (mode === 'url') {
+                            formUrl.classList.remove('hidden');
+                            formSearch.classList.add('hidden');
+                            
+                            btnUrl.classList.add('active', 'text-white');
+                            btnUrl.classList.remove('text-slate-400');
+                            btnSearch.classList.remove('active', 'text-white');
+                            btnSearch.classList.add('text-slate-400');
+                        } else {
+                            formUrl.classList.add('hidden');
+                            formSearch.classList.remove('hidden');
+                            
+                            btnSearch.classList.add('active', 'text-white');
+                            btnSearch.classList.remove('text-slate-400');
+                            btnUrl.classList.remove('active', 'text-white');
+                            btnUrl.classList.add('text-slate-400');
+                        }
+                    }
+                </script>
+                
+                                    <div class="w-full">
+                        <div class="flex justify-between items-center mb-6 border-l-4 border-blue-500 pl-3">
+                            <h2 class="text-xl font-bold">Recently Watched</h2>
+                            <span class="text-xs text-slate-400">Page 1 of 9</span>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8">
+                                                                                            <a href="index.php?page=detail&id=35953&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/09/10/633a8fa91a3c4b1887ba6a51312c0781.png?auth_key=1789117319-0-0-2356db96ea7ae67f3df708e498d49f42&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Reborn for the Raven Prince"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Reborn for the Raven Prince</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=36453&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/09/12/f7ca21802cfe4e5ab73c86ffd1eafed8.png?auth_key=1789393772-0-0-4e0678cb95981eb4611ecacafd171a17&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Why Does My Professor Keep Me Up All Night?"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Why Does My Professor Keep Me Up All Night?</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=862094&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/08/26/51dfaa1c531540e99dee8dc9b156c4ae.png?auth_key=1790158896-0-0-b3d3d8bf629b31916f63db291771bfdb&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Promised Light"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Promised Light</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=28671&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/07/21/d58642334fba448d878b3d5566ae8b84.jpg?auth_key=1784638728-0-0-84338956b37dc4a958f6b7ed7f05e972&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Surrender to the Night"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Surrender to the Night</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=867333&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/09/11/48312bc5416945fbbfa0b30322ac52e1.png?auth_key=1790090552-0-0-28762c950a5b5ba5445c3443ac3c66a9&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="His Dragon Won&#039;t Stop Calling Me Mommy"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">His Dragon Won&#039;t Stop Calling Me Mommy</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=867713&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/09/12/8b040ec2ff4f4aaba384130446b143c1.png?auth_key=1789995217-0-0-d6eb14151f39d2adf65ab96d02bfddcd&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Swapped Brides, Hidden Billions"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Swapped Brides, Hidden Billions</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=861916&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/08/18/93c149622d39405fadaff3011fe5123e.png?auth_key=1790101212-0-0-54af3f5b39f11da96ae2e8db0ead4b3b&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="My Online Carry is My Stepbrother?"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">My Online Carry is My Stepbrother?</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=851425&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/05/23/6d17f5e8b23d49e4869464ce9724a9ce.jpg?auth_key=1782304470-0-0-0ea9c0c8814f879a3d7e4ad2276bf496&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Fake Heiress, Real Revenge"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Fake Heiress, Real Revenge</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=860681&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/08/10/ad8aa9dbc713402f8c07fb25389b852c.png?auth_key=1790152640-0-0-dd2c8d6654314428c15f8297a9f1ae16&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Too Late To Love Me"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Too Late To Love Me</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=860598&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/08/07/2982bea0889c42e88fd5987a11d3ae3e.png?auth_key=1790062461-0-0-a4378cb9869105d6e48f0380dd50fb06&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="After My Divorce, I Became the Godfather’s XXL Wife"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">After My Divorce, I Became the Godfather’s XXL Wife</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=861941&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/08/18/8e51703d416d4639ba5fc18458d1a776.png?auth_key=1789623026-0-0-d657d2832e24e985b70df111218ff82e&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="The Heiress All Dons Fear"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">The Heiress All Dons Fear</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=866513&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://akamai-static.shorttv.live/images/cover/2026/09/08/3d3405592c7941cf9671ba070412f078.png?auth_key=1789595119-0-0-c3240b012c6d01e4d30c6d428aa0b027&process=mediagate" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="She Stole My Shape, I Broke Her Life"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">She Stole My Shape, I Broke Her Life</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                    </div>
+                                                    <div class="flex justify-center gap-2">
+                                <a href="index.php?page=home&p_hist=1" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded text-sm font-bold">&laquo; Prev</a>
+                                <a href="index.php?page=home&p_hist=2" class="px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded text-sm font-bold">Next &raquo;</a>
+                            </div>
+                                            </div>
+                            </div>
+
+            </div>
+    
+    
+    
+    <script>(function(s){s.dataset.zone='10882791',s.src='https://dd133.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script>
+    const openUrls = ['https://otieu.com/4/10094579'];
+    const resetTime = 500; // Waktu tunggu 500 detik sebelum iklan bisa muncul lagi
+    const cookieName = 'safe_popup_click';
+    
+    function setCookie(n,v,s){const d=new Date();d.setTime(d.getTime()+(s*1000));document.cookie=n+"="+v+";expires="+d.toUTCString()+";path=/";}
+    function getCookie(n){const v="; "+document.cookie;const p=v.split("; "+n+"=");if(p.length==2)return p.pop().split(";").shift();return"";}
+    function openPopup(u){const w=800,h=600,l=(screen.width/2)-(w/2),t=(screen.height/2)-(h/2);return window.open(u,'_blank',`width=${w},height=${h},top=${t},left=${l}`);}
+    function removeOverlay(){const o=document.getElementById('safePopupArea');if(o)o.remove();}
+    
+    function openPopupOnce(){
+        // Cek cookie untuk mencegah double click
+        if(getCookie(cookieName) === 'clicked') return;
+
+        const w=openPopup(openUrls[0]);
+        
+        setCookie(cookieName,'clicked',resetTime); 
+        
+        // Hapus overlay SETELAH benar-benar diklik agar user bisa lanjut navigasi
+        removeOverlay(); 
+        
+        if(w){
+            let f=false;
+            const i=setInterval(()=>{
+                if(document.hasFocus()&&f){clearInterval(i);}
+                else if(w.closed){clearInterval(i);}
+                else{try{w.focus();f=true;}catch(e){clearInterval(i);}}
+            },300);
+        }
+    }
+    
+    function initSafePopup(){
+        
+        if(getCookie(cookieName) === 'clicked') return;
+        
+        // Buat overlay penangkap klik jika belum ada
+        if(!document.getElementById('safePopupArea')){
+            const d=document.createElement('div');
+            d.id='safePopupArea';
+            // Overlay full screen transparan
+            d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;opacity:0.01;background:none;cursor:pointer;';
+            d.onclick=openPopupOnce;
+            document.body.appendChild(d);
+        }
+    }
+    
+    window.onload=initSafePopup;
+    
+    // Cek setiap 2 detik apakah masa aktif cookie 30 detik sudah habis
+    setInterval(() => {
+        if(!getCookie(cookieName)) {
+            initSafePopup();
+        }
+    }, 2000);
+    </script>
+    
+    
+    
+    <script>
+(function() {
+    // Pengaturan waktu (24 jam dalam milidetik)
+    var storageKey = 'dramaNotifClosedTime';
+    var hideDuration = 24 * 60 * 60 * 1000; 
+    
+    // Cek apakah pengunjung sudah pernah menutup notifikasi ini dalam 24 jam terakhir
+    var closedTime = localStorage.getItem(storageKey);
+    if (closedTime) {
+        var now = new Date().getTime();
+        if (now - parseInt(closedTime) < hideDuration) {
+            // Jika belum 24 jam sejak ditutup, hentikan script (jangan tampilkan banner)
+            return;
+        } else {
+            // Jika sudah lewat 24 jam, hapus catatan lama agar banner bisa muncul lagi
+            localStorage.removeItem(storageKey);
+        }
+    }
+
+    // --- Membuat elemen banner notifikasi ---
+    var notifBanner = document.createElement('div');
+    notifBanner.style.position = 'fixed';
+    notifBanner.style.top = '0';
+    notifBanner.style.left = '0';
+    notifBanner.style.width = '100%';
+    notifBanner.style.backgroundColor = '#1a1a1a'; 
+    notifBanner.style.color = '#FFD700'; // Teks kuning
+    notifBanner.style.textAlign = 'center';
+    notifBanner.style.padding = '12px 20px';
+    notifBanner.style.fontFamily = 'Arial, sans-serif';
+    notifBanner.style.fontSize = '14px';
+    notifBanner.style.fontWeight = 'bold';
+    notifBanner.style.zIndex = '999999'; 
+    notifBanner.style.boxShadow = '0 2px 4px rgba(0,0,0,0.5)';
+    notifBanner.style.boxSizing = 'border-box';
+    notifBanner.style.display = 'flex';
+    notifBanner.style.justifyContent = 'center';
+    notifBanner.style.alignItems = 'center';
+
+    // Memasukkan teks
+    var textNode = document.createElement('span');
+    textNode.innerText = "Use the Google Chrome browser for a smooth watching experience.";
+    notifBanner.appendChild(textNode);
+
+    // Membuat tombol close (X)
+    var closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.marginLeft = '20px';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.fontSize = '20px';
+    closeBtn.style.color = '#ffffff'; 
+    closeBtn.style.fontWeight = 'bold';
+    
+    // Fungsi ketika tombol close di-klik
+    closeBtn.onclick = function() {
+        // Sembunyikan banner
+        notifBanner.style.display = 'none';
+        
+        // Simpan waktu saat ini ke localStorage browser pengunjung
+        localStorage.setItem(storageKey, new Date().getTime());
+        
+        // Kembalikan margin atas body ke normal agar web tidak ada ruang kosong
+        document.body.style.marginTop = '0';
+    };
+    notifBanner.appendChild(closeBtn);
+
+    // Menampilkan banner ke halaman
+    document.body.appendChild(notifBanner);
+
+    // Menambahkan margin atas pada body agar konten tidak tertutup banner
+    document.body.style.marginTop = '45px'; 
+})();
+</script>
+    
+    
+    
+</body>
+</html>

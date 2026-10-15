@@ -1,0 +1,91 @@
+{
+ "code": 200,
+ "message": "success",
+ "data": {
+  "channels": [
+   {
+    "channelId": "162602653701375558",
+    "channelType": 2,
+    "title": "Home",
+    "isDefault": 1,
+    "needRedPoint": 0,
+    "needCheckData": 0,
+    "contentAttr": 0
+   },
+   {
+    "channelId": "113757996389499537",
+    "channelType": 2,
+    "title": "New",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 1,
+    "contentAttr": 0
+   },
+   {
+    "channelId": 3,
+    "channelType": 3,
+    "title": "Charts",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 0,
+    "contentAttr": 0
+   },
+   {
+    "channelId": "161071697598751542",
+    "channelType": 2,
+    "title": "Dubbed",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 1,
+    "contentAttr": 0
+   },
+   {
+    "channelId": "165567656447970661",
+    "channelType": 2,
+    "title": "Comics",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 1,
+    "contentAttr": 0
+   },
+   {
+    "channelId": "188199026690884356",
+    "channelType": 2,
+    "title": "Anime",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 1,
+    "contentAttr": 0
+   },
+   {
+    "channelId": "140845601382072327",
+    "channelType": 2,
+    "title": "Original",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 1,
+    "contentAttr": 0
+   },
+   {
+    "channelId": "94872834110259517",
+    "channelType": 2,
+    "title": "AsianDrama",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 1,
+    "contentAttr": 0
+   },
+   {
+    "channelId": "208416930252587360",
+    "channelType": 2,
+    "title": "Novel",
+    "isDefault": 0,
+    "needRedPoint": 0,
+    "needCheckData": 1,
+    "contentAttr": 1
+   }
+  ],
+  "schemeId": "141079144540278206",
+  "uniqueId": "0"
+ }
+}

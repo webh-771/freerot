@@ -1,0 +1,68 @@
+{
+ "code": 200,
+ "data": {
+  "total": 65,
+  "items": [
+   {
+    "episId": "220647721499068651",
+    "episNum": 1,
+    "isFree": true,
+    "isLock": false,
+    "isRedLock": false,
+    "price": 0,
+    "episIndex": 0,
+    "isPlayAhead": false,
+    "isInterAd": false,
+    "canTakeCoin": false
+   },
+   {
+    "episId": "220511652640121944",
+    "episNum": 2,
+    "isFree": true,
+    "isLock": false,
+    "isRedLock": false,
+    "price": 0,
+    "episIndex": 1,
+    "isPlayAhead": false,
+    "isInterAd": false,
+    "canTakeCoin": false
+   },
+   {
+    "episId": "220511652640121956",
+    "episNum": 8,
+    "isFree": true,
+    "isLock": false,
+    "isRedLock": false,
+    "price": 0,
+    "episIndex": 7,
+    "isPlayAhead": false,
+    "isInterAd": false,
+    "canTakeCoin": false
+   },
+   {
+    "episId": "220511652640121958",
+    "episNum": 9,
+    "isFree": false,
+    "isLock": true,
+    "isRedLock": false,
+    "price": 88,
+    "episIndex": 8,
+    "isPlayAhead": false,
+    "isInterAd": false,
+    "canTakeCoin": false
+   },
+   {
+    "episId": "220511652640122064",
+    "episNum": 65,
+    "isFree": false,
+    "isLock": true,
+    "isRedLock": false,
+    "price": 88,
+    "episIndex": 64,
+    "isPlayAhead": true,
+    "isInterAd": false,
+    "canTakeCoin": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "drama": {
+  "id": "6ab3b019da8012969fdd38a4",
+  "title": "Astroward",
+  "description": "Reborn at the familiar-binding ceremony where her fate once changed, Seraphina rejects a vampire familiar and bonds instead with Zephyr, a two-headed shadow dragon dismissed as worthless. A silver coin carried from her previous life guides her to hidden resources and lost magic, helping her survive academy trials and counter her sister Celeste's schemes. In the final competition, Seraphina's ancient pact-maker bloodline awakens and Zephyr evolves. Celeste summons an avatar of the abyss lord Malachi, who was involved in Seraphina's death. Seraphina unlocks the Astral Edicts, erases the avatar and claims the academy's top rank.",
+  "cover": "https://s.shortswave.com/image/cover/36110.webp"
+ },
+ "episodes": [
+  {
+   "index": 1,
+   "chapter_id": "6ab3b022da8012969fdd38b1",
+   "is_free": 1
+  },
+  {
+   "index": 2,
+   "chapter_id": "6ab3b01cda8012969fdd38a7",
+   "is_free": 1
+  },
+  {
+   "index": 7,
+   "chapter_id": "6ab3b01dda8012969fdd38aa",
+   "is_free": 0
+  },
+  {
+   "index": 8,
+   "chapter_id": "6ab3b01fda8012969fdd38ac",
+   "is_free": 0
+  },
+  {
+   "index": 35,
+   "chapter_id": "6ab3b028da8012969fdd38ba",
+   "is_free": 0
+  }
+ ]
+}

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+
+    <title>FlickReels Player - Watch Free Short Dramas</title>
+    <meta name="description" content="Watch trending short dramas from FlickReels, DramaBox, and more for free.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cdn-flickreels.dramafren.org/index.php?page=home&lang=en">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cdn-flickreels.dramafren.org/index.php?page=home&lang=en">
+    <meta property="og:title" content="FlickReels Player - Watch Free Short Dramas">
+    <meta property="og:description" content="Watch trending short dramas from FlickReels, DramaBox, and more for free.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=FlickReels+Player">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cdn-flickreels.dramafren.org/index.php?page=home&lang=en">
+    <meta property="twitter:title" content="FlickReels Player - Watch Free Short Dramas">
+    <meta property="twitter:description" content="Watch trending short dramas from FlickReels, DramaBox, and more for free.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=FlickReels+Player">
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+
+        
+        .poster-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7); }
+        video::cue { background-color: transparent !important; color: #ffffff !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: bold !important; text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.8), 2px 2px 3px rgba(0,0,0,0.9) !important; }
+        input[type=range] { -webkit-appearance: none; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #3b82f6; cursor: pointer; margin-top: -6px; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #475569; border-radius: 2px; }
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+
+        .toggle-btn.active { background-color: #2563eb; color: white; border-color: #2563eb; }
+        .toggle-btn { transition: all 0.3s; }
+    </style>
+    <style id="dynamic-sub-style"></style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+
+    <nav class="w-full bg-slate-900/90 backdrop-blur p-4 border-b border-slate-800 sticky top-0 z-50 ">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 max-w-6xl">
+            <div class="flex justify-between items-center w-full lg:w-auto">
+                <a href="index.php" class="text-xl font-bold text-blue-500 tracking-tight">FlickReels<span class="text-white">Player</span></a>
+                            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+                <a href="https://dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaFren</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://dramabox.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaBox</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://goodshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">GoodShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://netshort.dramafren.org/" target="_blank" class="text-blue-500 hover:text-blue-300 hover:underline transition">NetShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://flickreels.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">FlickReels</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://stardusttv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">StarDustTV</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://dramawave.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaWave</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://shortmax.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">ShortMax</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://reelshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">ReelShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://idrama.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">iDrama</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://flextv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">FlexTV</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://starshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">StarShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://kalostv.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">KalosTV</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://dramabite.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaBite</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://shotshort.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">ShotShort</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://dramapops.dramafren.org" target="_blank" class="hover:text-blue-400 hover:underline transition">DramaPops</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://microdrama.dramafren.org/" target="_blank" class="hover:text-blue-400 hover:underline transition">MicroDrama</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://shortwave.dramafren.org" target="_blank" class="hover:text-blue-400 hover:underline transition">ShortWave</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://tvseries.dramafren.org" target="_blank" class="hover:text-blue-300 hover:underline transition">TvSeries</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://moboreels.dramafren.org" target="_blank" class="hover:text-blue-300 hover:underline transition">MoboReels</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://reelfren.dramafren.org" target="_blank" class="hover:text-blue-300 hover:underline transition">ReelFren</a>
+            </div>
+
+            <div class="hidden lg:block w-auto">
+                            </div>
+        </div>
+    </nav>
+
+            <div class="container mx-auto px-4 w-full max-w-6xl">
+    
+                    <div class="flex flex-col items-center justify-center py-12">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2 text-center text-white">FlickReels Unlocked</h1>
+                <p class="text-slate-400 mb-8 text-center text-sm">Paste the share link or search by title.</p>
+
+                <div class="w-full max-w-lg mb-6 flex justify-center gap-2 bg-slate-800/50 p-1 rounded-xl border border-slate-700">
+                    <button onclick="switchMode('url')" id="btn-mode-url" class="toggle-btn active w-1/2 py-2 text-sm font-bold rounded-lg border border-transparent">Paste URL</button>
+                    <button onclick="switchMode('search')" id="btn-mode-search" class="toggle-btn w-1/2 py-2 text-sm font-bold rounded-lg border border-transparent text-slate-400">Search Title</button>
+                </div>
+
+                <div id="form-container-url" class="w-full max-w-lg">
+                    <div class="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-6 mb-8 shadow-lg">
+                        <h3 class="text-blue-400 font-bold mb-3 uppercase text-xs tracking-wider border-b border-slate-700 pb-2">How To Use</h3>
+                        <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-300">
+                            <li>Visit the official FlickReels website: https://www.flickreels.net</li>
+                            <li>Find the drama you want to watch.</li>
+                            <li>Copy the URL and paste it below.</li>
+                        </ol>
+                    </div>
+
+                    <form action="index.php" method="GET" class="w-full flex flex-col gap-3 mb-16">
+                        <div class="flex gap-2">
+                            <input type="text" name="input_raw" required placeholder="https://www.flickreels.net/playlist/..." class="flex-grow p-4 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:border-blue-500 text-white placeholder-slate-500 shadow-lg">
+                        </div>
+                        <div class="flex gap-2">
+                             <select name="lang" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 focus:outline-none focus:border-blue-500">
+                                                                    <option value="en" selected>English</option>
+                                                                    <option value="id" >Indonesia</option>
+                                                                    <option value="th" >Thai</option>
+                                                                    <option value="ms" >Melayu</option>
+                                                                    <option value="pt" >Portuguese</option>
+                                                                    <option value="es" >Espanol</option>
+                                                                    <option value="fr" >French</option>
+                                                                    <option value="de" >German</option>
+                                                                    <option value="it" >Italian</option>
+                                                                    <option value="tr" >Turkish</option>
+                                                                    <option value="ar" >Arabic</option>
+                                                                    <option value="ja" >Japanese</option>
+                                                                    <option value="ko" >Korean</option>
+                                                                    <option value="zh_CN" >Chinese (Simp)</option>
+                                                                    <option value="zh_TW" >Chinese (Trad)</option>
+                                                            </select>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 rounded-xl transition shadow-lg w-auto flex-shrink-0">GO</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="form-container-search" class="w-full max-w-lg hidden">
+                    <form action="index.php" method="GET" class="w-full flex flex-col gap-3 mb-16">
+                        <input type="hidden" name="page" value="search_result">
+                        <div class="flex gap-2">
+                            <input type="text" name="q" required placeholder="Type drama title (e.g., CEO, Wife)..." class="flex-grow p-4 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:border-blue-500 text-white placeholder-slate-500 shadow-lg">
+                        </div>
+                        <div class="flex gap-2">
+                             <select name="lang" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 focus:outline-none focus:border-blue-500">
+                                                                    <option value="en" selected>English</option>
+                                                                    <option value="id" >Indonesia</option>
+                                                                    <option value="th" >Thai</option>
+                                                                    <option value="ms" >Melayu</option>
+                                                                    <option value="pt" >Portuguese</option>
+                                                                    <option value="es" >Espanol</option>
+                                                                    <option value="fr" >French</option>
+                                                                    <option value="de" >German</option>
+                                                                    <option value="it" >Italian</option>
+                                                                    <option value="tr" >Turkish</option>
+                                                                    <option value="ar" >Arabic</option>
+                                                                    <option value="ja" >Japanese</option>
+                                                                    <option value="ko" >Korean</option>
+                                                                    <option value="zh_CN" >Chinese (Simp)</option>
+                                                                    <option value="zh_TW" >Chinese (Trad)</option>
+                                                            </select>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 rounded-xl transition shadow-lg w-auto flex-shrink-0">SEARCH</button>
+                        </div>
+                    </form>
+                </div>
+
+                <script>
+                    function switchMode(mode) {
+                        var formUrl = document.getElementById('form-container-url');
+                        var formSearch = document.getElementById('form-container-search');
+                        var btnUrl = document.getElementById('btn-mode-url');
+                        var btnSearch = document.getElementById('btn-mode-search');
+
+                        if (mode === 'url') {
+                            formUrl.classList.remove('hidden');
+                            formSearch.classList.add('hidden');
+
+                            btnUrl.classList.add('active', 'text-white');
+                            btnUrl.classList.remove('text-slate-400');
+                            btnSearch.classList.remove('active', 'text-white');
+                            btnSearch.classList.add('text-slate-400');
+                        } else {
+                            formUrl.classList.add('hidden');
+                            formSearch.classList.remove('hidden');
+
+                            btnSearch.classList.add('active', 'text-white');
+                            btnSearch.classList.remove('text-slate-400');
+                            btnUrl.classList.remove('active', 'text-white');
+                            btnUrl.classList.add('text-slate-400');
+                        }
+                    }
+                </script>
+
+                
+                                    <div class="w-full">
+                        <div class="flex justify-between items-center mb-6 border-l-4 border-blue-500 pl-3">
+                            <h2 class="text-xl font-bold">Recently Watched</h2>
+                            <span class="text-xs text-slate-400">Page 1 of 9</span>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8">
+                                                                                            <a href="index.php?page=detail&id=12153&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1790072540_m8ktNCZF4F.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="She Made Him Lose Everything"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">She Made Him Lose Everything</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=1981&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1752139348_6SAyeZndid.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="My Husband’s Shadow"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">My Husband’s Shadow</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=96&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1729834538_4HREZ4PiZM.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Married to a superstar as the housewife"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Married to a superstar as the housewife</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=3389&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1759742639_acdp3FXQjx.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Wrong Sedan, Right Prince"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Wrong Sedan, Right Prince</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=162&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1763024663_CtGCfDCp56.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Married The Richest Man After Being Dumped"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Married The Richest Man After Being Dumped</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=101&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1729914666_2ZWwXmzEC2.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="My Kids&#039; Daddy is a Secret Billionaire"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">My Kids&#039; Daddy is a Secret Billionaire</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=8894&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1785481580_ssPaDNJdYi.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="The Don&#039;s Forbidden Nun"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">The Don&#039;s Forbidden Nun</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=7822&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1782183158_J87DHKQH6w.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Sold to the Mafia Boss for One Night"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Sold to the Mafia Boss for One Night</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=2630&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1755768645_biF43B8SQ3.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="The Betrayed Mother is the Divine Heiress"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">The Betrayed Mother is the Divine Heiress</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=100&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1737429752_NiteNWNASs.png" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="The Lost Heiress of a Billionaire Family"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">The Lost Heiress of a Billionaire Family</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=7238&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1780046768_6wkpsAtkWB.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="The Nanny They All Adored Season 2"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">The Nanny They All Adored Season 2</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                                                            <a href="index.php?page=detail&id=11610&lang=en" class="bg-slate-800 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg group">
+                                    <div class="aspect-[3/4] overflow-hidden"><img src="https://zshipubcf.farsunpteltd.com/playlet/1789387665_fathRFEx6e.jpg" class="w-full h-full object-cover group-hover:opacity-80 transition" loading="lazy" alt="Sorry Ex-Husband, The Kid Isn&#039;t Yours"></div>
+                                    <div class="p-3"><h3 class="text-xs font-bold text-white line-clamp-2">Sorry Ex-Husband, The Kid Isn&#039;t Yours</h3><span class="text-[10px] text-slate-400 mt-1 block">Watch Now</span></div>
+                                </a>
+                                                    </div>
+                                                    <div class="flex justify-center gap-2">
+                                <a href="index.php?page=home&p_hist=1&lang=en" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded text-sm font-bold">&laquo; Prev</a>
+                                <a href="index.php?page=home&p_hist=2&lang=en" class="px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded text-sm font-bold">Next &raquo;</a>
+                            </div>
+                                            </div>
+                            </div>
+
+            </div>
+
+    <script>(function(s){s.dataset.zone='10882791',s.src='https://dd133.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+     <script>
+    const openUrls = ['https://otieu.com/4/10094579'];
+    const resetTime = 500; // Waktu tunggu 500 detik sebelum iklan bisa muncul lagi
+    const cookieName = 'safe_popup_click';
+    
+    function setCookie(n,v,s){const d=new Date();d.setTime(d.getTime()+(s*1000));document.cookie=n+"="+v+";expires="+d.toUTCString()+";path=/";}
+    function getCookie(n){const v="; "+document.cookie;const p=v.split("; "+n+"=");if(p.length==2)return p.pop().split(";").shift();return"";}
+    function openPopup(u){const w=800,h=600,l=(screen.width/2)-(w/2),t=(screen.height/2)-(h/2);return window.open(u,'_blank',`width=${w},height=${h},top=${t},left=${l}`);}
+    function removeOverlay(){const o=document.getElementById('safePopupArea');if(o)o.remove();}
+    
+    function openPopupOnce(){
+        // Cek cookie untuk mencegah double click
+        if(getCookie(cookieName) === 'clicked') return;
+
+        const w=openPopup(openUrls[0]);
+        
+        setCookie(cookieName,'clicked',resetTime); 
+        
+        // Hapus overlay SETELAH benar-benar diklik agar user bisa lanjut navigasi
+        removeOverlay(); 
+        
+        if(w){
+            let f=false;
+            const i=setInterval(()=>{
+                if(document.hasFocus()&&f){clearInterval(i);}
+                else if(w.closed){clearInterval(i);}
+                else{try{w.focus();f=true;}catch(e){clearInterval(i);}}
+            },300);
+        }
+    }
+    
+    function initSafePopup(){
+        
+        if(getCookie(cookieName) === 'clicked') return;
+        
+        // Buat overlay penangkap klik jika belum ada
+        if(!document.getElementById('safePopupArea')){
+            const d=document.createElement('div');
+            d.id='safePopupArea';
+            // Overlay full screen transparan
+            d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;opacity:0.01;background:none;cursor:pointer;';
+            d.onclick=openPopupOnce;
+            document.body.appendChild(d);
+        }
+    }
+    
+    window.onload=initSafePopup;
+    
+    // Cek setiap 2 detik apakah masa aktif cookie 30 detik sudah habis
+    setInterval(() => {
+        if(!getCookie(cookieName)) {
+            initSafePopup();
+        }
+    }, 2000);
+    </script>
+    
+    <script>
+(function() {
+    // Pengaturan waktu (24 jam dalam milidetik)
+    var storageKey = 'dramaNotifClosedTime';
+    var hideDuration = 24 * 60 * 60 * 1000; 
+    
+    // Cek apakah pengunjung sudah pernah menutup notifikasi ini dalam 24 jam terakhir
+    var closedTime = localStorage.getItem(storageKey);
+    if (closedTime) {
+        var now = new Date().getTime();
+        if (now - parseInt(closedTime) < hideDuration) {
+            // Jika belum 24 jam sejak ditutup, hentikan script (jangan tampilkan banner)
+            return;
+        } else {
+            // Jika sudah lewat 24 jam, hapus catatan lama agar banner bisa muncul lagi
+            localStorage.removeItem(storageKey);
+        }
+    }
+
+    // --- Membuat elemen banner notifikasi ---
+    var notifBanner = document.createElement('div');
+    notifBanner.style.position = 'fixed';
+    notifBanner.style.top = '0';
+    notifBanner.style.left = '0';
+    notifBanner.style.width = '100%';
+    notifBanner.style.backgroundColor = '#1a1a1a'; 
+    notifBanner.style.color = '#FFD700'; // Teks kuning
+    notifBanner.style.textAlign = 'center';
+    notifBanner.style.padding = '12px 20px';
+    notifBanner.style.fontFamily = 'Arial, sans-serif';
+    notifBanner.style.fontSize = '14px';
+    notifBanner.style.fontWeight = 'bold';
+    notifBanner.style.zIndex = '999999'; 
+    notifBanner.style.boxShadow = '0 2px 4px rgba(0,0,0,0.5)';
+    notifBanner.style.boxSizing = 'border-box';
+    notifBanner.style.display = 'flex';
+    notifBanner.style.justifyContent = 'center';
+    notifBanner.style.alignItems = 'center';
+
+    // Memasukkan teks
+    var textNode = document.createElement('span');
+    textNode.innerText = "Use the Google Chrome browser for a smooth watching experience.";
+    notifBanner.appendChild(textNode);
+
+    // Membuat tombol close (X)
+    var closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.marginLeft = '20px';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.fontSize = '20px';
+    closeBtn.style.color = '#ffffff'; 
+    closeBtn.style.fontWeight = 'bold';
+    
+    // Fungsi ketika tombol close di-klik
+    closeBtn.onclick = function() {
+        // Sembunyikan banner
+        notifBanner.style.display = 'none';
+        
+        // Simpan waktu saat ini ke localStorage browser pengunjung
+        localStorage.setItem(storageKey, new Date().getTime());
+        
+        // Kembalikan margin atas body ke normal agar web tidak ada ruang kosong
+        document.body.style.marginTop = '0';
+    };
+    notifBanner.appendChild(closeBtn);
+
+    // Menampilkan banner ke halaman
+    document.body.appendChild(notifBanner);
+
+    // Menambahkan margin atas pada body agar konten tidak tertutup banner
+    document.body.style.marginTop = '45px'; 
+})();
+</script>
+    
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3fa5173a95c69ae',t:'MTc5MDE3NDU2OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

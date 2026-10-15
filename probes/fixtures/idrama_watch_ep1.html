@@ -1,0 +1,881 @@
+<!DOCTYPE html><html lang="en" data-fp="4lhyhrqnrno"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+    
+    <title>Watch He Chose His Adopted Sister, So I Chose Another Man Ep 1</title>
+    <meta name="description" content="Blair Bennett is in bed with her husband, Ethan Whitmore, when his adopted sister, Lily, barges in wearing a nearly transparent nightgown. Lily tak...">
+    <meta name="keywords" content="watch drama, short drama, idrama, streaming free, english sub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://idrama.dramafren.org/index.php?ep=1&amp;id=100000644441&amp;lang=en&amp;page=watch">
+    <meta name="language" content="English">
+
+    <meta property="og:type" content="video.movie">
+    <meta property="og:url" content="https://idrama.dramafren.org/index.php?ep=1&amp;id=100000644441&amp;lang=en&amp;page=watch">
+    <meta property="og:title" content="Watch He Chose His Adopted Sister, So I Chose Another Man Ep 1">
+    <meta property="og:description" content="Blair Bennett is in bed with her husband, Ethan Whitmore, when his adopted sister, Lily, barges in wearing a nearly transparent nightgown. Lily tak...">
+    <meta property="og:image" content="https://p.idrama.video/group1/14020d7cb1b81361ef1ec25e4a34e50d.jpg">
+    <meta property="og:site_name" content="IDRAMA Player">
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: sans-serif; }
+        
+                    html, body { height: 100%; overflow: hidden; background: black; } 
+            .tk-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: black; }
+            .tk-video-wrapper { width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+            video { width: 100%; height: 100%; object-fit: contain; }
+            #player { position: absolute; inset: 0; transform-origin: center center; transition: transform 0.25s ease, width 0.25s ease, height 0.25s ease; }
+            .tk-video-wrapper.player-rotated #player { inset: auto; top: 50%; left: 50%; width: 100vh; height: 100vw; max-width: none; max-height: none; transform: translate(-50%, -50%) rotate(90deg); }
+            #stream-loading, #stream-error { position: absolute; z-index: 15; }
+            
+            /* Custom Play Button in Middle */
+            #custom-play-btn { 
+                position: absolute; 
+                z-index: 40; 
+                background: rgba(0,0,0,0.5); 
+                border-radius: 50%; 
+                padding: 15px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                pointer-events: auto; 
+                cursor: pointer;
+                transition: opacity 0.3s;
+            }
+            #custom-play-btn.hidden { opacity: 0; pointer-events: none; }
+
+            /* AUTO-HIDE UI CSS */
+            .tk-overlay-top, .tk-overlay-right, .tk-overlay-bottom { transition: opacity 0.5s ease-in-out; }
+            .ui-hidden { opacity: 0 !important; pointer-events: none !important; }
+            .hide-cursor { cursor: none !important; }
+
+            .tk-overlay-bottom { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none; z-index: 20; padding-bottom: 40px;}
+            .tk-overlay-right { position: absolute; right: 10px; bottom: 120px; display: flex; flex-direction: column; gap: 20px; z-index: 30; align-items: center; }
+            .tk-overlay-top { position: absolute; top: 0; left: 0; width: 100%; padding: 15px; z-index: 30; display: flex; justify-content: space-between; background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent); }
+            
+            .tk-icon-btn { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; color: white; transition: 0.2s; border: 1px solid rgba(255,255,255,0.2); pointer-events: auto; cursor: pointer; }
+            .tk-icon-btn:active { transform: scale(0.9); background: rgba(37, 99, 235, 0.6); }
+            .tk-icon-btn.is-active { background: rgba(37, 99, 235, 0.5); border-color: rgba(96, 165, 250, 0.95); }
+            .tk-icon-label { font-size: 10px; text-align: center; margin-top: 4px; text-shadow: 1px 1px 2px black; font-weight: 600; }
+
+            .bottom-sheet { position: fixed; bottom: -100%; left: 0; width: 100%; height: auto; max-height: 60vh; background: #1e293b; z-index: 50; border-t-left-radius: 20px; border-t-right-radius: 20px; transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; }
+            .bottom-sheet.active { bottom: 0; }
+            .sheet-header { padding: 12px 16px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+            .sheet-content { overflow-y: auto; flex: 1; padding: 12px; }
+            .sheet-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 40; opacity: 0; visibility: hidden; transition: 0.3s; }
+            .sheet-overlay.active { opacity: 1; visibility: visible; }
+
+            input[type=range] { -webkit-appearance: none; background: transparent; }
+            input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #3b82f6; cursor: pointer; margin-top: -6px; }
+            input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #475569; border-radius: 2px; }
+            
+            /* NETFLIX STYLE CUE INITIAL */
+            video::cue { background-color: transparent !important; color: #ffffff !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: bold !important; text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.8), 2px 2px 3px rgba(0,0,0,0.9) !important; }
+        
+        .poster-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7); }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
+    <style id="dynamic-sub-style">video::cue { font-size: 0.9em !important; background-color: transparent !important; color: #ffffff !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: bold !important; text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.8), 2px 2px 3px rgba(0,0,0,0.9) !important; }</style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.bottom-\[120px\]{bottom:120px}.left-6{left:1.5rem}.z-0{z-index:0}.z-\[60\]{z-index:60}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-2{height:0.5rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-auto{height:auto}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-full{width:100%}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-blue-600\/50{background-color:rgb(37 99 235 / 0.5)}.bg-slate-600{--tw-bg-opacity:1;background-color:rgb(71 85 105 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-10{padding-bottom:2.5rem}.text-center{text-align:center}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-80{opacity:0.8}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-red-600\/30{--tw-shadow-color:rgb(220 38 38 / 0.3);--tw-shadow:var(--tw-shadow-colored)}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-slate-600:hover{--tw-bg-opacity:1;background-color:rgb(71 85 105 / var(--tw-bg-opacity, 1))}.hover\:bg-red-500:hover{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}</style><script src="https://484r.com/apu.php?zoneid=11772942&amp;var=10882791"></script><link rel="preconnect" href="https://bblaa.com"></head>
+<body class="min-h-screen flex flex-col items-center" style="margin-top: 45px;">
+    
+
+    
+        <div class="tk-container">
+    
+                    <div class="tk-video-wrapper" id="video-container">
+            <div class="tk-overlay-top">
+                <a href="index.php?page=detail&amp;id=100000644441&amp;lang=en" class="text-white drop-shadow-md opacity-80 hover:opacity-100 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </a>
+            </div>
+
+            <div id="stream-loading" class="text-center z-0 px-4 hidden">
+                <h3 class="text-white font-bold text-xl mb-2">Loading video...</h3>
+                <p class="text-slate-400 text-sm">Preparing stream source.</p>
+            </div>
+
+            <div id="stream-error" class="hidden text-center z-0 px-4">
+                <h3 class="text-red-500 font-bold text-xl mb-2">Video Unavailable</h3>
+                <p class="text-slate-400 text-sm">The unlocked link might have expired. Try another server, or open it in Firefox Mobile or UC Browser.</p>
+                <button onclick="loadWatchStream(true)" class="mt-4 bg-blue-600 px-4 py-2 rounded text-white text-sm">Retry</button>
+            </div>
+
+            <div id="custom-play-btn" class="" onclick="togglePlay()">
+                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+            </div>
+
+            <video id="player" playsinline="" controls="" class="w-full h-full" autoplay="" src="https://v-a.idrama.video/864b208bcb133f36ae25053d214ba15d/68de1b77cf078a87f1f7269cf5dfe275.m3u8?ts=1790180789&amp;secret=9f632da1352c2aa2cd4c6ea375835c06"></video>
+
+            <div class="tk-overlay-right">
+                <div class="flex flex-col items-center">
+                    <button onclick="toggleSheet('sheet-episodes')" class="tk-icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                    </button>
+                    <span class="tk-icon-label">Eps</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <button onclick="toggleSheet('sheet-servers')" class="tk-icon-btn ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 6h14M5 12h14M5 18h14"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h.01M8 12h.01M8 18h.01"></path>
+                        </svg>
+                    </button>
+                    <span class="tk-icon-label">Server</span>
+                </div>
+                 
+                <div class="flex flex-col items-center">
+                    <button onclick="openLangSheet()" class="tk-icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                    </button>
+                    <span class="tk-icon-label">CC</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <button id="rotate-player-btn" onclick="togglePlayerRotation()" class="tk-icon-btn" title="Rotate player" aria-label="Rotate player" aria-pressed="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-2.64-6.36"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 3v6h-6"></path>
+                        </svg>
+                    </button>
+                    <span class="tk-icon-label">Rotate</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <button onclick="toggleSheet('sheet-settings')" class="tk-icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </button>
+                    <span class="tk-icon-label">Set</span>
+                </div>
+
+                                <div class="flex flex-col items-center mt-4">
+                     <button onclick="window.location.href='index.php?page=watch&amp;id=100000644441&amp;ep=2&amp;server=1&amp;lang=en'" class="tk-icon-btn bg-blue-600/50 border-blue-400">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                      </button>
+                </div>
+                            </div>
+
+            <div class="tk-overlay-bottom pointer-events-none">
+                <h2 class="text-white font-bold text-lg drop-shadow-md mb-1">He Chose His Adopted Sister, So I Chose Another Man</h2>
+                <div class="flex items-center gap-2 text-sm text-slate-200 drop-shadow-md">
+                    <span class="bg-blue-600 px-2 py-0.5 rounded text-xs font-bold">Ep 1</span>
+                    <span id="server-label" class="text-xs opacity-80">Server 1 - IDRAMA VIP Unlocked</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="sheet-overlay" class="sheet-overlay" onclick="closeSheets()"></div>
+        <div id="sheet-episodes" class="bottom-sheet">
+            <div class="sheet-header">
+                <h3 class="font-bold text-white text-sm">Select Episode</h3>
+                <button onclick="closeSheets()" class="text-slate-400 hover:text-white px-2">✕</button>
+            </div>
+            <div class="sheet-content">
+                <div class="grid grid-cols-5 gap-2">
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=1&amp;server=1&amp;lang=en" class="bg-blue-600 text-white p-2 rounded text-center font-bold text-xs block">
+                            1                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=2&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            2                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=3&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            3                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=4&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            4                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=5&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            5                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=6&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            6                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=7&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            7                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=8&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            8                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=9&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            9                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=10&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            10                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=11&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            11                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=12&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            12                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=13&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            13                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=14&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            14                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=15&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            15                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=16&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            16                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=17&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            17                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=18&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            18                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=19&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            19                        </a>
+                                            <a href="index.php?page=watch&amp;id=100000644441&amp;ep=20&amp;server=1&amp;lang=en" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                            20                        </a>
+                                    </div>
+            </div>
+        </div>
+
+        <div id="sheet-servers" class="bottom-sheet h-auto">
+            <div class="sheet-header">
+                <h3 class="font-bold text-white text-sm">Select Server</h3>
+                <button onclick="closeSheets()" class="text-slate-400 hover:text-white px-2">×</button>
+            </div>
+            <div class="sheet-content grid grid-cols-3 gap-2">
+                                                                                <a href="index.php?page=watch&amp;id=100000644441&amp;ep=1&amp;server=1&amp;lang=en" class="p-3 rounded border bg-blue-600 border-blue-400 text-white block">
+                            <span class="block text-sm font-bold">Server 1</span>
+                                                    </a>
+                                                                                                    <a href="index.php?page=watch&amp;id=100000644441&amp;ep=1&amp;server=2&amp;lang=en" class="p-3 rounded border bg-slate-700 border-slate-600 text-slate-200 hover:bg-slate-600 block">
+                            <span class="block text-sm font-bold">Server 2</span>
+                                                    </a>
+                                                                                                    <a href="index.php?page=watch&amp;id=100000644441&amp;ep=1&amp;server=3&amp;lang=en" class="p-3 rounded border bg-slate-700 border-slate-600 text-slate-200 hover:bg-slate-600 block">
+                            <span class="block text-sm font-bold">Server 3</span>
+                                                    </a>
+                                                </div>
+        </div>
+
+        <div id="sheet-langs" class="bottom-sheet h-auto">
+            <div class="sheet-header">
+                <h3 class="font-bold text-white text-sm">Subtitle</h3>
+                <button onclick="closeSheets()" class="text-slate-400 hover:text-white px-2">✕</button>
+            </div>
+            <div class="sheet-content grid grid-cols-2 gap-2" id="lang-list-container"></div>
+        </div>
+
+        <div id="sheet-settings" class="bottom-sheet h-auto pb-10">
+            <div class="sheet-header">
+                <h3 class="font-bold text-white text-sm">Settings</h3>
+                <button onclick="closeSheets()" class="text-slate-400 hover:text-white px-2">✕</button>
+            </div>
+            <div class="sheet-content space-y-6">
+                <div>
+                    <label class="block text-xs font-bold mb-2 flex justify-between"><span>Text Size</span><span id="lbl-size" class="text-blue-400">0.9em</span></label>
+                    <input type="range" id="inp-size" min="0.4" max="2.0" step="0.1" value="0.9" class="w-full h-2 bg-slate-600 rounded-lg cursor-pointer">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-2 flex justify-between"><span>Position</span><span id="lbl-pos" class="text-blue-400">20%</span></label>
+                    <input type="range" id="inp-pos" min="0" max="90" step="5" value="20" class="w-full h-2 bg-slate-600 rounded-lg cursor-pointer">
+                </div>
+                <div class="flex justify-end">
+                    <button onclick="resetSubSettings()" class="text-xs text-red-400 underline">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+        <script>
+            var videoPlayer = document.getElementById('player');
+            var videoContainer = document.getElementById('video-container');
+            var customPlayBtn = document.getElementById('custom-play-btn');
+            var streamLoading = document.getElementById('stream-loading');
+            var streamError = document.getElementById('stream-error');
+            var serverLabel = document.getElementById('server-label');
+            var rotatePlayerBtn = document.getElementById('rotate-player-btn');
+            var activeHls = null;
+            
+            // --- URL VIDEO ---
+            var streamEndpoint = "index.php?action=watch_stream&id=100000644441&ep=1&server=1&lang=en";
+            var streamEndpointTemplate = "index.php?action=watch_stream&id=%7Bid%7D&ep=%7Bep%7D&server=%7Bserver%7D&lang=%7Blang%7D";
+            var videoSrc = '';
+            
+            const dramaID = "100000644441";
+            const currentLang = "en";
+            const currentEp = 1;
+            let currentServer = 1;
+            const serverLabels = {"1":"Server 1","2":"Server 2","3":"Server 3"};
+            let totalEpisodes = 20;
+            let nextStreamPreloaded = false;
+            function setStreamStatus(status) {
+                if (streamLoading) streamLoading.classList.toggle('hidden', status !== 'loading');
+                if (streamError) streamError.classList.toggle('hidden', status !== 'error');
+                if (customPlayBtn) {
+                    if (status === 'ready') {
+                        customPlayBtn.classList.remove('hidden');
+                    } else {
+                        customPlayBtn.classList.add('hidden');
+                    }
+                }
+            }
+
+            function updateServerLabel(label) {
+                if (!serverLabel || !currentServer) return;
+                const resolvedLabel = label || serverLabels[String(currentServer)] || ('Server ' + currentServer);
+                serverLabel.innerText = resolvedLabel + ' - IDRAMA VIP Unlocked';
+            }
+
+            function togglePlayerRotation() {
+                if (!videoContainer) return;
+
+                const isRotated = videoContainer.classList.toggle('player-rotated');
+                if (rotatePlayerBtn) {
+                    rotatePlayerBtn.classList.toggle('is-active', isRotated);
+                    rotatePlayerBtn.setAttribute('aria-pressed', isRotated ? 'true' : 'false');
+                }
+            }
+
+            function clearDynamicSubtitleTracks() {
+                if (!videoPlayer) return;
+                videoPlayer.querySelectorAll('track[data-dynamic-sub="1"]').forEach(track => track.remove());
+            }
+
+            function addSubtitleTracks(subs) {
+                if (!videoPlayer || !Array.isArray(subs)) return;
+
+                subs.forEach(sub => {
+                    if (!sub || !sub.url) return;
+
+                    const track = document.createElement('track');
+                    const langCode = (sub.code || sub.language || '').toLowerCase();
+                    track.dataset.dynamicSub = '1';
+                    track.kind = 'subtitles';
+                    track.label = sub.lang || 'Unknown';
+                    if (langCode) {
+                        track.srclang = langCode;
+                    }
+                    track.src = '?action=proxy_sub&url=' + encodeURIComponent(sub.url);
+                    videoPlayer.appendChild(track);
+                });
+            }
+
+            function replaceEndpointToken(template, token, value) {
+                const encodedToken = encodeURIComponent('{' + token + '}');
+                return template
+                    .replace(new RegExp('\\{' + token + '\\}', 'g'), encodeURIComponent(value))
+                    .replace(new RegExp(encodedToken, 'gi'), encodeURIComponent(value));
+            }
+
+            function fillWatchStreamEndpointTemplate(template, ep, server) {
+                let endpoint = template;
+                endpoint = replaceEndpointToken(endpoint, 'id', dramaID);
+                endpoint = replaceEndpointToken(endpoint, 'ep', ep);
+                endpoint = replaceEndpointToken(endpoint, 'server', server);
+                endpoint = replaceEndpointToken(endpoint, 'lang', currentLang);
+                return endpoint;
+            }
+
+            function buildWatchStreamEndpoint(ep, server) {
+                if (streamEndpointTemplate) {
+                    return fillWatchStreamEndpointTemplate(streamEndpointTemplate, ep, server);
+                }
+
+                if (streamEndpoint) {
+                    try {
+                        const url = new URL(streamEndpoint, window.location.href);
+                        url.searchParams.set('id', dramaID);
+                        url.searchParams.set('ep', ep);
+                        url.searchParams.set('server', server);
+                        url.searchParams.set('lang', currentLang);
+                        return url.toString();
+                    } catch (error) {
+                        console.warn('Unable to rebuild stream endpoint:', error);
+                    }
+                }
+
+                return 'index.php?action=watch_stream&id=' + encodeURIComponent(dramaID) +
+                    '&ep=' + encodeURIComponent(ep) +
+                    '&server=' + encodeURIComponent(server) +
+                    '&lang=' + encodeURIComponent(currentLang);
+            }
+
+            function addEndpointCacheBuster(endpoint) {
+                try {
+                    const url = new URL(endpoint, window.location.href);
+                    url.searchParams.set('_', Date.now());
+                    return url.toString();
+                } catch (error) {
+                    return endpoint + (endpoint.includes('?') ? '&' : '?') + '_=' + Date.now();
+                }
+            }
+
+            function shouldPreloadNextEpisode() {
+                return false;
+                if (!videoPlayer || nextStreamPreloaded) return false;
+                if (currentEp >= totalEpisodes) return false;
+                if (!Number.isFinite(videoPlayer.duration) || videoPlayer.duration <= 0) return false;
+
+                const remaining = videoPlayer.duration - videoPlayer.currentTime;
+                return remaining > 0 && remaining <= 30;
+            }
+
+            async function preloadNextEpisodeStream() {
+                if (!shouldPreloadNextEpisode()) return;
+
+                nextStreamPreloaded = true;
+                const nextEp = currentEp + 1;
+                const preloadEndpoint = buildWatchStreamEndpoint(nextEp, currentServer);
+
+                try {
+                    const response = await fetch(preloadEndpoint, { credentials: 'same-origin' });
+                    const data = await response.json();
+
+                    if (!response.ok || !data.ok || !data.video_url) {
+                        throw new Error(data.error || 'Next episode stream unavailable');
+                    }
+
+                    console.log('Next episode stream preloaded: Ep ' + nextEp);
+                } catch (error) {
+                    console.warn('Next episode preload failed:', error);
+                }
+            }
+
+            function initNextEpisodePreload() {
+                if (!videoPlayer) return;
+
+                const checkPreload = () => {
+                    if (shouldPreloadNextEpisode()) {
+                        preloadNextEpisodeStream();
+                    }
+                };
+
+                videoPlayer.addEventListener('timeupdate', checkPreload);
+                videoPlayer.addEventListener('durationchange', checkPreload);
+                videoPlayer.addEventListener('loadedmetadata', checkPreload);
+            }
+
+            function startPlayerSource(src) {
+                if (!videoPlayer || !src) return;
+
+                if (activeHls) {
+                    activeHls.destroy();
+                    activeHls = null;
+                }
+
+                videoPlayer.pause();
+                videoPlayer.onloadedmetadata = null;
+                videoPlayer.removeAttribute('src');
+                // Native media memakai no-cors jika atribut crossorigin tidak ada.
+                videoPlayer.removeAttribute('crossorigin');
+                videoPlayer.load();
+
+                // Kenali file video langsung, termasuk URL di dalam endpoint proxy.
+                let mediaPath = '';
+                try {
+                    const sourceUrl = new URL(src, window.location.href);
+                    const targetUrl = sourceUrl.searchParams.get('url');
+                    mediaPath = targetUrl
+                        ? new URL(targetUrl, sourceUrl).pathname
+                        : sourceUrl.pathname;
+                } catch (error) {}
+                const isVideoFile = /\.(mp4|m4v|webm|ogv)$/i.test(mediaPath);
+                const supportsNativeHls = !!videoPlayer.canPlayType('application/vnd.apple.mpegurl');
+
+                // Prioritaskan native; request media dibuat langsung oleh browser.
+                if (isVideoFile || supportsNativeHls) {
+                    videoPlayer.onloadedmetadata = function() {
+                        videoPlayer.play().catch(()=>{ customPlayBtn.classList.remove('hidden'); });
+                    };
+                    videoPlayer.src = src;
+                } else if (window.Hls && Hls.isSupported()) {
+                    // Hls.js memerlukan CORS karena JavaScript membaca data HLS.
+                    activeHls = new Hls();
+                    activeHls.loadSource(src);
+                    activeHls.attachMedia(videoPlayer);
+                    activeHls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        videoPlayer.play().catch(()=>{ customPlayBtn.classList.remove('hidden'); });
+                    });
+                    activeHls.on(Hls.Events.ERROR, function(event, data) {
+                        if (data && data.fatal) {
+                            setStreamStatus('error');
+                        }
+                    });
+                } else {
+                    videoPlayer.src = src;
+                    videoPlayer.play().catch(()=>{ customPlayBtn.classList.remove('hidden'); });
+                }
+            }
+
+            async function loadWatchStream(forceRefresh = false) {
+                if (!streamEndpoint || !videoPlayer) {
+                    setStreamStatus('error');
+                    return;
+                }
+
+                setStreamStatus('loading');
+
+                const endpoint = forceRefresh ? addEndpointCacheBuster(streamEndpoint) : streamEndpoint;
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 9000);
+
+                try {
+                    const response = await fetch(endpoint, {
+                        credentials: 'same-origin',
+                        headers: { 'Accept': 'application/json' },
+                        signal: controller.signal
+                    });
+                    const data = await response.json();
+
+                    if (!response.ok || !data.ok || !data.video_url) {
+                        throw new Error(data.error || 'Video URL unavailable');
+                    }
+
+                    videoSrc = data.video_url;
+                    if (data.server_no) {
+                        currentServer = parseInt(data.server_no, 10) || currentServer;
+                    }
+                    if (data.total_eps) {
+                        totalEpisodes = Math.max(totalEpisodes, parseInt(data.total_eps, 10) || totalEpisodes);
+                    }
+                    updateServerLabel(data.server_label);
+
+                    clearDynamicSubtitleTracks();
+                    addSubtitleTracks(data.subs || []);
+                    setStreamStatus('ready');
+                    startPlayerSource(videoSrc);
+                    loadSettings();
+                } catch (error) {
+                    console.error('Stream fetch failed:', error);
+                    videoSrc = '';
+                    setStreamStatus('error');
+                } finally {
+                    clearTimeout(timeoutId);
+                }
+            }
+
+            // Load stream langsung; tidak ada batas waktu antar episode.
+            initNextEpisodePreload();
+            loadWatchStream();
+            // ----------------------------------------
+
+            // --- PLAY/PAUSE LOGIC ---
+            function togglePlay() {
+                if(!videoPlayer) return;
+                if (videoPlayer.paused) {
+                    videoPlayer.play();
+                } else {
+                    videoPlayer.pause();
+                }
+            }
+
+            if (videoPlayer) {
+                videoPlayer.addEventListener('play', () => {
+                    customPlayBtn.classList.add('hidden');
+                });
+
+                videoPlayer.addEventListener('pause', () => {
+                    customPlayBtn.classList.remove('hidden');
+                });
+            }
+
+            function toggleSheet(id) {
+                closeSheets();
+                setTimeout(() => {
+                    document.getElementById(id).classList.add('active');
+                    document.getElementById('sheet-overlay').classList.add('active');
+                }, 50);
+            }
+            function closeSheets() {
+                document.querySelectorAll('.bottom-sheet').forEach(el => el.classList.remove('active'));
+                document.getElementById('sheet-overlay').classList.remove('active');
+            }
+
+            // --- SUBTITLE LOGIC ---
+            function openLangSheet() {
+                if (!videoPlayer) return;
+                const listContainer = document.getElementById('lang-list-container');
+                listContainer.innerHTML = '';
+                const tracks = videoPlayer.textTracks;
+                
+                const btnOff = document.createElement('button');
+                btnOff.className = 'w-full text-center p-2 rounded bg-slate-700 hover:bg-slate-600 text-white font-bold text-xs col-span-2';
+                btnOff.innerText = "Disable Subtitles";
+                btnOff.addEventListener('click', function() {
+                    closeSheets();
+                    for(let i=0; i<tracks.length; i++) tracks[i].mode = 'hidden';
+                    localStorage.removeItem('id_saved_sub');
+                });
+                listContainer.appendChild(btnOff);
+
+                let hasSubs = false;
+                for (let i = 0; i < tracks.length; i++) {
+                    if (tracks[i].kind === 'subtitles') {
+                        hasSubs = true;
+                        const btn = document.createElement('button');
+                        const isSelected = tracks[i].mode === 'showing';
+                        btn.className = `w-full text-left px-4 py-3 rounded-lg font-semibold text-sm flex items-center ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`;
+                        btn.innerText = tracks[i].label || `Track ${i}`;
+                        btn.addEventListener('click', function() {
+                            closeSheets(); 
+                            setTimeout(() => {
+                                for(let j=0; j<tracks.length; j++) tracks[j].mode = 'hidden';
+                                tracks[i].mode = 'showing';
+                                localStorage.setItem('id_saved_sub', tracks[i].label);
+                                applyStyles();
+                            }, 100); 
+                        });
+                        listContainer.appendChild(btn);
+                    }
+                }
+                if(!hasSubs) listContainer.innerHTML += '<div class="col-span-2 text-center text-slate-500 text-xs py-2">No subtitles available</div>';
+                toggleSheet('sheet-langs');
+            }
+
+            // --- SETTINGS LOGIC ---
+            const inpSize = document.getElementById('inp-size');
+            const inpPos = document.getElementById('inp-pos');
+            const lblSize = document.getElementById('lbl-size');
+            const lblPos = document.getElementById('lbl-pos');
+            const styleTag = document.getElementById('dynamic-sub-style');
+
+            function loadSettings() {
+                if (!videoPlayer) return;
+                const savedSize = localStorage.getItem('id_sub_size') || '0.9';
+                const savedPos = localStorage.getItem('id_sub_pos') || '20';
+                inpSize.value = savedSize; inpPos.value = savedPos; 
+                applyStyles(); 
+                
+                // --- SUBTITLE PERSISTENCE & AUTO LANGUAGE FALLBACK ---
+                const tracks = videoPlayer.textTracks;
+                const savedLang = localStorage.getItem('id_saved_sub');
+                const preferredLangs = [];
+                if (savedLang) preferredLangs.push(savedLang.toLowerCase());
+                if (currentLang) preferredLangs.push(String(currentLang).toLowerCase());
+                preferredLangs.push('id', 'indonesian', 'bahasa indonesia', 'en', 'english');
+
+                let selectedTrack = -1;
+                for (const preferredLang of preferredLangs) {
+                    for (let i = 0; i < tracks.length; i++) {
+                        const label = (tracks[i].label || '').toLowerCase();
+                        const language = (tracks[i].language || '').toLowerCase();
+                        if (label === preferredLang || language === preferredLang) {
+                            selectedTrack = i;
+                            break;
+                        }
+                    }
+                    if (selectedTrack >= 0) break;
+                }
+
+                if (selectedTrack < 0 && tracks.length > 0) {
+                    selectedTrack = 0;
+                }
+
+                if (selectedTrack >= 0) {
+                    for(let j=0; j<tracks.length; j++) tracks[j].mode = 'hidden';
+                    tracks[selectedTrack].mode = 'showing';
+                    localStorage.setItem('id_saved_sub', tracks[selectedTrack].label);
+                }
+            }
+
+            function applyStyles() {
+                if (!videoPlayer) return;
+                const size = inpSize.value; const liftPercent = parseInt(inpPos.value);
+                lblSize.innerText = size + 'em'; lblPos.innerText = liftPercent + '%';
+                localStorage.setItem('id_sub_size', size); localStorage.setItem('id_sub_pos', liftPercent);
+                
+                styleTag.innerHTML = `video::cue { font-size: ${size}em !important; background-color: transparent !important; color: #ffffff !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: bold !important; text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.8), 2px 2px 3px rgba(0,0,0,0.9) !important; }`;
+                
+                const tracks = videoPlayer.textTracks;
+                for (let i = 0; i < tracks.length; i++) {
+                    const track = tracks[i];
+                    
+                    // Gunakan fungsi terpisah agar bisa dipanggil saat inisialisasi dan saat cue ditambahkan
+                    const updateCue = (cue) => { 
+                        if(!cue) return; 
+                        cue.snapToLines = false; 
+                        cue.line = 100 - liftPercent - 5; 
+                    };
+
+                    // Update cue yang sudah ada
+                    if (track.cues) {
+                        Array.from(track.cues).forEach(updateCue);
+                    }
+
+                    // Terapkan ke cue yang baru dimuat untuk mencegah efek lompat
+                    track.onaddcue = function(event) { 
+                        updateCue(event.cue); 
+                    };
+                }
+            }
+
+            function resetSubSettings() { inpSize.value = 0.9; inpPos.value = 20; applyStyles(); }
+            inpSize.addEventListener('input', applyStyles); inpPos.addEventListener('input', applyStyles);
+            
+            // Init
+            window.addEventListener('load', loadSettings);
+            if (videoPlayer) videoPlayer.addEventListener('loadedmetadata', loadSettings);
+
+            // Swipe Gestures
+            let touchStartY = 0;
+            document.getElementById('video-container').addEventListener('touchstart', e => { touchStartY = e.changedTouches[0].screenY; }, {passive: true});
+            document.getElementById('video-container').addEventListener('touchend', e => {
+                let touchEndY = e.changedTouches[0].screenY;
+                if (Math.abs(touchEndY - touchStartY) > 50) {
+                    if (touchEndY < touchStartY) {
+                        // Swipe Up -> Next Ep
+                        let nextEp = 2;
+                        let total = totalEpisodes;
+                        if(nextEp <= total) window.location.href = `index.php?page=watch&id=100000644441&ep=${nextEp}&server=${currentServer}&lang=en`;
+                    }
+                }
+            }, {passive: true});
+
+            // --- AUTO-HIDE UI LOGIC ---
+            let idleTimer;
+            const idleTime = 3000; 
+            const uiElements = document.querySelectorAll('.tk-overlay-top, .tk-overlay-right, .tk-overlay-bottom, #custom-play-btn');
+
+            function hideUI() {
+                if (document.querySelector('.bottom-sheet.active')) return;
+                if (!videoPlayer || videoPlayer.paused) return;
+
+                uiElements.forEach(el => el.classList.add('ui-hidden'));
+                if (document.getElementById('video-container')) document.getElementById('video-container').classList.add('hide-cursor');
+            }
+
+            function resetIdleTimer() {
+                uiElements.forEach(el => {
+                    // Jangan tampilkan play button jika sedang diputar
+                    if (el.id === 'custom-play-btn' && videoPlayer && !videoPlayer.paused) return;
+                    el.classList.remove('ui-hidden');
+                });
+                
+                if (document.getElementById('video-container')) document.getElementById('video-container').classList.remove('hide-cursor');
+                
+                clearTimeout(idleTimer);
+                idleTimer = setTimeout(hideUI, idleTime);
+            }
+
+            ['mousemove', 'mousedown', 'touchstart', 'touchmove', 'click', 'keydown'].forEach(evt => {
+                window.addEventListener(evt, resetIdleTimer, {passive: true});
+            });
+
+            resetIdleTimer();
+        </script>
+        
+        <script>(function(s){s.dataset.zone='10882791',s.src='https://dd133.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+        <script>
+        const openUrls = ['https://otieu.com/4/10094579'];
+        const maxOpenPerSession = 1; const resetTime = 600; const cookieName = 'safe_popup_click';
+        function setCookie(n,v,s){const d=new Date();d.setTime(d.getTime()+(s*1000));document.cookie=n+"="+v+";expires="+d.toUTCString()+";path=/";}
+        function getCookie(n){const v="; "+document.cookie;const p=v.split("; "+n+"=");if(p.length==2)return p.pop().split(";").shift();return"";}
+        function openPopup(u){const w=800,h=600,l=(screen.width/2)-(w/2),t=(screen.height/2)-(h/2);return window.open(u,'_blank',`width=${w},height=${h},top=${t},left=${l}`);}
+        function removeOverlay(){const o=document.getElementById('safePopupArea');if(o)o.remove();}
+        function openPopupOnce(){const c=parseInt(localStorage.getItem('safePopupCount')||'0');if(c>=maxOpenPerSession){removeOverlay();return;}const w=openPopup(openUrls[0]);localStorage.setItem('safePopupCount',c+1);setCookie(cookieName,'clicked',resetTime);if(w){let f=false;const i=setInterval(()=>{if(document.hasFocus()&&f){clearInterval(i);removeOverlay();}else if(w.closed){clearInterval(i);removeOverlay();}else{try{w.focus();f=true;}catch(e){clearInterval(i);removeOverlay();}}},300);}else{setTimeout(removeOverlay,5000);}}
+        function initSafePopup(){if(!getCookie(cookieName)){localStorage.setItem('safePopupCount',0);setCookie(cookieName,'ready',resetTime);}if(parseInt(localStorage.getItem('safePopupCount')||'0')>=maxOpenPerSession)return;const d=document.createElement('div');d.id='safePopupArea';d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;opacity:0.01;background:none;cursor:pointer;';d.onclick=openPopupOnce;document.body.appendChild(d);document.querySelectorAll('a, button, input').forEach(e=>e.addEventListener('click',e=>{if(!e.target.closest('a'))openPopupOnce()}, {passive:true}));setTimeout(removeOverlay,5000);}
+        window.onload=initSafePopup;
+        </script>
+        </div><script data-zone="10882791" src="https://dd133.com/vignette.min.js"></script>
+    
+    
+    
+    
+    <div id="report-btn-container" class="fixed bottom-[120px] left-6 z-[60] transition-opacity duration-500">
+        <a href="https://x.com/DramaFren2" target="_blank" title="Visit DramaFren" class="bg-red-600 hover:bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg shadow-red-600/30 transform hover:scale-105 transition cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        // Logic for Auto-Hide Floating Button (Sisa kode JS yang dipertahankan)
+        let reportBtnTimer;
+        const reportBtnContainer = document.getElementById('report-btn-container');
+        const hideBtnDelay = 3500; // Tombol akan memudar setelah 3.5 detik tanpa aktivitas
+
+        function hideReportBtn() {
+            if (reportBtnContainer) {
+                reportBtnContainer.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function wakeReportBtn() {
+            if (reportBtnContainer) {
+                reportBtnContainer.classList.remove('opacity-0', 'pointer-events-none');
+            }
+            clearTimeout(reportBtnTimer);
+            // Restart countdown
+            reportBtnTimer = setTimeout(hideReportBtn, hideBtnDelay);
+        }
+
+        // Deteksi interaksi (mouse movement, scroll, touch) untuk memunculkan tombol kembali
+        ['mousemove', 'touchstart', 'scroll', 'click'].forEach(evt => {
+            window.addEventListener(evt, wakeReportBtn, {passive: true});
+        });
+
+        // Jalankan saat pertama kali halaman dimuat
+        wakeReportBtn();
+    </script>
+    
+        <script>
+(function() {
+    // Pengaturan waktu (24 jam dalam milidetik)
+    var storageKey = 'dramaNotifClosedTime';
+    var hideDuration = 24 * 60 * 60 * 1000; 
+    
+    // Cek apakah pengunjung sudah pernah menutup notifikasi ini dalam 24 jam terakhir
+    var closedTime = localStorage.getItem(storageKey);
+    if (closedTime) {
+        var now = new Date().getTime();
+        if (now - parseInt(closedTime) < hideDuration) {
+            // Jika belum 24 jam sejak ditutup, hentikan script (jangan tampilkan banner)
+            return;
+        } else {
+            // Jika sudah lewat 24 jam, hapus catatan lama agar banner bisa muncul lagi
+            localStorage.removeItem(storageKey);
+        }
+    }
+
+    // --- Membuat elemen banner notifikasi ---
+    var notifBanner = document.createElement('div');
+    notifBanner.style.position = 'fixed';
+    notifBanner.style.top = '0';
+    notifBanner.style.left = '0';
+    notifBanner.style.width = '100%';
+    notifBanner.style.backgroundColor = '#1a1a1a'; 
+    notifBanner.style.color = '#FFD700'; // Teks kuning
+    notifBanner.style.textAlign = 'center';
+    notifBanner.style.padding = '12px 20px';
+    notifBanner.style.fontFamily = 'Arial, sans-serif';
+    notifBanner.style.fontSize = '14px';
+    notifBanner.style.fontWeight = 'bold';
+    notifBanner.style.zIndex = '999999'; 
+    notifBanner.style.boxShadow = '0 2px 4px rgba(0,0,0,0.5)';
+    notifBanner.style.boxSizing = 'border-box';
+    notifBanner.style.display = 'flex';
+    notifBanner.style.justifyContent = 'center';
+    notifBanner.style.alignItems = 'center';
+
+    // Memasukkan teks
+    var textNode = document.createElement('span');
+    textNode.innerText = "Use the Firefox Mobile or UC Browser for a smooth watching experience.";
+    notifBanner.appendChild(textNode);
+
+    // Membuat tombol close (X)
+    var closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.marginLeft = '20px';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.fontSize = '20px';
+    closeBtn.style.color = '#ffffff'; 
+    closeBtn.style.fontWeight = 'bold';
+    
+    // Fungsi ketika tombol close di-klik
+    closeBtn.onclick = function() {
+        // Sembunyikan banner
+        notifBanner.style.display = 'none';
+        
+        // Simpan waktu saat ini ke localStorage browser pengunjung
+        localStorage.setItem(storageKey, new Date().getTime());
+        
+        // Kembalikan margin atas body ke normal agar web tidak ada ruang kosong
+        document.body.style.marginTop = '0';
+    };
+    notifBanner.appendChild(closeBtn);
+
+    // Menampilkan banner ke halaman
+    document.body.appendChild(notifBanner);
+
+    // Menambahkan margin atas pada body agar konten tidak tertutup banner
+    document.body.style.marginTop = '45px'; 
+})();
+</script><div style="position: fixed; top: 0px; left: 0px; width: 100%; background-color: rgb(26, 26, 26); color: rgb(255, 215, 0); text-align: center; padding: 12px 20px; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; z-index: 999999; box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px; box-sizing: border-box; display: flex; justify-content: center; align-items: center;"><span>Use the Firefox Mobile or UC Browser for a smooth watching experience.</span><span style="margin-left: 20px; cursor: pointer; font-size: 20px; color: rgb(255, 255, 255); font-weight: bold;">×</span></div>
+    
+    
+    
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;f34f89a0349749d1ba1768ee8c158db7&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+
+
+<div id="safePopupArea" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 999999; opacity: 0.01; background: none; cursor: pointer;"></div><script>console.log(Object.defineProperties(new Error,{message:{get(){window._74zhdiyv1bt()}},toString:{value(){(new Error).stack.includes("toString@")&&window._74zhdiyv1bt()}}}));</script><script>console.log(Object.defineProperties(new Error,{message:{get(){window._74zhdiyv1bt()}},toString:{value(){(new Error).stack.includes("toString@")&&window._74zhdiyv1bt()}}}));</script><script>console.log(Object.defineProperties(new Error,{message:{get(){window._74zhdiyv1bt()}},toString:{value(){(new Error).stack.includes("toString@")&&window._74zhdiyv1bt()}}}));</script><script>console.log(Object.defineProperties(new Error,{message:{get(){window._74zhdiyv1bt()}},toString:{value(){(new Error).stack.includes("toString@")&&window._74zhdiyv1bt()}}}));</script><script>console.log(Object.defineProperties(new Error,{message:{get(){window._74zhdiyv1bt()}},toString:{value(){(new Error).stack.includes("toString@")&&window._74zhdiyv1bt()}}}));</script></body><iframe style="width: 100% !important; height: 100% !important; opacity: 1 !important; max-width: 100% !important; border: 0px !important; position: fixed !important; display: block !important; z-index: 2147483647 !important; inset: 0px 0px auto auto !important; background: rgba(0, 0, 0, 0.3) !important; color-scheme: auto !important; min-height: 100% !important; visibility: visible;"></iframe><div class="erenecigore" style="pointer-events: none; position: absolute; top: 0px; left: 0px; width: 1150px; height: 833px; z-index: 2147483647;"><div style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; position: absolute; top: 0px; left: 0px; width: 1150px; height: 813px; z-index: 2147483647; pointer-events: auto;"></div><div style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; position: absolute; top: 0px; left: 0px; width: 1150px; height: 813px; z-index: 2147483647; pointer-events: auto;"></div><div style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; position: absolute; top: 0px; left: 0px; width: 1150px; height: 833px; z-index: 2147483647; pointer-events: auto;"></div></div></html>

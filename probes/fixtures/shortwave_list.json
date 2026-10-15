@@ -1,0 +1,22 @@
+{
+ "dramas": [
+  {
+   "id": "6ab3b019da8012969fdd38a4",
+   "cover": "https://s.shortswave.com/image/cover/36110.webp",
+   "title": "Astroward",
+   "episodes": 35
+  },
+  {
+   "id": "6ab24d039a796878279a1e0f",
+   "cover": "https://s.shortswave.com/image/cover/35682.webp",
+   "title": "Ember's Return: The Phoenix Who Saved Her House",
+   "episodes": 35
+  },
+  {
+   "id": "6ab24cfd9a796878279a1e07",
+   "cover": "https://s.shortswave.com/image/cover/35681.webp",
+   "title": "The Demon's Soul Pact",
+   "episodes": 35
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "success": true,
+ "platform": "tv",
+ "language": "en",
+ "data": {
+  "isMore": true,
+  "book": {
+   "list": [
+    {
+     "id": "eyJzaWQiOiIyODkyMjM2Njk5NjMzOTU5NDMyIiwicGlkIjoicGxhc3RpYy1iZWF1dHktb0dGb0cwcnRFcjMifQ==",
+     "name": "Plastic Beauty",
+     "cover": "https://pbcdnw.aoneroom.com/image/2026/09/09/52d2bcfa86a63289d9697821a50fcad7.jpg",
+     "badge": "DracinKu",
+     "introduction": "",
+     "tags": [
+      "Drama"
+     ],
+     "chapterCount": 0,
+     "playCount": "100k"
+    },
+    {
+     "id": "eyJzaWQiOiI2NDE2MDg4NjE2NzM2ODEwMDA4IiwicGlkIjoibm90LWEtc3RyYW5nZXItd0lhekc3S0tYRDcifQ==",
+     "name": "Not a Stranger",
+     "cover": "https://pbcdnw.aoneroom.com/image/2026/09/09/da6a4b702f77fc0971f52f9826c580de.jpg",
+     "badge": "DracinKu",
+     "introduction": "",
+     "tags": [
+      "Drama",
+      "Thriller"
+     ],
+     "chapterCount": 0,
+     "playCount": "100k"
+    },
+    {
+     "id": "eyJzaWQiOiIzMjcwNzA0MTA2NzQ2MzExMjU2IiwicGlkIjoic3ByaW5nLW9mLXRoZS1ibGFkZS1RTVZpWFdoUkJUMyJ9",
+     "name": "Spring of the Blade",
+     "cover": "https://pbcdnw.aoneroom.com/image/2026/09/17/fab92530fed3593e53969f8149b26585.jpg",
+     "badge": "DracinKu",
+     "introduction": "",
+     "tags": [
+      "Drama",
+      "Family"
+     ],
+     "chapterCount": 0,
+     "playCount": "100k"
+    }
+   ]
+  },
+  "page_info": {
+   "type": "SORT BY",
+   "key": "Latest",
+   "positionIndex": 2,
+   "has_more": true,
+   "hasMore": true,
+   "nextPage": "2",
+   "page": "1",
+   "perPage": 18,
+   "totalCount": 34687
+  }
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "title": "EP 1",
+ "episodeNumber": 1,
+ "totalEpisodes": 51,
+ "locked": false,
+ "videoUrl": "https://hwztakavideoto.dramaboxdb.com/4c76371726a9fe8d41aee73d37e750d8/6ad5b861/23/6x3/63x8/638x3/63832000024/701469832_1/701469832.1080p.nav2.mp4",
+ "qualityList": [
+  {
+   "label": "1080p",
+   "url": "https://hwztakavideoto.dramaboxdb.com/4c76371726a9fe8d41aee73d37e750d8/6ad5b861/23/6x3/63x8/638x3/63832000024/701469832_1/701469832.1080p.nav2.mp4",
+   "format": "mp4"
+  },
+  {
+   "label": "720p",
+   "url": "https://hwztakavideoto.dramaboxdb.com/c15f2456d813a591ea83da04c2a7a7b8/6ad5b861/23/6x3/63x8/638x3/63832000024/701469832_1/701469832.720p.narrowv3.mp4",
+   "format": "mp4"
+  },
+  {
+   "label": "540p",
+   "url": "https://hwztakavideoto.dramaboxdb.com/5a9248bac3ad11a8af641b9ee900e297/6ad5b861/23/6x3/63x8/638x3/63832000024/701469832_1/701469832.540p.narrowv2.mp4",
+   "format": "mp4"
+  }
+ ],
+ "sourceServer": "1"
+}

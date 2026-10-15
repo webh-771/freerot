@@ -1,0 +1,47 @@
+{
+ "_note": "trimmed from 1882 items; providers seen: ['anamana', 'blinkdrama', 'bonustv', 'candyjar', 'cubetv', 'dramabox', 'dramanova', 'dramawave', 'filmbox', 'flareflow', 'flextv', 'flextv2', 'freereels', 'happyshort', 'iqiyi', 'joyreels', 'kalostv', 'melolo', 'moboreels', 'mydrama', 'netshort', 'pinedrama', 'rapidtv', 'rapidtv2', 'raptdrama', 'reelife', 'reelshort', 'sereal', 'shorten', 'storyreel', 'vibeshort', 'vigloo', 'wetv']",
+ "offset": 0,
+ "data": [
+  {
+   "id": "6755447851780063184_setan-togel-djoerig-salawe-ajfCkLp1238",
+   "provider": "filmbox",
+   "title": "Setan Togel: Djoerig Salawe",
+   "cover": "https://pbcdnw.aoneroom.com/image/2026/07/23/5cea99e1b2fa5496a166779d6b0cb7fe.jpg",
+   "intro": "Komedi,Kengerian",
+   "episodes": 1
+  },
+  {
+   "id": "488613190427992216_ill-hold-you-always-I2USOdVQ5A",
+   "provider": "filmbox",
+   "title": "I'll Hold You Always",
+   "cover": "https://pbcdnw.aoneroom.com/image/2026/09/21/3dd267f00b7727f38753c79e00054075.jpg",
+   "intro": "Drama",
+   "episodes": 1
+  },
+  {
+   "id": "34609",
+   "provider": "storyreel",
+   "title": "THE QUEEN OF THE BLACK EMPIRE",
+   "cover": "https://volcengine-forward.storyreel.life/images/cover/2026/08/29/f6517003a7c5483fbe9c655e237932f0.jpg?auth_key=1789945044-0-0-56fc6213c0f7aadbfa6b9eb8809056f7&process=mediagate",
+   "intro": "He humiliated her before the Five Families. His secretary stole her seat, demanded a million dollars, and mocked her as a nobody. Even her fiancé chose to protect the wrong woman and publicly rejected her. But what none of them knew was that the quiet woman they insulted was the youngest Mafia Commissioner in history. One phone call brought the succession ceremony to a halt. One order shook the entire Mafia world. As the Moretti Family watched everything they had built begin to collapse, the man",
+   "episodes": 25
+  },
+  {
+   "id": "7674243081832125461",
+   "provider": "pinedrama",
+   "title": "My Secret Billionaire Sister",
+   "cover": "https://p19-common-sign.tiktokcdn.com/tos-alisg-i-fjfgkmyddx-sg/d53218d21f8249129a199576ab66cb67~tplv-tiktokx-cropcenter:540:720.jpeg?dr=14579&refresh_token=404f61b6&x-expires=1790186400&x-signature=FRkj1uzoHmmrT6O3P5%2BinmtFe7k%3D&t=4d5b0474&ps=13740610&shp=9796c3d4&shcp=9b759fb9&idc=my2",
+   "intro": "Urban life, Family bonds, Family & ethics",
+   "episodes": 62
+  },
+  {
+   "id": "2466",
+   "provider": "raptdrama",
+   "title": "The Ghost Wedding Coffin",
+   "cover": "https://apis.raptdrama.com/public/uploads/images/20260810/e997e02392edcaf08a7d973957a7d1fb.jpg",
+   "intro": "Zhao Guanshan gradually discovers that Qin Zhaoning is not the true evil spirit.",
+   "episodes": 18,
+   "author": "The Ghost Wedding Coffin"
+  }
+ ]
+}

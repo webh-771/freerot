@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520">
+  <rect width="1600" height="520" fill="#0B0B0C"/>
+  <g transform="translate(60 -252) scale(1)">
+  </g>
+  <image href="logo.png" x="80" y="100" width="320" height="320"/>
+  <text x="440" y="330" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="200" letter-spacing="-6"><tspan fill="#F5F1EA">Free</tspan><tspan fill="#FF6B5B">Rot</tspan></text>
+</svg>

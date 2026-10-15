@@ -1,0 +1,16 @@
+{
+ "title": "NetShort Episode 1",
+ "episodeNumber": 1,
+ "totalEpisodes": 30,
+ "locked": false,
+ "videoUrl": "https://ns-aws-cdn.netshort.com/o8I63qJOffCRQEDvqQHszAEqfFNxNrnMlwEAAC?a=0&auth_key=1790579424-bc3266670435446eb65d2552fd8afb76-0-8640ba6a651d2ddd40b39b630d51db10&br=703&bt=703&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=8657962bd1724fb59c29726dd41b8298&er=0&l=202609180708028B945ECB9D664AC0BBA0&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzt4M3c5cnVnZDozMzZoNEApPDs0Zzk6NTxlNzpnNTw4O2cuXmctMmRzbWphMi1kXjVzczUvXzFhLzZgMmMvLl8zNDM6Yw%3D%3D&vl=&vr=",
+ "qualityList": [
+  {
+   "label": "MP4",
+   "url": "https://ns-aws-cdn.netshort.com/o8I63qJOffCRQEDvqQHszAEqfFNxNrnMlwEAAC?a=0&auth_key=1790579424-bc3266670435446eb65d2552fd8afb76-0-8640ba6a651d2ddd40b39b630d51db10&br=703&bt=703&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=8657962bd1724fb59c29726dd41b8298&er=0&l=202609180708028B945ECB9D664AC0BBA0&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzt4M3c5cnVnZDozMzZoNEApPDs0Zzk6NTxlNzpnNTw4O2cuXmctMmRzbWphMi1kXjVzczUvXzFhLzZgMmMvLl8zNDM6Yw%3D%3D&vl=&vr=",
+   "format": "mp4"
+  }
+ ],
+ "sourceServer": "1",
+ "subtitles": []
+}

@@ -1,0 +1,41 @@
+{
+ "code": 0,
+ "message": "ok",
+ "data": {
+  "streams": [
+   {
+    "format": "MP4",
+    "id": "7809410040880156568",
+    "url": "https://bcdnxw.hakunaymatata.com/bt/2a065f401d54c7e2249e2680f7305e92.mp4?sign=c9e2a29d88003a93080a9ef32361ad50&t=1790174576",
+    "resolutions": "360",
+    "size": "181844134",
+    "duration": 3935,
+    "codecName": "h264"
+   },
+   {
+    "format": "MP4",
+    "id": "7564553199420863064",
+    "url": "https://bcdnxw.hakunaymatata.com/bt/b3c4bd151b7c87b7fb7d09222dcbde9c.mp4?sign=90bc622ae59551e6c37ed8ddb00293ec&t=1790174576",
+    "resolutions": "480",
+    "size": "330129438",
+    "duration": 3935,
+    "codecName": "h264"
+   },
+   {
+    "format": "MP4",
+    "id": "8474532112312463888",
+    "url": "https://bcdnxw.hakunaymatata.com/cms/01155834674d6001d22a106e28274968.mp4?sign=43a2c054ae6274ad14c2771794d3c735&t=1790174576",
+    "resolutions": "1080",
+    "size": "978777436",
+    "duration": 3935,
+    "codecName": "h264"
+   }
+  ],
+  "freeNum": 6,
+  "limited": false,
+  "limitedCode": "",
+  "dash": [],
+  "hls": [],
+  "hasResource": true
+ }
+}

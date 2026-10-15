@@ -1,0 +1,13 @@
+{
+    "ok": true,
+    "server": 2,
+    "videoUrl": "https://video.netshort.com/oAggiBeIrVY2VbigUIFabFf6LKAML6UpGfea0w?a=0&auth_key=1790837860-1e38edcd3d504ca0a712716a697a8c43-0-3c64603830b7f0aec9d258ed916d9701&br=644&bt=644&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=ce2eac363afc4fa89e288ef3c9ef5cd5&er=0&l=20260921065625A217D3A6E626BBC94FE5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amtuNHk5cm1nZDozMzZoNEApZzhoZmk7NTxkN2k2NmQ1Zmc1Ml9pMmRjM2xhMi1kXjVzczJgYzYwYjViNWNgXjNgYmI6Yw%3D%3D&vl=&vr=",
+    "qualities": [
+        {
+            "quality": "Default",
+            "url": "https://video.netshort.com/oAggiBeIrVY2VbigUIFabFf6LKAML6UpGfea0w?a=0&auth_key=1790837860-1e38edcd3d504ca0a712716a697a8c43-0-3c64603830b7f0aec9d258ed916d9701&br=644&bt=644&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=ce2eac363afc4fa89e288ef3c9ef5cd5&er=0&l=20260921065625A217D3A6E626BBC94FE5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amtuNHk5cm1nZDozMzZoNEApZzhoZmk7NTxkN2k2NmQ1Zmc1Ml9pMmRjM2xhMi1kXjVzczJgYzYwYjViNWNgXjNgYmI6Yw%3D%3D&vl=&vr="
+        }
+    ],
+    "subtitles": [],
+    "source": "Server 2 remote"
+}

@@ -1,0 +1,22 @@
+{
+ "dramas": [
+  {
+   "id": "6a2693a16a0ce134cb5c6abf",
+   "cover": "https://s.shortswave.com/image/cover/18465.webp",
+   "title": "Married Into Love",
+   "episodes": 79
+  },
+  {
+   "id": "6a265b7490289568be019714",
+   "cover": "https://s.shortswave.com/image/cover/18406.webp",
+   "title": "Love Debt：The Mafia's First Love",
+   "episodes": 57
+  },
+  {
+   "id": "69f1ca58ecbd698095566887",
+   "cover": "https://s.shortswave.com/image/cover/15981.webp",
+   "title": "Accidentally in Love",
+   "episodes": 62
+  }
+ ]
+}

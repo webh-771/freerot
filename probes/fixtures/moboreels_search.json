@@ -1,0 +1,69 @@
+{
+ "code": 200,
+ "data": {
+  "pageNo": 1,
+  "pageSize": 20,
+  "total": 348,
+  "items": [
+   {
+    "seriesId": 83764322,
+    "seriesName": "Sign for Revenge, Stay for Love",
+    "coverUrl": "https://video-cdn3.cdreader.com//backend/1640191789902429225.webp",
+    "description": "Colin, adopted son of the Bishop family, is drugged and framed by his adoptive brother Kyle and fiancée Jenna. He wakes up in Empire Group CEO Aman's bed and loses everything. Jenna calls off the wedding, Kyle steals his shares, and his foster father throws him out. Colin signs a contract marriage with Aman for revenge. They take down the enemies, and between the schemes and the battles, Colin falls hard. Then he discovers his foster mother murdered his birth mother and Aman's father helps her. Together, they send both to prison. In the end, Colin and Aman exchange vows in the cathedral, not as a deal, but as a promise.",
+    "totalEpisodes": 65,
+    "freeEpisodes": 8,
+    "status": "completed",
+    "genres": [
+     "BL",
+     "Revenge",
+     "Contractual Marriage",
+     "Comeback",
+     "Modern Love",
+     "Billionaires"
+    ]
+   },
+   {
+    "seriesId": 65305322,
+    "seriesName": "Burning Love: What If I Never Get Over You",
+    "coverUrl": "https://video-cdn3.cdreader.com//backend/1640191786603299023.webp",
+    "description": "After three years of a loveless contract marriage, Cheryl gets divorce papers from husband Jarred the day she learns she is pregnant. His fake savior Ines causes her miscarriage, so Cheryl leaves to build a successful design career. When Jarred learns Cheryl was his real childhood rescuer, he chases her, and they reconcile after his blinding car crash and Cheryl saving him.",
+    "totalEpisodes": 53,
+    "freeEpisodes": 10,
+    "status": "completed",
+    "genres": [
+     "Broken Heart",
+     "Hard-win Love",
+     "Divorce",
+     "Modern",
+     "Modern Romance"
+    ]
+   },
+   {
+    "seriesId": 57284322,
+    "seriesName": "A Decade's Love, My True Guardian",
+    "coverUrl": "https://video-cdn3.cdreader.com/backend/209152048252230558.jpg",
+    "description": "Daniela is an heiress and the founder of LX, a mysterious business empire. But to pursue Alexander, she willingly hides her talent and drops her career. After ten years, when she's finally about to marry him, her jealous stepsister Joyce tries to burn her alive, leaving her badly hurt. When she sees how Alexander and her family favor Joyce and blame her instead, she gives up on Alexander and divorces him. She wants revenge, and her childhood friend Cedric comes to her assistance. The business genius is back with her loyal guardian.",
+    "totalEpisodes": 60,
+    "freeEpisodes": 7,
+    "status": "completed",
+    "genres": [
+     "Modern Love",
+     "Power fantasy",
+     "Counterattack",
+     "Revenge",
+     "Redemption"
+    ]
+   }
+  ],
+  "tags": [
+   {
+    "typeId": 127745427106836290,
+    "typeName": "First Love"
+   },
+   {
+    "typeId": 128847311747680580,
+    "typeName": "True Love"
+   }
+  ]
+ }
+}

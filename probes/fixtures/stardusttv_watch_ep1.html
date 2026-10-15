@@ -1,0 +1,591 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+    
+    <title>Stardust Player - Watch Free Dramas</title>
+    <meta name="description" content="Watch trending short dramas for free.">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Stardust Player - Watch Free Dramas">
+    <meta property="og:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=Stardust+Player">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+          
+                    html, body { height: 100%; overflow: hidden; background: black; } 
+            .tk-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: black; }
+            .tk-video-wrapper { width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+            video { width: 100%; height: 100%; object-fit: contain; }
+            video.tk-rotated {
+                width: 100vh !important;
+                height: 100vw !important;
+                max-width: none;
+                max-height: none;
+                transform: rotate(90deg);
+                transform-origin: center center;
+            }
+            @supports (height: 100dvh) {
+                video.tk-rotated {
+                    width: 100dvh !important;
+                    height: 100dvw !important;
+                }
+            }
+            
+            /* GAYA SUBTITLE NETFLIX STYLE */
+            video::cue {
+                background-color: transparent !important;
+                color: #ffffff;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-weight: 700;
+                text-shadow: 
+                    0px 0px 4px rgba(0,0,0, 1),
+                    -1px -1px 1px rgba(0,0,0, 1),
+                    1px -1px 1px rgba(0,0,0, 1),
+                    -1px 1px 1px rgba(0,0,0, 1),
+                    1px 1px 1px rgba(0,0,0, 1) !important;
+            }
+
+            .tk-overlay-bottom { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none; z-index: 20; padding-bottom: 40px;}
+            .tk-overlay-right { position: absolute; right: 10px; bottom: 120px; display: flex; flex-direction: column; gap: 20px; z-index: 30; align-items: center; }
+            .tk-overlay-top { position: absolute; top: 0; left: 0; width: 100%; padding: 15px; z-index: 30; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent); }
+            
+            .tk-icon-btn { background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; color: white; transition: 0.2s; border: 1px solid rgba(255,255,255,0.2); pointer-events: auto; cursor: pointer; }
+            .tk-icon-btn:active { transform: scale(0.9); background: rgba(37, 99, 235, 0.6); }
+            .tk-icon-btn.rotate-active { background: rgba(37, 99, 235, 0.75); border-color: rgba(96, 165, 250, 0.95); }
+            .tk-icon-label { font-size: 10px; text-align: center; margin-top: 4px; text-shadow: 1px 1px 2px black; font-weight: 600; }
+
+            .bottom-sheet { position: fixed; bottom: -100%; left: 0; width: 100%; height: auto; max-height: 60vh; background: #1e293b; z-index: 2147483647; border-t-left-radius: 20px; border-t-right-radius: 20px; transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; }
+            .bottom-sheet.active { bottom: 0; }
+            
+            .sheet-header { padding: 12px 16px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+            .sheet-content { overflow-y: auto; flex: 1; padding: 12px; }
+            .sheet-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2147483646; opacity: 0; visibility: hidden; transition: 0.3s; }
+            .sheet-overlay.active { opacity: 1; visibility: visible; }
+
+            /* OVERLAY TIMER FULL SCREEN */
+            #wait-overlay {
+                position: fixed; 
+                top: 0; left: 0; 
+                width: 100vw; height: 100vh;
+                background: rgba(15, 23, 42, 0.98); 
+                z-index: 9999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 20px;
+                backdrop-filter: blur(10px);
+            }
+            #wait-overlay.hidden { display: none !important; }
+            .wait-timer { font-size: 5rem; font-weight: 800; color: #3b82f6; margin: 30px 0; text-shadow: 0 0 20px rgba(59,130,246,0.5); }
+        
+        .poster-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7); }
+        .toggle-btn.active { background-color: #2563eb; color: white; border-color: #2563eb; }
+        .toggle-btn { transition: all 0.3s; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-2{height:0.5rem}.h-24{height:6rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-24{width:6rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-full{width:100%}.max-w-lg{max-width:32rem}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}.cursor-pointer{cursor:pointer}.appearance-none{-webkit-appearance:none;appearance:none}.grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-blue-600\/50{background-color:rgb(37 99 235 / 0.5)}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.accent-blue-600{accent-color:#2563eb}.opacity-80{opacity:0.8}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}@media (min-width: 768px){.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}}</style><style id="dynamic-sub-style">video::cue { font-size: 0.9em !important; }</style></head>
+<body class="min-h-screen flex flex-col items-center">
+    
+    
+            <div class="tk-container">
+    
+                    
+            <div class="tk-video-wrapper" id="video-container">
+                
+                <div id="wait-overlay" class="hidden">
+                    <div class="animate-bounce mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">Wait for it!</h2>
+                    <p class="text-slate-300 max-w-lg text-lg px-4 leading-relaxed">
+                        You skipped the previous episode too fast.<br>Please watch at least <span class="text-blue-400 font-bold">1 minute</span> of the previous episode.
+                    </p>
+                    <div class="wait-timer" id="wait-timer-display">60</div>
+                    <p class="text-sm text-slate-500 uppercase tracking-widest font-semibold">Video will play automatically</p>
+                </div>
+
+                <div class="tk-overlay-top">
+                    <a href="index.php?page=detail&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;lang=en_US" class="text-white drop-shadow-md opacity-80 hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </a>
+                </div>
+
+                                     <video id="player" playsinline="" controls="" preload="metadata" class="w-full h-full" poster="https://assets.stardusttv.cc/uploadfile/20260921/960672699475648512.jpg" crossorigin="anonymous" src="blob:https://stardusttv.dramafren.org/f0f433dc-6f18-4832-a911-9f466e30a19d">
+                                            </video>
+                
+                <div class="tk-overlay-right">
+                    <div class="flex flex-col items-center mb-4">
+                        <button id="rotate-btn" onclick="toggleRotate()" class="tk-icon-btn" title="Rotate video" aria-label="Rotate video">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v6h6M20 20v-6h-6M5.64 18.36A9 9 0 0018.36 5.64M18.36 5.64H13M18.36 5.64V11"></path>
+                            </svg>
+                        </button>
+                        <span id="rotate-label" class="tk-icon-label">Rotate</span>
+                    </div>
+
+                    <div class="flex flex-col items-center mb-4">
+                        <button onclick="toggleSheet('sheet-subtitles')" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2zM8 14h.01M11 14h5M8 10h5M16 10h.01"></path>
+                            </svg>
+                        </button>
+                        <span class="tk-icon-label">Sub</span>
+                    </div>
+
+                    <div class="flex flex-col items-center mb-4">
+                        <button onclick="toggleSheet('sheet-servers')" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                        </button>
+                        <span class="tk-icon-label">Server</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <button onclick="toggleSheet('sheet-episodes')" class="tk-icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                        </button>
+                        <span class="tk-icon-label">Eps</span>
+                    </div>
+                    
+                                        <div class="flex flex-col items-center mt-4">
+                         <button onclick="goToNextEp()" class="tk-icon-btn bg-blue-600/50 border-blue-400">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                         </button>
+                    </div>
+                                    </div>
+
+                <div class="tk-overlay-bottom pointer-events-none">
+                    <h2 class="text-white font-bold text-lg drop-shadow-md mb-1">The Fighter Who Refused to Kneel</h2>
+                    <div class="flex items-center gap-2 text-sm text-slate-200 drop-shadow-md">
+                        <span class="bg-blue-600 px-2 py-0.5 rounded text-xs font-bold">Ep 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sheet-overlay" class="sheet-overlay" onclick="window.closeAllSheets()"></div>
+            
+            <div id="sheet-subtitles" class="bottom-sheet">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Subtitle Settings</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content">
+                    <div class="flex flex-col gap-6 p-2">
+                        <div>
+                            <div class="flex justify-between text-sm text-white font-bold mb-2">
+                                <span>Font Size</span>
+                                <span id="sub-size-val">0.9x</span>
+                            </div>
+                            <input type="range" id="slider-sub-size" min="0.5" max="2" step="0.1" value="0.9" class="w-full accent-blue-600 h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" oninput="changeSubSize(this.value)">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm text-white font-bold mb-2">
+                                <span>Position</span>
+                                <span id="sub-pos-val">30%</span>
+                            </div>
+                            <input type="range" id="slider-sub-pos" min="0" max="100" step="1" value="30" class="w-full accent-blue-600 h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" oninput="changeSubPos(this.value)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sheet-servers" class="bottom-sheet">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Select Server</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content">
+                    <div class="flex flex-col gap-3">
+                        <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=1&amp;sv=1&amp;lang=en_US" class="bg-blue-600 border-blue-400 p-4 rounded-xl text-center font-bold text-sm text-white border transition flex justify-between items-center">
+                            <span>Server 1</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>                        </a>
+                        <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=1&amp;sv=2&amp;lang=en_US" class="bg-slate-700 border-slate-600 p-4 rounded-xl text-center font-bold text-sm text-white border transition flex justify-between items-center">
+                            <span>Server 2</span>
+                                                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sheet-episodes" class="bottom-sheet">
+                <div class="sheet-header">
+                    <h3 class="font-bold text-white text-sm">Select Episode</h3>
+                    <button onclick="window.closeAllSheets()" class="text-slate-400 hover:text-white px-2 text-lg font-bold">✕</button>
+                </div>
+                <div class="sheet-content">
+                    <div class="grid grid-cols-5 gap-2">
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=1&amp;sv=1&amp;lang=en_US" class="bg-blue-600 text-white p-2 rounded text-center font-bold text-xs block">
+                                1                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=2&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                2                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=3&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                3                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=4&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                4                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=5&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                5                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=6&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                6                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=7&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                7                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=8&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                8                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=9&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                9                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=10&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                10                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=11&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                11                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=12&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                12                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=13&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                13                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=14&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                14                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=15&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                15                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=16&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                16                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=17&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                17                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=18&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                18                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=19&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                19                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=20&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                20                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=21&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                21                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=22&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                22                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=23&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                23                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=24&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                24                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=25&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                25                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=26&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                26                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=27&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                27                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=28&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                28                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=29&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                29                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=30&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                30                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=31&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                31                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=32&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                32                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=33&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                33                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=34&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                34                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=35&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                35                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=36&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                36                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=37&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                37                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=38&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                38                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=39&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                39                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=40&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                40                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=41&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                41                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=42&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                42                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=43&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                43                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=44&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                44                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=45&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                45                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=46&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                46                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=47&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                47                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=48&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                48                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=49&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                49                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=50&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                50                            </a>
+                                                    <a href="index.php?page=watch&amp;id=22901&amp;slug=the-fighter-who-refused-to-kneel&amp;ep=51&amp;sv=1&amp;lang=en_US" class="bg-slate-700 text-slate-300 p-2 rounded text-center font-bold text-xs block">
+                                51                            </a>
+                                            </div>
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+                const video = document.getElementById('player');
+                const currentEp = 1;
+                const totalEp = 51;
+                const dramaId = "22901";
+                const dramaSlug = "the-fighter-who-refused-to-kneel";
+                const currentServer = 1; 
+                const currentLang = "en_US"; 
+                const waitOverlay = document.getElementById('wait-overlay');
+                const waitTimerDisp = document.getElementById('wait-timer-display');
+                const rotateBtn = document.getElementById('rotate-btn');
+                const rotateLabel = document.getElementById('rotate-label');
+                let isVideoRotated = false;
+
+                function applyRotateState() {
+                    if (!video) return;
+
+                    video.classList.toggle('tk-rotated', isVideoRotated);
+                    if (rotateBtn) rotateBtn.classList.toggle('rotate-active', isVideoRotated);
+                    if (rotateLabel) rotateLabel.innerText = isVideoRotated ? 'Normal' : 'Rotate';
+                }
+
+                function toggleRotate() {
+                    isVideoRotated = !isVideoRotated;
+                    applyRotateState();
+                }
+                
+                // --- SUBTITLE CUSTOMIZATION LOGIC ---
+                function changeSubSize(val) {
+                    localStorage.setItem('sub_size', val);
+                    document.getElementById('sub-size-val').innerText = val + 'x';
+                    
+                    // Mengubah ukuran via inline dinamis CSS untuk menimpa CSS native ::cue
+                    let styleTag = document.getElementById('dynamic-sub-style');
+                    if(!styleTag) {
+                        styleTag = document.createElement('style');
+                        styleTag.id = 'dynamic-sub-style';
+                        document.head.appendChild(styleTag);
+                    }
+                    styleTag.innerHTML = `video::cue { font-size: ${val}em !important; }`;
+                }
+
+                function changeSubPos(val) {
+                    localStorage.setItem('sub_pos', val);
+                    document.getElementById('sub-pos-val').innerText = val + '%';
+                    applySubtitlePos();
+                }
+
+                function applySubtitlePos() {
+                    const val = localStorage.getItem('sub_pos') || '30';
+                    // WebVTT line menggunakan presentase dari atas ke bawah. 
+                    // Jika user pilih 30% ke atas, maka line nya = 100 - 30 = 70%
+                    const vttLine = 100 - parseFloat(val); 
+
+                    if (video && video.textTracks && video.textTracks.length > 0) {
+                        const track = video.textTracks[0];
+                        if (track.cues) {
+                            for (let i = 0; i < track.cues.length; i++) {
+                                track.cues[i].snapToLines = false;
+                                track.cues[i].line = vttLine;
+                            }
+                        }
+                    }
+                }
+                
+                // DECODE URL VIA JS
+                const encryptedSrc = "aHR0cHM6Ly9hY2RuLXYuc3RhcmR1c3QtdHYuY29tL3Byb2QvMjI5MDEvMS9jZWJmNGJkZWNmZjg0YTVjOTI1Yzc1ZDVjMmU3ZGE5Ni5tM3U4";
+                const videoSrc = encryptedSrc ? decodeURIComponent(escape(atob(encryptedSrc))) : "";
+                const viewedKeyPrefix = "stardust_viewed_" + dramaId + "_";
+                
+                let isRestricted = false;
+
+                function checkRestriction() {
+                    if (currentEp > 1) {
+                        const prevEp = currentEp - 1;
+                        const requiredKey = viewedKeyPrefix + prevEp; 
+                        const stored = localStorage.getItem(requiredKey);
+                        let isAllowed = false;
+
+                        if (stored) {
+                            try {
+                                const data = JSON.parse(stored);
+                                const now = new Date().getTime();
+                                if (data.expiry > now) isAllowed = true;
+                            } catch(e) {}
+                        }
+
+                        if (!isAllowed) {
+                            isRestricted = true;
+                            if(waitOverlay) {
+                                waitOverlay.classList.remove('hidden');
+                                document.body.style.overflow = 'hidden'; 
+                                
+                                let timeLeft = 60;
+                                const timer = setInterval(() => {
+                                    timeLeft--;
+                                    if(waitTimerDisp) waitTimerDisp.innerText = timeLeft;
+                                    
+                                    if (timeLeft <= 0) {
+                                        clearInterval(timer);
+                                        const now = new Date().getTime();
+                                        const expiry = now + 604800000; 
+                                        const data = { val: true, expiry: expiry };
+                                        localStorage.setItem(requiredKey, JSON.stringify(data));
+                                        location.reload();
+                                    }
+                                }, 1000);
+                            }
+                        }
+                    }
+                }
+
+                function initTracker() {
+                    if(!video) return;
+                    let marked = false;
+                    
+                    function doMark() {
+                        if(marked) return;
+                        marked = true;
+                        const key = viewedKeyPrefix + currentEp;
+                        const now = new Date().getTime();
+                        const expiry = now + 604800000; 
+                        const data = { val: true, expiry: expiry };
+                        localStorage.setItem(key, JSON.stringify(data));
+                        console.log("Episode " + currentEp + " marked.");
+                    }
+
+                    video.addEventListener('timeupdate', () => {
+                        if (!marked && video.currentTime > 60) doMark();
+                    });
+                    video.addEventListener('ended', () => {
+                        doMark();
+                        if(currentEp < totalEp) goToNextEp();
+                    });
+                }
+
+                // INIT LOGIC
+                checkRestriction();
+                
+                if(!isRestricted && videoSrc) {
+                    if (videoSrc.includes('.m3u8')) {
+                        if (Hls.isSupported()) {
+                            const hls = new Hls();
+                            hls.loadSource(videoSrc);
+                            hls.attachMedia(video);
+                        } else if (video && video.canPlayType('application/vnd.apple.mpegurl')) {
+                            video.src = videoSrc;
+                        }
+                    } else {
+                        video.src = videoSrc;
+                    }
+                    initTracker();
+                    
+                    // INIT & BIND SUBTITLE PREFS
+                    const savedSubSize = localStorage.getItem('sub_size') || '0.9';
+                    const savedSubPos = localStorage.getItem('sub_pos') || '30'; 
+                    
+                    if(document.getElementById('slider-sub-size')) {
+                        document.getElementById('slider-sub-size').value = savedSubSize;
+                        changeSubSize(savedSubSize);
+                    }
+                    if(document.getElementById('slider-sub-pos')) {
+                        document.getElementById('slider-sub-pos').value = savedSubPos;
+                        document.getElementById('sub-pos-val').innerText = savedSubPos + '%';
+                    }
+
+                    // Terapkan ulang setiap kali ada subtitle baru yang dimuat
+                    if (video.textTracks && video.textTracks.length > 0) {
+                        const track = video.textTracks[0];
+                        track.mode = 'showing';
+                        track.addEventListener('cuechange', applySubtitlePos);
+                    }
+                }
+
+                // --- UI HELPERS ---
+                window.closeAllSheets = function() {
+                    document.querySelectorAll('.bottom-sheet').forEach(el => el.classList.remove('active'));
+                    const overlay = document.getElementById('sheet-overlay');
+                    if(overlay) overlay.classList.remove('active');
+                };
+
+                function toggleSheet(id) {
+                    window.closeAllSheets();
+                    setTimeout(() => {
+                        const sheet = document.getElementById(id);
+                        const overlay = document.getElementById('sheet-overlay');
+                        if(sheet) sheet.classList.add('active');
+                        if(overlay) overlay.classList.add('active');
+                    }, 50);
+                }
+
+                function goToNextEp() { 
+                    if (currentEp < totalEp) window.location.href = `index.php?page=watch&id=${dramaId}&slug=${dramaSlug}&ep=${currentEp + 1}&sv=${currentServer}&lang=${currentLang}`; 
+                }
+                function goToPrevEp() { 
+                    if (currentEp > 1) window.location.href = `index.php?page=watch&id=${dramaId}&slug=${dramaSlug}&ep=${currentEp - 1}&sv=${currentServer}&lang=${currentLang}`; 
+                }
+
+                let touchStartY = 0;
+                let touchEndY = 0;
+                const vidContainer = document.getElementById('video-container');
+                if(vidContainer) {
+                    vidContainer.addEventListener('touchstart', e => { touchStartY = e.changedTouches[0].screenY; }, {passive: true});
+                    vidContainer.addEventListener('touchend', e => {
+                        touchEndY = e.changedTouches[0].screenY;
+                        if (document.querySelector('.bottom-sheet.active')) return;
+                        if (Math.abs(touchEndY - touchStartY) > 50) {
+                            if (touchEndY < touchStartY) goToNextEp(); else goToPrevEp();
+                        } 
+                    }, {passive: true});
+                }
+            </script>
+            </div>
+    
+    <script>
+    const openUrls = ['https://otieu.com/4/10094579'];
+    const resetTime = 500; 
+    const cookieName = 'safe_popup_click';
+    
+    function setCookie(n,v,s){const d=new Date();d.setTime(d.getTime()+(s*1000));document.cookie=n+"="+v+";expires="+d.toUTCString()+";path=/";}
+    function getCookie(n){const v="; "+document.cookie;const p=v.split("; "+n+"=");if(p.length==2)return p.pop().split(";").shift();return"";}
+    function openPopup(u){const w=800,h=600,l=(screen.width/2)-(w/2),t=(screen.height/2)-(h/2);return window.open(u,'_blank',`width=${w},height=${h},top=${t},left=${l}`);}
+    function removeOverlay(){const o=document.getElementById('safePopupArea');if(o)o.remove();}
+    
+    function openPopupOnce(){
+        if(getCookie(cookieName) === 'clicked') return;
+        const w=openPopup(openUrls[0]);
+        setCookie(cookieName,'clicked',resetTime); 
+        removeOverlay(); 
+        
+        if(w){
+            let f=false;
+            const i=setInterval(()=>{
+                if(document.hasFocus()&&f){clearInterval(i);}
+                else if(w.closed){clearInterval(i);}
+                else{try{w.focus();f=true;}catch(e){clearInterval(i);}}
+            },300);
+        }
+    }
+    
+    function initSafePopup(){
+        if(getCookie(cookieName) === 'clicked') return;
+        if(!document.getElementById('safePopupArea')){
+            const d=document.createElement('div');
+            d.id='safePopupArea';
+            d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;opacity:0.01;background:none;cursor:pointer;';
+            d.onclick=openPopupOnce;
+            document.body.appendChild(d);
+        }
+    }
+    
+    window.onload=initSafePopup;
+    
+    setInterval(() => {
+        if(!getCookie(cookieName)) {
+            initSafePopup();
+        }
+    }, 2000);
+    </script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;f34f89a0349749d1ba1768ee8c158db7&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+
+
+<div id="safePopupArea" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 999999; opacity: 0.01; background: none; cursor: pointer;"></div></body></html>

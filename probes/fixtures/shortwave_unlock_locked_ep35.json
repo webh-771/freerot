@@ -1,0 +1,68 @@
+{
+ "code": 0,
+ "data": {
+  "bonus": 0,
+  "chapter_duration": 78,
+  "chapter_id": "6ab3b028da8012969fdd38ba",
+  "chapter_index": 35,
+  "chapter_name": "E35",
+  "chapters": 35,
+  "coin": 0,
+  "drama_cover": "https://s.shortswave.com/image/cover/36110.webp",
+  "drama_description": "Reborn at the familiar-binding ceremony where her fate once changed, Seraphina r...",
+  "drama_id": "6ab3b019da8012969fdd38a4",
+  "drama_intid": 36110,
+  "drama_sub_tags": [
+   {
+    "id": 103,
+    "lang": "en",
+    "title": "Anime"
+   },
+   {
+    "id": 2,
+    "lang": "en",
+    "title": "Female"
+   },
+   {
+    "id": 110,
+    "lang": "en",
+    "title": "High Fantasy Martial Arts"
+   },
+   {
+    "id": 41,
+    "lang": "en",
+    "title": "Reborn"
+   },
+   {
+    "id": 97,
+    "lang": "en",
+    "title": "Kickass Heroine"
+   }
+  ],
+  "drama_tags": [
+   "Anime",
+   "High Fantasy Martial Arts",
+   "Reborn",
+   "Kickass Heroine"
+  ],
+  "drama_title": "Astroward",
+  "group_id": 36063,
+  "is_completed": 1,
+  "min_chapter_index": 1,
+  "next_chapter_id": "",
+  "online": 1,
+  "play_url_720p": "",
+  "prev_chapter_id": "",
+  "price": 0,
+  "stats_info": [
+   {
+    "type": "fav_total",
+    "value": "1703"
+   }
+  ],
+  "sublist": [],
+  "termlist": [],
+  "play_url_encoded": "aHR0cHM6Ly9hcGkuc2hvcnRzd2F2ZS5jb20vdjEvcGxheS82YWIzYjAyOGRhODAxMjk2OWZkZDM4YmEvdi5tM3U4P2F1dGhfa2V5PTcyMHBhY2QxYmFhNWUwMWE0MjVhOGM5ZjNhYjgxODlkNDRhZg=="
+ },
+ "msg": ""
+}

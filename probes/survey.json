@@ -1,0 +1,227 @@
+{
+ "dramafren.org": {
+  "final": "https://dramafren.org/",
+  "title": "DramaFren - Best Website To Watch Short Chinese Drama For Free",
+  "chain": [
+   [
+    200,
+    "https://dramafren.org/"
+   ]
+  ],
+  "len": 62535
+ },
+ "dramabox.dramafren.org": {
+  "final": "https://dramabox.dramafren.org/",
+  "title": "Dramabox Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://dramabox.dramafren.org/"
+   ]
+  ],
+  "len": 55074
+ },
+ "goodshort.dramafren.org": {
+  "final": "https://goodshort.dramafren.org/",
+  "title": "GoodShort Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://goodshort.dramafren.org/"
+   ]
+  ],
+  "len": 42316
+ },
+ "netshort.dramafren.org": {
+  "final": "https://netshort.dramafren.org/",
+  "title": "NetShort Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://netshort.dramafren.org/"
+   ]
+  ],
+  "len": 50014
+ },
+ "flickreels.dramafren.org": {
+  "final": "https://flickreels.dramafren.org/",
+  "title": "FlickReels Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://flickreels.dramafren.org/"
+   ]
+  ],
+  "len": 46007
+ },
+ "stardusttv.dramafren.org": {
+  "final": "https://stardusttv.dramafren.org/",
+  "title": "Stardust Player - Watch Free Dramas",
+  "chain": [
+   [
+    200,
+    "https://stardusttv.dramafren.org/"
+   ]
+  ],
+  "len": 45525
+ },
+ "dramawave.dramafren.org": {
+  "final": "https://dramawave.dramafren.org/",
+  "title": "DramaWave Unlocked - Watch Trending Short Dramas & Mini Series Online",
+  "chain": [
+   [
+    200,
+    "https://dramawave.dramafren.org/"
+   ]
+  ],
+  "len": 56082
+ },
+ "reelshort.dramafren.org": {
+  "final": "https://reelshort.dramafren.org/",
+  "title": "ReelShort Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://reelshort.dramafren.org/"
+   ]
+  ],
+  "len": 43594
+ },
+ "idrama.dramafren.org": {
+  "final": "https://idrama.dramafren.org/",
+  "title": "IDRAMA Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://idrama.dramafren.org/"
+   ]
+  ],
+  "len": 45955
+ },
+ "flextv.dramafren.org": {
+  "final": "https://flextv.dramafren.org/",
+  "title": "FlexPlayer - Watch Best Dramas & Movies Online Free",
+  "chain": [
+   [
+    200,
+    "https://flextv.dramafren.org/"
+   ]
+  ],
+  "len": 160589
+ },
+ "starshort.dramafren.org": {
+  "final": "https://starshort.dramafren.org/",
+  "title": "StarShort Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://starshort.dramafren.org/"
+   ]
+  ],
+  "len": 39583
+ },
+ "kalostv.dramafren.org": {
+  "final": "https://kalostv.dramafren.org/",
+  "title": "KalosTV Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://kalostv.dramafren.org/"
+   ]
+  ],
+  "len": 51598
+ },
+ "dramabite.dramafren.org": {
+  "final": "https://dramabite.dramafren.org/",
+  "title": "Dramabite Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    200,
+    "https://dramabite.dramafren.org/"
+   ]
+  ],
+  "len": 41042
+ },
+ "microdrama.dramafren.org": {
+  "final": "https://microdrama.dramafren.org/",
+  "title": "Micro Drama Streaming",
+  "chain": [
+   [
+    200,
+    "https://microdrama.dramafren.org/"
+   ]
+  ],
+  "len": 59475
+ },
+ "shortwave.dramafren.org": {
+  "final": "https://shortwave.dramafren.org/",
+  "title": "ShortWave - Best Short Drama Streaming",
+  "chain": [
+   [
+    200,
+    "https://shortwave.dramafren.org/"
+   ]
+  ],
+  "len": 59751
+ },
+ "tvseries.dramafren.org": {
+  "final": "https://tvseries.dramafren.org/",
+  "title": "DramaSeries Streaming",
+  "chain": [
+   [
+    200,
+    "https://tvseries.dramafren.org/"
+   ]
+  ],
+  "len": 77007
+ },
+ "moboreels.dramafren.org": {
+  "final": "https://moboreels.dramafren.org/",
+  "title": "MoboReels Streaming",
+  "chain": [
+   [
+    200,
+    "https://moboreels.dramafren.org/"
+   ]
+  ],
+  "len": 52910
+ },
+ "reelfren.com": {
+  "final": "https://reelfren.com/",
+  "title": "ReelFren - AI Short Drama & Free Short Drama Streaming",
+  "chain": [
+   [
+    307,
+    "https://reelfren.com/"
+   ],
+   [
+    403,
+    "https://reelfren.com/"
+   ],
+   [
+    200,
+    "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/9vsmo/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto"
+   ],
+   [
+    200,
+    "https://reelfren.com/"
+   ]
+  ],
+  "len": 3973123
+ },
+ "shortmax.dramafren.org": {
+  "final": "https://shortmax.ngeshorts.fun/",
+  "title": "ShortMax Player - Watch Free Short Dramas",
+  "chain": [
+   [
+    301,
+    "https://shortmax.dramafren.org/"
+   ],
+   [
+    200,
+    "https://shortmax.ngeshorts.fun/"
+   ]
+  ],
+  "len": 50251
+ }
+}
